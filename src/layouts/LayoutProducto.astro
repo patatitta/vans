@@ -1,8 +1,6 @@
 ---
-import Carrusel from '../components/Carrusel.astro';
 import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
-
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -22,10 +20,25 @@ import Nav from '../components/Nav.astro';
 	<body class="grid grid-cols-1 grid-rows-3">
         <Nav class="col-span-1 row-span-1"></Nav>
 		<main class="col-span-1 row-span-2">
-			<Carrusel></Carrusel>
-
+			<div class="Title">
+				<div class="categoryRoute" >Compra &gt; zapatillas </div>
+				<p>Zapatillas Knu Skool</p>
+				<div class="smallText">Uso Diario, diseño retro</div>
+				<div class="precio">95,00€</div>
+			</div>
+			<div class="Size"><p>Talla</p>
+				<select class="px-6 py-4 border-1 border-solid">
+					<option>40</option>
+				</select>
+				<div class="tableLink">Tabla de tallas</div>
+			</div>
+			<div class="Sell">
+				<button type="button" class="px-6 py-4 bg-gray-900 text-white hover:bg-black transition-all duration-150">Añade a la cesta</button>
+				<div class="payPalText">Compra ahora y paga después con PayPal. <a>Más Información</a></div>
+				<div class="Reserva px-6 py-4 bg-gray-100 underline">Reserva en tienda</div>
+			</div>
 		</main>
-		<Footer class="con-span-1 row-span-3"></Footer>
+		<Footer class=" col-span-1 row-span-3"></Footer>
 	</body>
 </html>
 

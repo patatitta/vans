@@ -1,14 +1,18 @@
 ---
 import vansLogo from '../assets/Vans-logo.svg.png';
+import '../styles/global.css'  
+
 
 ---
+<nav class="flex justify-around fixed">
 <div class="hamburguesa">
-    <i class="fa fa-bars"></i>
+    <i class="fa fa-bars hover:bg-gray-500 transition-all duration-150"></i>
 </div>
-<div class="logo"><img src={vansLogo.src}></div>
-<div class="icons">
-    <i class="fa fa-user"></i>
-    <i class="fa fa-star"></i>
-    <i class="fa fa-star"></i>  <!-- TODO: Colocar este icono bien -->
-    <i class="fa fa-star"></i> <!-- TODO: Colocar este icono bien -->
+<div class="logo flex justify-center align-center" ><img class="object-contain h-10 w-60 hover:-rotate-2 transition-all duration-150" src={vansLogo.src} ></div>
+<div class="icons ">
+    <i class="fa fa-user hover:bg-gray-500 transition-all duration-150"></i>
+    <i class="fa fa-star hover:bg-gray-500 transition-all duration-150"></i>
+    <i class="fa fa-star hover:bg-gray-500 transition-all duration-150" ></i>  <!-- TODO: Colocar este icono bien -->
+    <i class="fa fa-star hover:bg-gray-500 transition-all duration-150"></i> <!-- TODO: Colocar este icono bien -->
 </div>
+</nav>
