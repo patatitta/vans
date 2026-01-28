@@ -1,9 +1,15 @@
 ---
-
+import impermeables from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes.avif';
+import Carrusel from './Carrusel.astro';
 ---
-<div class="card">
-    <img src="zapatillas.png">
-    <p>Mocasines skate</p>
-    <div class="SmallText">6 colores</div>
-    <div class="precio">90€</div>
+
+<div class="card flex flex-col h-full">
+    <div class="">
+        <Carrusel></Carrusel>
+    </div>
+    <div class="p-4 flex flex-col">
+        <div class="font-semibold text-gray-800 mb-2">Mocasines skate</div>
+        <div class="text-sm text-gray-500 mb-2">6 colores</div>
+        <div class="precio text-lg font-bold text-gray-900">90€</div>
+    </div>
 </div>

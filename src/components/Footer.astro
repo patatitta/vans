@@ -4,31 +4,62 @@ import spain from '../assets/spain.svg';
 
 ---
 
-<footer class="*:bg-black text-white">
+<footer class="*:bg-neutral-900 text-white ">
 <div class="accordions">
-    <div class="compra">compra</div>
-    <div class="compraOculto">
+    <div class="buy ms-6 px-3 py-2 border-b-2 border-white">compra</div>
+    <div class="buyHidden *:ms-12 mt-4">
         <ul>
             <li>hombre</li>
             <li>mujer</li>
             <li>niños</li>
             <li>personalizar</li>
             <li>novidades</li>
-
         </ul>
     </div>
-    <p>Sport</p>
-    <p>Brand</p>
-    <p>Pedidos</p>
-    <p>Atención al cliente</p>
+    <div class="sport ms-6 px-3 py-2 border-b-2 border-white">sport</div>
+    <div class="sportHidden *:ms-12 mt-4">
+        <ul>
+            <li>Old Skool</li>
+            <li>Authentic</li>
+            <li>Slip-on</li>
+            <li>Sk8-Hi</li>
+        </ul>
+    </div>
+    <div class="brand ms-6 px-3 py-2 border-b-2 border-white">Brand</div>
+    <div class="brandHidden *:ms-12 mt-4">
+        <ul>
+            <li>Sobre nosotros</li>
+            <li>Noticas</li>
+            <li>Trabaja con nosotros</li>
+            <li>Sostenibilidad</li>
+            <li>Vegan</li>
+        </ul>
+    </div>
+    <div class="orders ms-6 px-3 py-2 border-b-2 border-white">Pedidos</div>
+    <div class="ordersHidden *:ms-12 mt-4">
+        <ul>
+            <li>Rastrea o devuelve un pedio</li>
+            <li>Envíos</li>
+            <li>Devoluciones</li>
+        </ul>
+    </div>
+    <div class="attentionToClient ms-6 px-3 py-2 border-b-2 border-white">Atención al cliente</div>
+    <div class="attentionToClientHidden *:ms-12 mt-4">
+        <ul>
+            <li>Contacta con nosotros</li>
+            <li>Tabla de tallas</li>
+            <li>FAQ</li>
+            <li>Descuento de estudiante</li>
+        </ul>
+    </div>
     
 </div>
-<div class="bottomText" >
+<div class="bottomText *:ms-12" >
     <div class="icons">
-        <i class="fa fa-star hover:text-blue-500 transition-all duration-150"></i> <!-- Twitter -->
-        <i class="fa fa-star hover:text-blue-800 transition-all duration-150"></i> <!-- Facebook -->
-        <i class="fa fa-star hover:text-red-500 transition-all duration-150"></i> <!-- Youtube -->
-        <i class="fa fa-star hover:text-purple-500 transition-all duration-150"></i> <!-- Instagram -->
+        <i class="fa fa-x-twitter hover:text-blue-500 transition-all duration-150"></i> <!-- Twitter -->
+        <i class="fa fa-facebook-f hover:text-blue-800 transition-all duration-150"></i> <!-- Facebook -->
+        <i class="fa fa-youtube hover:text-red-500 transition-all duration-150"></i> <!-- Youtube -->
+        <i class="fa fa-instagram hover:text-purple-500 transition-all duration-150"></i> <!-- Instagram -->
     </div>
     <div class="idioma flex">
         <a class="hover:underline">🇪🇸 ES | Cambiar de pais</a>
@@ -46,16 +77,39 @@ import spain from '../assets/spain.svg';
 
 
 <script>
-  const compraOculto = document.querySelector<HTMLElement>('.compraOculto'); // HTMLElement para que visual studio no me grite
-  const compra = document.querySelector<HTMLElement>('.compra');
 
-  if (compraOculto && compra) {
-    compraOculto.style.display = "none";
+interface AccordionPair {
+  key: string;
+  value: string;
+}
 
-    compra.addEventListener("click", () => {
-      compraOculto.style.display = "block";
-    });
-  }
+const accordions: AccordionPair[] = [ //Llave valor, como en php
+  { key: ".buy", value: ".buyHidden" },
+  { key: ".sport", value: ".sportHidden" },
+  { key: ".brand", value: ".brandHidden" },
+  { key: ".orders", value: ".ordersHidden" },
+  { key: ".attentionToClient", value: ".attentionToClientHidden" },
+];
+
+accordions.forEach(({ key, value }) => {  //A cada elemento pillo su clave y su valor
+  const keyElement = document.querySelector<HTMLElement>(key); //Especifico HTMLEment para que VSCode no me grite, juraria que no es necesario si no.
+  const valueElement = document.querySelector<HTMLElement>(value);
+
+  if (!keyElement || !valueElement) return;
+
+  valueElement.style.maxHeight = "0px"; //Lo oculto, esto se ejcuta por defecto al iniciar la pagina.
+  valueElement.style.overflow = "hidden"; //Los elementos siguen existiendo, pero no se ven por el overflow.
+  valueElement.style.transition = "max-height 0.3s linear";
+
+  keyElement.addEventListener("click", () => { //Añado un evento que hace que si esta abierto lo cierra y si esta cerrado lo abre, uso scrollHeight para no romper los esquemas de espacio de la pagina.
+    if (valueElement.style.maxHeight === "0px") {
+      valueElement.style.maxHeight = valueElement.scrollHeight + "px";
+    } else {
+      valueElement.style.maxHeight = "0px";
+    }
+  });
+});
+
 </script>
 
 

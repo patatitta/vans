@@ -1,12 +1,158 @@
 ---
-import vansLogo from '../assets/Vans-logo.svg.png';
-import '../styles/global.css'  
-
-
+import vansLogo from "../assets/Vans-logo.svg.png";
+import "../styles/global.css";
 ---
+
+<div
+  class="hamburguesaOculta fixed bg-black/50 *:text-white top-0 left-0 h-full backdrop-blur-sm z-999"
+>
+  <!-- Ahora mismo el espacio que ocupa se ve mal pero porque no tengo el padding bien todavia. -->
+  <ul>
+    <li>
+<div class="p-2 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out" id="newLabel">
+  Nuevo y destacado
+</div>      
+</li>
+<div class="p-2 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out" id="mujerLabel">
+  Mujer
+</div>      
+          <li>
+      <!--A cada ul le doy una transicion, y un efecto de rotacion -->
+      <ul class="*:hover:-rotate-2 *:transition-all duration-150" id="new">
+      <!--Cada li es un elemento relativo, para que luego pueda colocar la linea por debajo, inline block, para que ocupe solo lo que tenga que usar, y group, para pder hacer el efecto. -->
+       <li class="relative inline-block group">
+          <span class="relative">Valentino Garaavni y Vans</span>
+         <!--Cuando pasas el raton por encima, sale el subrayado. -->
+          <span
+            class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+          ></span> 
+        </li>
+      </br>
+        <li class="relative inline-block group">
+         <span class="relative">Kpop demon hunters</span>
+         <span
+           class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+         ></span>
+       </li>
+       <br>
+        <li class="relative inline-block group">
+         <span class="relative">Novedades</span>
+         <span
+           class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+         ></span>
+       </li>
+       <br>
+        <li class="relative inline-block group">
+         <span class="relative">Tendencias ahora</span>
+         <span
+           class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+         ></span>
+       </li>
+       <br>
+        <li class="relative inline-block group">
+         <span class="relative">Destacados</span>
+         <span
+           class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+         ></span>
+       </li>
+       <br>
+        <li class="relative inline-block group">
+         <span class="relative">Classics</span>
+         <span
+           class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+         ></span>
+       </li>
+       <br>
+        <li class="relative inline-block group">
+         <span class="relative">Action Sports</span>
+         <span
+           class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+         ></span>
+       </li>
+       <br>
+        <li class="relative inline-block group">
+          <span class="relative">Sales</span>
+          <span
+            class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+          ></span>
+        </li>
+
+        <!-- <li class="flex">Rebajas
+                      <svg width="100%" height="1" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="100%" height="1" fill="white"></rect>
+                    </svg>  
+                   Voy bien encaminado pero no consigo que el flex pille SOLO el espacio que ocupa el li
+                  </li> -->
+      </ul>
+    </li>
+  </ul>
+  <li>
+    <div class="mujer">
+      <ul class="*:hover:-rotate-2 *:transition-all duration-150" id="woman">
+        <li class="relative inline-block group">
+         <span class="relative">Ver todo</span>
+         <span
+           class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+         ></span>
+       </li>
+       <br>
+       <li class="relative inline-block group">
+          <span class="relative">Valentino Garaavni y Vans</span>
+          <span
+            class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+          ></span>
+        </li>
+      </br>
+        <li class="relative inline-block group">
+         <span class="relative">KPop Demon Hunters</span>
+         <span
+           class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+         ></span>
+       </li>
+       <br>
+        <li class="relative inline-block group">
+         <span class="relative">Nuevo y destacado</span>
+         <span
+           class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+         ></span>
+       </li>
+       <br>
+        <li class="relative inline-block group">
+         <span class="relative">Zapatillas</span>
+         <span
+           class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+         ></span>
+       </li>
+       <br>
+        <li class="relative inline-block group">
+         <span class="relative">Ropa</span>
+         <span
+           class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+         ></span>
+       </li>
+       <br>
+        <li class="relative inline-block group">
+         <span class="relative">Accesorios</span>
+         <span
+           class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+         ></span>
+       </li>
+       <br>
+        <li class="relative inline-block group">
+          <span class="relative">Rebajas</span>
+          <span
+            class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+          ></span>
+        </li>
+      </ul>
+      </ul>
+    </div>
+  </li>
+</div>
+
 <nav class="sticky top-0 left-0 w-full h-20 flex items-center justify-around">
   <div class="hamburguesa">
-    <i class="fa fa-bars hover:bg-gray-500 transition-all duration-150"></i>
+    <i class="fa fa-bars hover:bg-gray-500 transition-all duration-150 p-1"></i>
   </div>
 
   <div class="logo h-full flex items-center">
@@ -18,9 +164,43 @@ import '../styles/global.css'
   </div>
 
   <div class="icons flex gap-4">
-    <i class="fa fa-user hover:bg-gray-500 transition-all duration-150"></i>
-    <i class="fa fa-star hover:bg-gray-500 transition-all duration-150"></i>
-    <i class="fa fa-magnifying-glass hover:bg-gray-500 transition-all duration-150"></i>
-    <i class="fa fa-cart-shopping hover:bg-gray-500 transition-all duration-150"></i>
+    <i class="fa fa-user hover:bg-gray-500 transition-all duration-150 p-1"></i>
+    <i class="fa fa-star hover:bg-gray-500 transition-all duration-150 p-1"></i>
+    <i
+      class="fa fa-magnifying-glass hover:bg-gray-500 transition-all duration-150 p-1"
+    ></i>
+    <i
+      class="fa fa-cart-shopping hover:bg-gray-500 transition-all duration-150 p-1"
+    ></i>
   </div>
 </nav>
+
+<script>
+  //ABRIR MENU HAMBURGUESA
+  const hamburguesa = document.querySelector<HTMLElement>(".hamburguesaOculta");
+  const abrirHamburguesa = document.querySelector<HTMLElement>(".hamburguesa");
+
+  if (hamburguesa && abrirHamburguesa) {
+    hamburguesa.style.maxWidth = "0px"; //Lo oculto, esto se ejcuta por defecto al iniciar la pagina.
+    hamburguesa.style.overflow = "hidden";
+    hamburguesa.style.transition = "max-width 0.3s linear";
+
+    abrirHamburguesa.addEventListener("click", abrirMenu);
+
+    function abrirMenu() {
+      if (!hamburguesa || !abrirHamburguesa) {
+        return;
+      }
+      if (hamburguesa.style.maxWidth === "0px") {
+        hamburguesa.style.maxWidth = hamburguesa.scrollHeight + "px";
+      } else {
+        hamburguesa.style.maxWidth = "0px";
+      }
+    }
+  }
+
+
+
+
+
+</script>
