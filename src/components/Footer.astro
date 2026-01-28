@@ -6,7 +6,17 @@ import spain from '../assets/spain.svg';
 
 <footer class="*:bg-black text-white">
 <div class="accordions">
-    <p>Compra</p>
+    <div class="compra">compra</div>
+    <div class="compraOculto">
+        <ul>
+            <li>hombre</li>
+            <li>mujer</li>
+            <li>niños</li>
+            <li>personalizar</li>
+            <li>novidades</li>
+
+        </ul>
+    </div>
     <p>Sport</p>
     <p>Brand</p>
     <p>Pedidos</p>
@@ -33,5 +43,20 @@ import spain from '../assets/spain.svg';
         <a class="underline text-sm">Preferencias de consetimiento</a>
     </div>
 </div>
+
+
+<script>
+  const compraOculto = document.querySelector<HTMLElement>('.compraOculto'); // HTMLElement para que visual studio no me grite
+  const compra = document.querySelector<HTMLElement>('.compra');
+
+  if (compraOculto && compra) {
+    compraOculto.style.display = "none";
+
+    compra.addEventListener("click", () => {
+      compraOculto.style.display = "block";
+    });
+  }
+</script>
+
 
 </footer>

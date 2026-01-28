@@ -4,15 +4,23 @@ import '../styles/global.css'
 
 
 ---
-<nav class="flex justify-around fixed">
-<div class="hamburguesa">
+<nav class="sticky top-0 left-0 w-full h-20 flex items-center justify-around">
+  <div class="hamburguesa">
     <i class="fa fa-bars hover:bg-gray-500 transition-all duration-150"></i>
-</div>
-<div class="logo flex justify-center align-center" ><img class="object-contain h-10 w-60 hover:-rotate-2 transition-all duration-150" src={vansLogo.src} ></div>
-<div class="icons ">
+  </div>
+
+  <div class="logo h-full flex items-center">
+    <img
+      src={vansLogo.src}
+      alt="Vans logo"
+      class="h-full max-h-full w-auto object-contain hover:-rotate-2 transition-all duration-150"
+    />
+  </div>
+
+  <div class="icons flex gap-4">
     <i class="fa fa-user hover:bg-gray-500 transition-all duration-150"></i>
     <i class="fa fa-star hover:bg-gray-500 transition-all duration-150"></i>
-    <i class="fa fa-star hover:bg-gray-500 transition-all duration-150" ></i>  <!-- TODO: Colocar este icono bien -->
-    <i class="fa fa-star hover:bg-gray-500 transition-all duration-150"></i> <!-- TODO: Colocar este icono bien -->
-</div>
+    <i class="fa fa-star hover:bg-gray-500 transition-all duration-150"></i>
+    <i class="fa fa-star hover:bg-gray-500 transition-all duration-150"></i>
+  </div>
 </nav>

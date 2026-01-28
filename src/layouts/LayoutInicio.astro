@@ -19,9 +19,9 @@ import Nav from '../components/Nav.astro';
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<body class="grid grid-cols-1 grid-rows-3">
-        <Nav class="col-span-1 row-span-1"></Nav>
-		<main class="col-span-1 row-span-2">
+<body class="min-h-screen flex flex-col">
+	    <Nav></Nav>
+		<main class="">
 			<Carrusel></Carrusel>
 
 		</main>
@@ -37,3 +37,4 @@ import Nav from '../components/Nav.astro';
 		height: 100%;
 	}
 </style>
+
