@@ -4,54 +4,30 @@ import mocasines2 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes 
 import mocasines3 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (2).avif';
 import mocasines4 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (3).avif';
 import mocasines5 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (4).avif';
-
 ---
-<div class="carrusel w-full h-full">
-    <div class="marco w-full h-full overflow-hidden">
-        <div class="imagenes  flex *:trasition-all duration-150">
-            <img class="w-full h-full object-contain p-2" src={mocasines1.src}>
-            <img class="w-full h-full object-contain p-2" src={mocasines2.src}>
-            <img class="w-full h-full object-contain p-2" src={mocasines3.src}>
-            <img class="w-full h-full object-contain p-2" src={mocasines4.src}>
-            <img class="w-full h-full object-contain p-2" src={mocasines5.src}>
-        </div>
+
+<div class="carrusel w-full h-full relative">
+  <div class="marco w-full h-full overflow-hidden">
+    <div class="imagenes flex transition-all duration-150">
+      <img class="w-full min-w-full h-full object-contain p-2 shrink-0" src={mocasines1.src} />
+      <img class="w-full min-w-full h-full object-contain p-2 shrink-0" src={mocasines2.src} />
+      <img class="w-full min-w-full h-full object-contain p-2 shrink-0" src={mocasines3.src} />
+      <img class="w-full min-w-full h-full object-contain p-2 shrink-0" src={mocasines4.src} />
+      <img class="w-full min-w-full h-full object-contain p-2 shrink-0" src={mocasines5.src} />
     </div>
+  </div>
+  
+  <button class="absolute left-0 top-1/2 z-999 leftArrow">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    </svg>
+  </button>
+  
+  <button class="absolute right-0 top-1/2 rightArrow z-999">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+    </svg>
+  </button>
 </div>
 
 
-<script>
-  const imagenes = document.querySelector<HTMLElement>(".imagenes");
-
-    
-// function moverDerecha(){
-//     if(imagenes != null){
-//         imagenes.append(imagenes.firstElementChild);
-//     }
-// }
-// imagenes?.addEventListener("click", moverDerecha);
-
-// function moverIzquierda(){
-//     if(imagenes != null){
-//         imagenes.prepend(imagenes.lastElementChild);
-//     }
-// }
-// imagenes?.addEventListener("keyup", moverIzquierda);
-
-
-  let currentPosition = 0;
-    
-  function moverDerecha() {
-    if (imagenes != null) {
-
-        currentPosition -= 100;
-        if(currentPosition>-500){
-            imagenes.style.transform = `translateX(${currentPosition}%)`;
-        }
-    }
-  }
-  //ARREGLA ESTO COLOCANDO EL METODO EN LA CATEGORIA!!!
-  
-  imagenes?.addEventListener("click", moverDerecha);
-</script>
-
-</script>

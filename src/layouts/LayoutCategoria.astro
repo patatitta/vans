@@ -72,6 +72,55 @@ import Nav from '../components/Nav.astro';
 	</body>
 </html>
 
+
+
+<script>
+  const imagenes = document.querySelectorAll<HTMLElement>(".imagenes");
+  const rightArrow = document.querySelectorAll<HTMLElement>(".rightArrow");
+  const leftArrow = document.querySelectorAll<HTMLElement>(".leftArrow");
+
+	let contador = 0;
+// function moverDerecha(){
+//     if(imagenes != null){
+//         imagenes.append(imagenes.firstElementChild);
+//     }
+// }
+// imagenes?.addEventListener("click", moverDerecha);
+
+// function moverIzquierda(){
+//     if(imagenes != null){
+//         imagenes.prepend(imagenes.lastElementChild);
+//     }
+// }
+// imagenes?.addEventListener("keyup", moverIzquierda);
+ // Loop through each element
+ for (let iteracion of imagenes){
+    let currentPosition = 0;
+
+    function moverDerecha() {
+        if (currentPosition > -400) {
+        currentPosition -= 100; 
+            iteracion!.style.transform = `translateX(${currentPosition}%)`;
+        }
+    }
+
+    function moverIzquierda() {
+        if (currentPosition <= -100) { 
+	        currentPosition += 100;
+			iteracion!.style.transform = `translateX(${currentPosition}%)`;
+        }
+    }
+
+    rightArrow[contador].addEventListener("click", moverDerecha);
+    leftArrow[contador].addEventListener("click", moverIzquierda);
+	contador+=1;
+}
+
+  //ARREGLA ESTO COLOCANDO EL METODO EN LA CATEGORIA!!!
+  
+
+</script>
+
 <style>
 	html,
 	body {
