@@ -1,0 +1,36 @@
+---
+import mocasines1 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes.avif';
+import mocasines2 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (1).avif';
+import mocasines3 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (2).avif';
+import mocasines4 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (3).avif';
+import mocasines5 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (4).avif';
+import inicio2 from '../assets/inicio2.avif';
+import inicio3 from '../assets/inicio3.avif';
+import inicio1 from '../assets/inicio1.webm'
+---
+<div class="carrusel  relative">
+  <div class="marco  overflow-auto">
+    <div class="imagenes flex transition-all duration-150">
+      <div class="relative w-full min-w-full h-full">
+        <video class="w-full h-full object-contain p-2" autoplay muted loop><source src={inicio1} type="video/webm"></video>
+        <div class="absolute top-220 left-10 right-0">
+          <div class="text-xl text-white">Extra 20% aplicado al pagar. <a href='' class="underline">Términos y condiciones.</a></div>
+          <div class="text-2xl text-white"><a href="a" class="underline">Comprar ahora</a></div>
+        </div>
+      </div>
+      <div class="relative w-full min-w-full h-full">
+        <img class="w-full h-full object-contain p-2" src={inicio2.src} alt="Mocasines 2" />
+        <div class="absolute top-200 left-10 right-0">
+          <div class="text-7xl text-white">Tu historia de amor. Tu estilo</a></div>
+          <div class="text-2xl text-white"><a href="a" class="underline">Comprar ahora</a></div>
+        </div>
+      </div>
+      <div class="relative w-full min-w-full h-full">
+        <img class="w-full h-full object-contain p-2" src={inicio3.src} alt="Mocasines 3" />
+        <div class="absolute top-200 left-10 right-0">
+          <div class="text-7xl text-white">Skate loafer. Ha vuelto.</a></div>
+          <div class="text-2xl text-white"><a href="a" class="underline">Comprar ahora</a></div>        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,8 +6,8 @@ import mocasines4 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes 
 import mocasines5 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (4).avif';
 ---
 
-<div class="carrusel w-full h-full relative">
-  <div class="marco w-full h-full overflow-hidden">
+<div class="carrusel w-full h-full relative group">
+  <div class="marco w-full h-full overflow-auto">
     <div class="imagenes flex transition-all duration-150">
       <img class="w-full min-w-full h-full object-contain p-2 shrink-0" src={mocasines1.src} />
       <img class="w-full min-w-full h-full object-contain p-2 shrink-0" src={mocasines2.src} />
@@ -17,17 +17,25 @@ import mocasines5 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes 
     </div>
   </div>
   
-  <button class="absolute left-0 top-1/2 z-999 leftArrow">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+  <!-- Left Arrow -->
+  <button class="absolute left-0 top-1/2 -translate-y-1/2 z-50 hidden group-hover:block">
+    <svg class="w-6 h-6 rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+      <path fill="currentColor" d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"/>
     </svg>
   </button>
-  
-  <button class="absolute right-0 top-1/2 rightArrow z-999">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+
+  <!-- Right Arrow -->
+  <button class="absolute right-0 top-1/2 -translate-y-1/2 z-50 hidden group-hover:block">
+    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+      <path fill="currentColor" d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"/>
     </svg>
   </button>
 </div>
 
 
+  <button class="absolute right-0 top-0 z-50 group-hover:block">
+<svg class="w-6 h-6"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="close">
+    <path fill=currentColor" d="m25.54 8-8 8 8 8L24 25.54l-8-8-8 8L6.46 24l8-8-8-8L8 6.46l8 8 8-8L25.54 8Z"/>
+</svg>
+  </button>
+</div>

@@ -1,119 +1,185 @@
 ---
-import '../styles/global.css'  
-import spain from '../assets/spain.svg';
-
+import "../styles/global.css";
+import spain from "../assets/spain.svg";
 ---
 
-<footer class="*:bg-neutral-900 text-white ">
-<div class="accordions">
-    <div class="buy ms-6 px-3 py-2 border-b-2 border-white">compra</div>
-    <div class="buyHidden *:ms-12 mt-4">
-        <ul>
-            <li>hombre</li>
-            <li>mujer</li>
-            <li>niños</li>
-            <li>personalizar</li>
-            <li>novidades</li>
-        </ul>
+<footer class="*:bg-neutral-900 text-white bg-neutral-900">
+    <div class="accordions max-w-1/4">
+        <div
+            class="hover:cursor-pointer buy ms-6 px-3 py-2 border-b-1 border-white"
+        >
+            compra
+        </div>
+        <div class="buyHidden *:ms-12 mt-4">
+            <ul>
+                <li>hombre</li>
+                <li>mujer</li>
+                <li>niños</li>
+                <li>personalizar</li>
+                <li>novidades</li>
+            </ul>
+        </div>
+        <div
+            class="hover:cursor-pointer sport ms-6 px-3 py-2 border-b-1 border-white"
+        >
+            sport
+        </div>
+        <div class="sportHidden *:ms-12 mt-4">
+            <ul>
+                <li>Old Skool</li>
+                <li>Authentic</li>
+                <li>Slip-on</li>
+                <li>Sk8-Hi</li>
+            </ul>
+        </div>
+        <div
+            class="hover:cursor-pointer brand ms-6 px-3 py-2 border-b-1 border-white"
+        >
+            Brand
+        </div>
+        <div class="brandHidden *:ms-12 mt-4">
+            <ul>
+                <li>Sobre nosotros</li>
+                <li>Noticas</li>
+                <li>Trabaja con nosotros</li>
+                <li>Sostenibilidad</li>
+                <li>Vegan</li>
+            </ul>
+        </div>
+        <div
+            class="hover:cursor-pointer orders ms-6 px-3 py-2 border-b-1 border-white"
+        >
+            Pedidos
+        </div>
+        <div class="ordersHidden *:ms-12 mt-4">
+            <ul>
+                <li>Rastrea o devuelve un pedio</li>
+                <li>Envíos</li>
+                <li>Devoluciones</li>
+            </ul>
+        </div>
+        <div
+            class="hover:cursor-pointer attentionToClient ms-6 px-3 py-2 border-b-1 border-white"
+        >
+            Atención al cliente
+        </div>
+        <div class="attentionToClientHidden *:ms-12 mt-4">
+            <ul>
+                <li>Contacta con nosotros</li>
+                <li>Tabla de tallas</li>
+                <li>FAQ</li>
+                <li>Descuento de estudiante</li>
+            </ul>
+        </div>
     </div>
-    <div class="sport ms-6 px-3 py-2 border-b-2 border-white">sport</div>
-    <div class="sportHidden *:ms-12 mt-4">
-        <ul>
-            <li>Old Skool</li>
-            <li>Authentic</li>
-            <li>Slip-on</li>
-            <li>Sk8-Hi</li>
-        </ul>
+    <div class="bottomText *:ms-12 max-w-1/4">
+        <div class="icons flex">
+            <svg
+                class="w-10 h-10 hover:cursor-pointer hover:text-red-500 transition-all duration-150"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+            >
+                <path
+                    fill="currentColor"
+                    d="M20.6 8.25h2.454l-5.36 6.126L24 22.712h-4.937l-3.867-5.055-4.425 5.055H8.316l5.733-6.552L8 8.25h5.063l3.495 4.621 4.043-4.621Zm-.86 12.994h1.36L12.323 9.641h-1.459l8.875 11.603Z"
+                ></path>
+            </svg>
+            <svg
+                class="w-10 h-10 hover:cursor-pointer hover:text-blue-800 transition-all duration-150"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+            >
+                <path
+                    fill="currentColor"
+                    d="M16.83 20.42v3.28c.01.22-.05.3-.3.3a78.47 78.47 0 0 0-2.62 0c-.24 0-.3-.07-.3-.28l.01-6.55c0-.27-.07-.35-.36-.34-.65.02-1.3 0-1.94 0-.23.01-.32-.03-.32-.26a62.75 62.75 0 0 0 0-2.3c0-.21.06-.28.29-.28.69.02 1.37 0 2.06.01.22 0 .27-.06.27-.25 0-.79-.04-1.58.01-2.36.09-1.33.66-2.41 2.04-3.02A4.53 4.53 0 0 1 17.42 8c.8-.01 1.58.02 2.36.1.17.02.22.07.22.22v2.14c0 .16-.06.2-.23.2a76.74 76.74 0 0 0-1.58 0c-.9.01-1.35.42-1.36 1.26v1.8c0 .21.05.29.3.28h2.34c.21 0 .26.03.23.24-.12.8-.22 1.59-.32 2.39-.02.15-.11.21-.29.2h-1.94c-.24 0-.33.06-.32.3v3.3"
+                ></path>
+            </svg>
+            <svg
+                class="w-10 h-10 hover:cursor-pointer hover:text-red-500 transition-all duration-150"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+            >
+                <path
+                    fill="currentColor"
+                    d="M15.09 18.38c-.28.16-.3.15-.3-.16v-4.44c0-.08-.02-.16.05-.26l1.48.83 2.64 1.52c.06.03.18.05.18.14.01.1-.1.1-.17.15l-3.88 2.22Zm9.67-6.04c-.2-1.15-.79-1.8-1.84-2.03a6.88 6.88 0 0 0-1.03-.13 72.13 72.13 0 0 0-11.29.05c-1.28.12-2.1.73-2.32 2.04a24.86 24.86 0 0 0-.28 3.7c0 .48.03.96.05 1.44.03.78.09 1.56.23 2.34.21 1.19.84 1.78 2.05 1.97.92.15 1.84.18 2.75.2 1.23.04 2.45.1 3.72.07.95.04 1.95-.03 2.94-.05 1.02-.03 2.02-.1 3.03-.22.99-.13 1.7-.75 1.9-1.67.14-.56.2-1.13.25-1.7.1-1.18.08-2.37.06-3.56-.02-.83-.08-1.64-.22-2.45Z"
+                ></path>
+            </svg>
+            <svg
+                class="w-10 h-10 hover:cursor-pointer hover:text-purple-500 transition-all duration-150"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+            >
+                <path
+                    fill="currentColor"
+                    d="M15.99 18.67a2.66 2.66 0 1 1 .02-5.33 2.67 2.67 0 0 1-.02 5.33m0-6.77a4.03 4.03 0 0 0-4.1 4.1 4 4 0 0 0 4.08 4.07 4 4 0 0 0 4.11-4.06c0-2.32-1.75-4.1-4.08-4.11m5.2-.14a.93.93 0 0 1-.95.94.99.99 0 0 1-.95-.98c0-.53.42-.93.96-.92.55 0 .94.4.94.97m1.32 3.76v3.3a7.58 7.58 0 0 1-.15 1.32c-.26 1.28-1.06 2.04-2.36 2.26a8.19 8.19 0 0 1-1.38.12H13.2c-.6 0-1.2-.06-1.77-.26a2.66 2.66 0 0 1-1.85-2.2 10.2 10.2 0 0 1-.13-1.9v-5.02a6.63 6.63 0 0 1 .17-1.35c.27-1.26 1.07-1.97 2.31-2.2.46-.08.92-.13 1.39-.13h5.41a6.7 6.7 0 0 1 1.66.2 2.74 2.74 0 0 1 2 2.26c.2 1.35.09 2.7.12 3.6m1.32-3.58a4.12 4.12 0 0 0-2.53-3.48c-.98-.44-2.03-.42-3.07-.44-1.5-.04-3-.04-4.5 0-.73.02-1.47 0-2.2.17a4.13 4.13 0 0 0-3.24 2.95c-.25.78-.24 1.6-.28 2.4-.04.85 0 1.7 0 2.54 0 .83-.03 1.67 0 2.5.02.63.04 1.27.18 1.89a4.1 4.1 0 0 0 3.22 3.28c.85.21 1.71.18 2.57.21 1.27.05 2.53.02 3.8.02.88-.01 1.75-.02 2.61-.2a4.08 4.08 0 0 0 3.11-2.46c.41-.93.44-1.91.45-2.89.01-2.16.13-4.33-.12-6.48"
+                ></path>
+            </svg>
+        </div>
+        <div class="idioma flex">
+            <a class="hover:cursor-pointer hover:underline"
+                >🇪🇸 ES | Cambiar de pais</a
+            >
+        </div>
+        <div class="links">
+            <a class="hover:cursor-pointer underline text-sm"
+                >Sostenibilidad y responsabilidad</a
+            >
+            <a class="hover:cursor-pointer underline text-sm">
+                Modern Slavery Statement</a
+            >
+            <a class="hover:cursor-pointer underline text-sm"
+                >Términos de uso del sitio web</a
+            >
+            <a class="hover:cursor-pointer underline text-sm"
+                >Condiciones de venta</a
+            >
+            <a class="hover:cursor-pointer underline text-sm"
+                >Declaración de conformidad</a
+            >
+            <a class="hover:cursor-pointer underline text-sm"
+                >Política de cookies</a
+            >
+            <a class="hover:cursor-pointer underline text-sm"
+                >Preferencias de consetimiento</a
+            >
+        </div>
     </div>
-    <div class="brand ms-6 px-3 py-2 border-b-2 border-white">Brand</div>
-    <div class="brandHidden *:ms-12 mt-4">
-        <ul>
-            <li>Sobre nosotros</li>
-            <li>Noticas</li>
-            <li>Trabaja con nosotros</li>
-            <li>Sostenibilidad</li>
-            <li>Vegan</li>
-        </ul>
-    </div>
-    <div class="orders ms-6 px-3 py-2 border-b-2 border-white">Pedidos</div>
-    <div class="ordersHidden *:ms-12 mt-4">
-        <ul>
-            <li>Rastrea o devuelve un pedio</li>
-            <li>Envíos</li>
-            <li>Devoluciones</li>
-        </ul>
-    </div>
-    <div class="attentionToClient ms-6 px-3 py-2 border-b-2 border-white">Atención al cliente</div>
-    <div class="attentionToClientHidden *:ms-12 mt-4">
-        <ul>
-            <li>Contacta con nosotros</li>
-            <li>Tabla de tallas</li>
-            <li>FAQ</li>
-            <li>Descuento de estudiante</li>
-        </ul>
-    </div>
-    
-</div>
-<div class="bottomText *:ms-12" >
-    <div class="icons">
-        <i class="fa-brands fa-twitter hover:text-blue-500 transition-all duration-150"></i>
-        <i class="fa-brands fa-facebook-f hover:text-blue-800 transition-all duration-150"></i>
-        <i class="fa-brands fa-youtube hover:text-red-500 transition-all duration-150"></i>
-        <i class="fa-brands fa-instagram hover:text-purple-500 transition-all duration-150"></i>
 
-    </div>
-    <div class="idioma flex">
-        <a class="hover:underline">🇪🇸 ES | Cambiar de pais</a>
-    </div>
-    <div class="links">
-        <a class="underline text-sm">Sostenibilidad y responsabilidad</a>
-        <a class="underline text-sm"> Modern Slavery Statement</a>
-        <a class="underline text-sm">Términos de uso del sitio web</a>
-        <a class="underline text-sm">Condiciones de venta</a>
-        <a class="underline text-sm">Declaración de conformidad</a>
-        <a class="underline text-sm">Política de cookies</a>
-        <a class="underline text-sm">Preferencias de consetimiento</a>
-    </div>
-</div>
+    <script>
+        interface AccordionPair {
+            key: string;
+            value: string;
+        }
 
+        const accordions: AccordionPair[] = [
+            //Llave valor, como en php
+            { key: ".buy", value: ".buyHidden" },
+            { key: ".sport", value: ".sportHidden" },
+            { key: ".brand", value: ".brandHidden" },
+            { key: ".orders", value: ".ordersHidden" },
+            { key: ".attentionToClient", value: ".attentionToClientHidden" },
+        ];
 
-<script>
+        accordions.forEach(({ key, value }) => {
+            //A cada elemento pillo su clave y su valor
+            const keyElement = document.querySelector<HTMLElement>(key); //Especifico HTMLEment para que VSCode no me grite, juraria que no es necesario si no.
+            const valueElement = document.querySelector<HTMLElement>(value);
 
-interface AccordionPair {
-  key: string;
-  value: string;
-}
+            if (!keyElement || !valueElement) return;
 
-const accordions: AccordionPair[] = [ //Llave valor, como en php
-  { key: ".buy", value: ".buyHidden" },
-  { key: ".sport", value: ".sportHidden" },
-  { key: ".brand", value: ".brandHidden" },
-  { key: ".orders", value: ".ordersHidden" },
-  { key: ".attentionToClient", value: ".attentionToClientHidden" },
-];
+            valueElement.style.maxHeight = "0px"; //Lo oculto, esto se ejcuta por defecto al iniciar la pagina.
+            valueElement.style.overflow = "hidden"; //Los elementos siguen existiendo, pero no se ven por el overflow.
+            valueElement.style.transition = "max-height 0.3s linear";
 
-accordions.forEach(({ key, value }) => {  //A cada elemento pillo su clave y su valor
-  const keyElement = document.querySelector<HTMLElement>(key); //Especifico HTMLEment para que VSCode no me grite, juraria que no es necesario si no.
-  const valueElement = document.querySelector<HTMLElement>(value);
-
-  if (!keyElement || !valueElement) return;
-
-  valueElement.style.maxHeight = "0px"; //Lo oculto, esto se ejcuta por defecto al iniciar la pagina.
-  valueElement.style.overflow = "hidden"; //Los elementos siguen existiendo, pero no se ven por el overflow.
-  valueElement.style.transition = "max-height 0.3s linear";
-
-  keyElement.addEventListener("click", () => { //Añado un evento que hace que si esta abierto lo cierra y si esta cerrado lo abre, uso scrollHeight para no romper los esquemas de espacio de la pagina.
-    if (valueElement.style.maxHeight === "0px") {
-      valueElement.style.maxHeight = valueElement.scrollHeight + "px";
-    } else {
-      valueElement.style.maxHeight = "0px";
-    }
-  });
-});
-
-</script>
-
-
-
-
+            keyElement.addEventListener("click", () => {
+                //Añado un evento que hace que si esta abierto lo cierra y si esta cerrado lo abre, uso scrollHeight para no romper los esquemas de espacio de la pagina.
+                if (valueElement.style.maxHeight === "0px") {
+                    valueElement.style.maxHeight =
+                        valueElement.scrollHeight + "px";
+                } else {
+                    valueElement.style.maxHeight = "0px";
+                }
+            });
+        });
+    </script>
 </footer>

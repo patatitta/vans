@@ -1,15 +1,25 @@
 ---
-import Footer from '../components/Footer.astro';
-import Nav from '../components/Nav.astro';
-
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import Review from "../components/Review.astro";
+import CarruselProducto from "../components/CarruselProducto.astro";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+import mocasines1 from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes.avif";
+import mocasines2 from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (1).avif";
+import mocasines3 from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (2).avif";
+import mocasines4 from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (3).avif";
+import mocasines5 from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (4).avif";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full">
 	<head>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+		/>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -17,36 +27,273 @@ import Nav from '../components/Nav.astro';
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<body class="grid grid-cols-1 grid-rows-3">
-        <Nav class="col-span-1 row-span-1"></Nav>
-		<main class="col-span-1 row-span-2">
-			<div class="Title">
-				<div class="categoryRoute" >Compra &gt; zapatillas </div>
-				<p>Zapatillas Knu Skool</p>
-				<div class="smallText">Uso Diario, diseño retro</div>
-				<div class="precio">95,00€</div>
-			</div>
-			<div class="Size"><p>Talla</p>
-				<select class="px-6 py-4 border-1 border-solid">
-					<option>40</option>
-				</select>
-				<div class="tableLink">Tabla de tallas</div>
-			</div>
-			<div class="Sell">
-				<button type="button" class="px-6 py-4 bg-gray-900 text-white hover:bg-black transition-all duration-150">Añade a la cesta</button>
-				<div class="payPalText">Compra ahora y paga después con PayPal. <a>Más Información</a></div>
-				<div class="Reserva px-6 py-4 bg-gray-100 underline">Reserva en tienda</div>
-			</div>
-		</main>
-		<Footer class=" col-span-1 row-span-3"></Footer>
-	</body>
-</html>
+	<body class="">
+		<Nav />
+		<div>
+		<main class="flex-col">
+			<div class="up flex">
+				<div class="left flex flex-wrap gap-0 p-4 max-w-7xl mx-auto">
+					<img
+						class="w-1/2 h-auto object-contain p-2"
+						src={mocasines1.src}
+					/>
+					<img
+						class="w-1/2 h-auto object-contain p-2"
+						src={mocasines2.src}
+					/>
+					<img
+						class="w-1/2 h-auto object-contain p-2"
+						src={mocasines3.src}
+					/>
+					<img
+						class="w-1/2 h-auto object-contain p-2"
+						src={mocasines4.src}
+					/>
+					<img
+						class="w-1/2 h-auto object-contain p-2"
+						src={mocasines5.src}
+					/>
+				</div>
+				<div class="right">
+					<div class="Title">
+						<div class="categoryRoute text-xs text-right">
+							Compra &gt; zapatillas
+						</div>
+						<div class="nombreProducto text-xl">
+							Zapatillas Knu Skool
+						</div>
+						<div class="smallText text-xs">
+							Uso Diario, diseño retro
+						</div>
+						<div class="precio">95,00€</div>
+					</div>
+					<div class="Images">
+						<div
+							class="flex flex-wrap gap-0 p-1 max-w-7xl mx-auto *:border-transparent *:hover:border-solid *:hover:border-1 *:hover:border-black *:transition-all *:duration-150 hover:cursor-pointer"
+						>
+							<img
+								class="w-1/4 h-auto object-contain p-1"
+								src={mocasines1.src}
+							/>
+							<img
+								class="w-1/4 h-auto object-contain p-1"
+								src={mocasines2.src}
+							/>
+							<img
+								class="w-1/4 h-auto object-contain p-1"
+								src={mocasines3.src}
+							/>
+							<img
+								class="w-1/4 h-auto object-contain p-1"
+								src={mocasines4.src}
+							/>
+							<img
+								class="w-1/4 h-auto object-contain p-1"
+								src={mocasines5.src}
+							/>
+						</div>
+					</div>
+					<div class="Size">
+						<p>Talla</p>
+						<button
+							type="button"
+							class="px-6 py-4 border-1 border-solid verTallas mr-6 min-w-full hover:cursor-pointer"
+						>
+							Elige una talla
+						</button>
+						<div class="tableLink text-xs hover:cursor-pointer">Tabla de tallas</div>
+					</div>
+					<div class="Sell">
+						<button
+							type="button"
+							class="px-6 py-4 bg-gray-900 text-white hover:bg-black transition-all duration-150 mr-6 min-w-full hover:cursor-pointer"
+							>Añade a la cesta</button
+						>
+						<div class="payPalText text-xs">
+							Compra ahora y paga después con PayPal. <a class="underline hover:cursor-pointer"
+								>Más Información</a
+							>
+						</div>
+						<div
+							class="Reserva px-6 py-4 bg-gray-100 underline hover:cursor-pointer"
+						>
+							Reserva en tienda
+						</div>
+					</div>
+				</div>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+				<div
+					class="tallas fixed bg-white *:text-black top-0 right-0 h-full backdrop-blur-sm z-999 w-75"
+				>
+					<div class="title text-xl py-2 px-2">Elige una talla</div>
+					<button
+						type="button"
+						class="py-2 border-t-1 border-gray-200 border-solid flex justify-between w-full *:px-2"
+					>
+						<div class="talla">37</div>
+						<div class="precio">100€</div>
+					</button>
+					<button
+						type="button"
+						class="py-2 border-t-1 border-gray-200 border-solid flex justify-between w-full *:px-2"
+					>
+						<div class="talla">38</div>
+						<div class="precio">100€</div>
+					</button>
+					<button
+						type="button"
+						class="py-2 border-t-1 bg-gray-100 border-gray-200 border-solid flex justify-between w-full *:px-2 *:text-gray-500"
+					>
+						<div class="talla">38</div>
+						<div class="precio text-xs">agotado</div>
+					</button>
+				</div>
+			</div>
+			<div class="accordionsProduct">
+				<div
+					class="hover:cursor-pointer productBuy ms-6 px-3 py-2 border-b-2 border-white"
+				>
+					compra
+				</div>
+				<div class="productBuyHidden *:ms-12 mt-4">
+					<div class="info">
+						Conocidas inicialmente como las Vans n.º 36, las
+						zapatillas Old Skool hicieron su debut en 1977 con un
+						nuevo detalle excepcional: un garabato dibujado al azar
+						por el fundador Paul Van Doren, que se denominó la «jazz
+						stripe» (raya de jazz). Hoy, la famosa banda lateral de
+						Vans se ha convertido en la inconfundible y reconocible
+						seña de identidad de la marca. Las Primary Check Old
+						Skool, confeccionadas con resistentes palas de lona y
+						ante con un vibrante estampado damero, rinden homenaje a
+						nuestro legado y garantizan que estas zapatillas de caña
+						baja y con cordones sigan siendo tan emblemáticas como
+						siempre. También incluyen una puntera reforzada, un
+						cuello acolchado para una mayor sujeción y la distintiva
+						suela reticular de caucho.
+					</div>
+				</div>
+				<div
+					class="hover:cursor-pointer details ms-6 px-3 py-2 border-b-2 border-white"
+				>
+					Detalles y Composición
+				</div>
+				<div class="detailsHidden *:ms-12 mt-4">
+					<div class="info">
+						Conocidas inicialmente como las Vans n.º 36, las
+						zapatillas Old Skool hicieron su debut en 1977 con un
+						nuevo detalle excepcional: un garabato dibujado al azar
+						por el fundador Paul Van Doren, que se denominó la «jazz
+						stripe» (raya de jazz). Hoy, la famosa banda lateral de
+						Vans se ha convertido en la inconfundible y reconocible
+						seña de identidad de la marca. Las Primary Check Old
+						Skool, confeccionadas con resistentes palas de lona y
+						ante con un vibrante estampado damero, rinden homenaje a
+						nuestro legado y garantizan que estas zapatillas de caña
+						baja y con cordones sigan siendo tan emblemáticas como
+						siempre. También incluyen una puntera reforzada, un
+						cuello acolchado para una mayor sujeción y la distintiva
+						suela reticular de caucho.
+					</div>
+				</div>
+				<div
+					class="hover:cursor-pointer returnPolicy ms-6 px-3 py-2 border-b-2 border-white"
+				>
+					Envios y devoluciones
+				</div>
+				<div class="returnPolicyHidden *:ms-12 mt-4">
+					<div class="info">
+						Conocidas inicialmente como las Vans n.º 36, las
+						zapatillas Old Skool hicieron su debut en 1977 con un
+						nuevo detalle excepcional: un garabato dibujado al azar
+						por el fundador Paul Van Doren, que se denominó la «jazz
+						stripe» (raya de jazz). Hoy, la famosa banda lateral de
+						Vans se ha convertido en la inconfundible y reconocible
+						seña de identidad de la marca. Las Primary Check Old
+						Skool, confeccionadas con resistentes palas de lona y
+						ante con un vibrante estampado damero, rinden homenaje a
+						nuestro legado y garantizan que estas zapatillas de caña
+						baja y con cordones sigan siendo tan emblemáticas como
+						siempre. También incluyen una puntera reforzada, un
+						cuello acolchado para una mayor sujeción y la distintiva
+						suela reticular de caucho.
+					</div>
+				</div>
+			</div>
+			<CarruselProducto></CarruselProducto>
+			<Review></Review>
+			<Footer class="" />
+		</main>
+	</body>
+
+	<style>
+		html,
+		body {
+			margin: 0;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+
+	<script>
+		//ABRIR MENU HAMBURGUESA
+		const hamburguesa = document.querySelector<HTMLElement>(".tallas");
+		const abrirHamburguesa =
+			document.querySelector<HTMLElement>(".verTallas");
+
+		if (hamburguesa && abrirHamburguesa) {
+			hamburguesa.style.maxWidth = "0px"; //Lo oculto, esto se ejcuta por defecto al iniciar la pagina.
+			hamburguesa.style.overflow = "hidden";
+			hamburguesa.style.transition = "max-width 0.3s linear";
+
+			abrirHamburguesa.addEventListener("click", abrirMenu);
+
+			function abrirMenu() {
+				if (!hamburguesa || !abrirHamburguesa) {
+					return;
+				}
+				if (hamburguesa.style.maxWidth === "0px") {
+					hamburguesa.style.maxWidth =
+						hamburguesa.scrollHeight + "px";
+				} else {
+					hamburguesa.style.maxWidth = "0px";
+				}
+			}
+		}
+
+interface AccordionPair {
+  key: string;
+  value: string;
+}
+
+const accordions: AccordionPair[] = [ //Llave valor, como en php
+  { key: ".productBuy", value: ".productBuyHidden" },
+  { key: ".details", value: ".detailsHidden" },
+  { key: ".returnPolicy", value: ".returnPolicyHidden" },
+  { key: ".orders", value: ".ordersHidden" },
+  { key: ".attentionToClient", value: ".attentionToClientHidden" },
+];
+
+accordions.forEach(({ key, value }) => {  //A cada elemento pillo su clave y su valor
+  const keyElement = document.querySelector<HTMLElement>(key); //Especifico HTMLEment para que VSCode no me grite, juraria que no es necesario si no.
+  const valueElement = document.querySelector<HTMLElement>(value);
+
+  if (!keyElement || !valueElement) return;
+
+  valueElement.style.maxHeight = "0px"; //Lo oculto, esto se ejcuta por defecto al iniciar la pagina.
+  valueElement.style.overflow = "hidden"; //Los elementos siguen existiendo, pero no se ven por el overflow.
+  valueElement.style.transition = "max-height 0.3s linear";
+
+  keyElement.addEventListener("click", () => { //Añado un evento que hace que si esta abierto lo cierra y si esta cerrado lo abre, uso scrollHeight para no romper los esquemas de espacio de la pagina.
+    if (valueElement.style.maxHeight === "0px") {
+      valueElement.style.maxHeight = valueElement.scrollHeight + "px";
+    } else {
+      valueElement.style.maxHeight = "0px";
+    }
+  });
+});
+</script>
+
+	</html>
+
+
