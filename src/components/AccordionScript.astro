@@ -1,0 +1,58 @@
+---
+
+---
+<script>
+// interface AccordionPair {
+//   key: string;
+//   value: string;
+// }
+
+let accordionsOpen = document.querySelectorAll<HTMLElement>('.Open');
+let accordionsHidden = document.querySelectorAll<HTMLElement>('.Hidden');
+
+let accordions = [];
+// let accordions: AccordionPair[] = [];
+let contable = 0;
+
+for (let iterable of accordionsOpen){
+	accordions.push(
+				{
+			key: iterable,
+			value: accordionsHidden[contable],
+		}
+	)
+
+	
+	contable+=1;
+}
+
+// const accordions: AccordionPair[] = [ //Llave valor, como en php
+//   { key: ".productBuy", value: ".productBuyHidden" },
+//   { key: ".details", value: ".detailsHidden" },
+//   { key: ".returnPolicy", value: ".returnPolicyHidden" },
+//   { key: ".orders", value: ".ordersHidden" },
+//   { key: ".attentionToClient", value: ".attentionToClientHidden" },
+// ];
+
+accordions.forEach(({ key, value }) => {  //A cada elemento pillo su clave y su valor
+  const icon = key.lastElementChild as HTMLElement;
+
+  if (!key || !value) return;
+
+  value.style.maxHeight = "0px"; //Lo oculto, esto se ejcuta por defecto al iniciar la pagina.
+  value.style.overflow = "hidden"; //Los elementos siguen existiendo, pero no se ven por el overflow.
+  value.style.transition = "max-height 0.3s linear";
+
+  key.addEventListener("click", () => { //Añado un evento que hace que si esta abierto lo cierra y si esta cerrado lo abre, uso scrollHeight para no romper los esquemas de espacio de la pagina.
+    if (value.style.maxHeight === "0px") {
+      value.style.maxHeight = value.scrollHeight + "px";
+      icon.style.rotate = "270deg";
+    } else {
+      value.style.maxHeight = "0px";
+      icon.style.rotate = "90deg";
+    }
+  });
+});
+
+
+</script>

@@ -1,0 +1,146 @@
+---
+
+---
+<div id="hamburguesaOculta" class="fixed bg-black/50 backdrop-blur-sm z-50 overflow-hidden transition-all duration-300 max-w-0">
+  <div class="w-80 h-full bg-black/50 *:text-white">
+    <ul class="p-6 space-y-4" id="categorias">
+      <li>
+        <div class="p-2 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer" id="newLabel">
+          Nuevo y destacado
+        </div>
+      </li>
+      <li>
+        <div class="p-2 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer" id="mujerLabel">
+          Mujer
+        </div>
+      </li>
+      <li>
+        <div class="p-2 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer" id="hombreLabel">
+          Hombres
+        </div>
+      </li>
+      <li>
+        <div class="p-2 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer" id="kidsLabel">
+          Niños
+        </div>
+      </li>
+    </ul>
+    
+    <!-- NUEVO Y DESTACADO -->
+    <div class="nuevo">
+      <ul class="space-y-2 *:hover:-rotate-2 *:transition-all duration-150" id="new">
+        <li class="relative inline-block group">
+          <span class="relative cursor-pointer">Valentino Garaavni y Vans</span>
+          <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
+        </li>
+        <li class="relative inline-block group">
+          <span class="relative cursor-pointer">Kpop demon hunters</span>
+          <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
+        </li>
+        <li class="relative inline-block group">
+          <span class="relative cursor-pointer">Novedades</span>
+          <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
+        </li>
+        <li class="relative inline-block group">
+          <span class="relative cursor-pointer">Tendencias ahora</span>
+          <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
+        </li>
+        <li class="relative inline-block group">
+          <span class="relative cursor-pointer">Destacados</span>
+          <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
+        </li>
+        <li class="relative inline-block group">
+          <span class="relative cursor-pointer">Classics</span>
+          <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
+        </li>
+        <li class="relative inline-block group">
+          <span class="relative cursor-pointer">Action Sports</span>
+          <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
+        </li>
+        <li class="relative inline-block group">
+          <span class="relative cursor-pointer">Sales</span>
+          <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- MUJER -->
+    <div class="otros">
+      <ul class="space-y-2 *:hover:-rotate-2 *:transition-all duration-150" id="woman">
+        <li class="relative inline-block group">
+          <span class="relative cursor-pointer">Ver todo</span>
+          <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
+        </li>
+        <li class="relative inline-block group">
+          <span class="relative cursor-pointer">Valentino Garaavni y Vans</span>
+          <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
+        </li>
+        <li class="relative inline-block group">
+          <span class="relative cursor-pointer">KPop Demon Hunters</span>
+          <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
+        </li>
+        <li class="relative inline-block group">
+          <span class="relative cursor-pointer">Nuevo y destacado</span>
+          <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
+        </li>
+        <li class="relative inline-block group">
+          <span class="relative cursor-pointer">Zapatillas</span>
+          <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
+        </li>
+        <li class="relative inline-block group">
+          <span class="relative cursor-pointer">Ropa</span>
+          <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
+        </li>
+        <li class="relative inline-block group">
+          <span class="relative cursor-pointer">Accesorios</span>
+          <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
+        </li>
+        <li class="relative inline-block group">
+          <span class="relative cursor-pointer">Rebajas</span>
+          <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  
+</script>
+
+
+<script>
+  let otros = document.querySelector<HTMLElement>('.otros')
+    if(otros != null){
+      otros.style.display = "none";
+    }
+  let newLabel = document.querySelector<HTMLElement>('#newLabel')
+  let mujerLabel = document.querySelector<HTMLElement>('#mujerLabel')
+  let hombreLabel = document.querySelector<HTMLElement>('#hombreLabel')
+  let kidsLabel = document.querySelector<HTMLElement>('#kidsLabel')
+  let selector;
+
+    let categorias = document.querySelector('#categorias')
+
+    categorias?.addEventListener("click", cambiarTema)
+
+
+function cambiarTema(e){
+    let label = e.target.closest("div")
+      if(label!=mujerLabel && label!=hombreLabel && label!=kidsLabel && label!=newLabel ){
+        return;
+      }
+      console.log(label);
+
+      if (selector!=null){
+        selector.style.backgroundColor = "transparent"
+        selector.style.color = "white"
+      }
+
+  label.style.backgroundColor = "white";
+  label.style.color = "black"
+  selector = label;
+}
+
+
+</script>

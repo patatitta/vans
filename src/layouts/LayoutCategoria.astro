@@ -2,6 +2,9 @@
 import Card from '../components/Card.astro';
 import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
+import categoriaVideo from '../assets/CategoriaVideo.webm'
+import Accordion from '../components/Accordion.astro';
+import AccordionScript from '../components/AccordionScript.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -18,46 +21,57 @@ import Nav from '../components/Nav.astro';
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<body class="min-h-screen flex flex-col">
-        <Nav></Nav>
-		<main>
-			<div class="frontText">
-				<div class="smallText hover:underline text-xs">compra</div>
-				<div class="categoryName">Ropa y Calzado para hombre</div>
-				<div class="showFilters">
-					<p>Mostrar Filtros</p>
-					<i class="fa fa-bars"></i>
+	<body class=" ">
+
+		<main class="bg-white">
+
+						<Nav></Nav>
+
+
+			<div class="frontText sticky z-50 bg-white top-0">
+				<div class="smallText hover:underline text-xs ml-5 text-neutral-500">compra</div>
+				<div class="categoryName mt-3 ml-5 text-2xl">Ropa y Calzado para hombre</div>
+				<div class="flex justify-between">
+					
+					<div class="showFilters flex ml-5 mt-2">
+						Mostrar Filtros 
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-7 h-7"><path d="M19.9 5.9v6.2h2.2v-2h5V7.9h-5v-2h-2.2Zm-1.8 2H4.9v2.2h13.2V7.9Zm-8.2 5v2h-5v2.2h5v2h2.2v-6.2H9.9Zm17.2 2H13.9v2.2h13.2v-2.2Zm-12.07 5v6.2h2.19v-2h9.87v-2.2h-9.87v-2h-2.19Zm-2.4 2H4.95v2.17h7.68V21.9Z"/></svg>						
+					</div>
+
+					<div class="mr-3">1000 Producto</div>
 				</div>
+				
 			</div>
-			<div class="tarjetas grid grid-rows-3 grid-cols-3 ">
-				<div class="tarjeta1 row-1 col-1">
+
+				<div class="tarjetas grid grid-rows-3 grid-cols-2 md:grid-cols-3 ">
+				<div class="tarjeta">
 					<Card></Card>
 				</div>
-				<div class="tarjeta1 row-1 col-2">
+				<div class="tarjeta">
 					<Card></Card>
 				</div>
-				<div class="tarjeta1 row-1 col-3">
-					<Card></Card>
+				<div class="tarjeta">
+					<video autoplay muted loop src={categoriaVideo}></video>
 				</div>
-				<div class="tarjeta1 row-2 col-1">
+				<div class="tarjeta">
 					<Card></Card>
 				</div>				
-				<div class="tarjeta1 row-2 col-2">
+				<div class="tarjeta">
 					<Card></Card>
 				</div>
-				<div class="tarjeta1 row-2 col-3">
+				<div class="tarjeta">
 					<Card></Card>
 				</div>
-				<div class="tarjeta1 row-3 col-1">
+				<div class="tarjeta">
 					<Card></Card>
 				</div>
-				<div class="tarjeta1 row-3 col-2">
+				<div class="tarjeta">
 					<Card></Card>
 				</div>
-				<div class="tarjeta1 row-3 col-3">
+				<div class="tarjeta">
 					<Card></Card>
 				</div>
-				<div class="tarjeta1 row-3 col-3">
+				<div class="tarjeta">
 					<Card></Card>
 				</div>
 			</div>
@@ -66,13 +80,22 @@ import Nav from '../components/Nav.astro';
 
 			</div>
 
+			<div class="text-center">
+				<p>Viendo 48 de 1185 Productos</p>
+				<button
+				type="button"
+				class="px-6 py-4 bg-gray-900 text-white hover:bg-black transition-all duration-150 mr-6 hover:cursor-pointer"
+				>Ver más</button>
+				</div>
+					<Accordion></Accordion>
+					<Accordion></Accordion>
 
 		</main>
 		<Footer></Footer>
 	</body>
 </html>
 
-
+<AccordionScript></AccordionScript>
 
 <script>
   const imagenes = document.querySelectorAll<HTMLElement>(".imagenes");

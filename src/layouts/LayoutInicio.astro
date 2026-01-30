@@ -6,6 +6,7 @@ import Nav from '../components/Nav.astro';
 import women from '../assets/women.avif';
 import men from '../assets/men.avif';
 import kids from '../assets/kids.avif';
+import CarruselInicioResponsive from '../components/CarruselInicioResponsive.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -24,15 +25,18 @@ import kids from '../assets/kids.avif';
 	</head>
 <div class="min-h-screen flex flex-col">
 	<Nav></Nav>
-    <main class="flex-grow pt-20"> <!-- Add pt-20 to account for fixed nav height -->
-      <div class="h-screen">
-        <CarruselInicio></CarruselInicio>
-      </div>
-      <div class="categorias grid grid-cols-3 grid-rows-1 mt-4 *:hover:-rotate-2 transition-all duration-150 hover:cursor-pointer hover:zoom-20">
+    <main class=" pt-20"> <!-- Add pt-20 to account for fixed nav height -->
+        <CarruselInicio>
+
+		</CarruselInicio>
+      <div class="hidden categorias md:grid grid-cols-3 grid-rows-1 mt-4 *:hover:-rotate-2 transition-all duration-150 hover:cursor-pointer hover:zoom-20">
       <div><img class="object-contain p-2" src={women.src} alt="Women" /></div>
       <div><img class="object-contain p-2" src={men.src} alt="Men"></div>
       <div><img class="object-contain p-2" src={kids.src} alt="Kids"></div>
     </div>
+	<div class="md:hidden">
+		<CarruselInicioResponsive></CarruselInicioResponsive>
+	</div>
   </main>
   <Footer class=""></Footer>
   </div>
