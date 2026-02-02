@@ -1,26 +1,25 @@
 ---
 
 ---
-<div id="hamburguesaOculta" class="fixed bg-black/50 backdrop-blur-sm z-50 overflow-hidden transition-all duration-300 max-w-0">
-  <div class="w-80 h-full bg-black/50 *:text-white">
-    <ul class="p-6 space-y-4" id="categorias">
+<div id="hamburguesaOculta" class="fixed bg-black/50 backdrop-blur-sm z-50 overflow-hidden transition-all duration-300 w-100 min-h-full text-white">
+    <ul class="p-6 space-y-4 flex" id="categorias">
       <li>
-        <div class="p-2 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer" id="newLabel">
+        <div class="p-1 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer" id="newLabel">
           Nuevo y destacado
         </div>
       </li>
       <li>
-        <div class="p-2 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer" id="mujerLabel">
+        <div class="p-1 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer" id="mujerLabel">
           Mujer
         </div>
       </li>
       <li>
-        <div class="p-2 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer" id="hombreLabel">
+        <div class="p-1 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer" id="hombreLabel">
           Hombres
         </div>
       </li>
       <li>
-        <div class="p-2 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer" id="kidsLabel">
+        <div class="p-1 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer" id="kidsLabel">
           Niños
         </div>
       </li>
@@ -101,7 +100,6 @@
         </li>
       </ul>
     </div>
-  </div>
 </div>
 
 <script>
@@ -110,24 +108,29 @@
 
 
 <script>
+  let nuevo = document.querySelector<HTMLElement>('.nuevo')
   let otros = document.querySelector<HTMLElement>('.otros')
-    if(otros != null){
-      otros.style.display = "none";
-    }
+  let arrayContenido = [nuevo, otros]
+    // if(otros != null){
+    //   otros.style.display = "none";
+    // }
   let newLabel = document.querySelector<HTMLElement>('#newLabel')
   let mujerLabel = document.querySelector<HTMLElement>('#mujerLabel')
   let hombreLabel = document.querySelector<HTMLElement>('#hombreLabel')
   let kidsLabel = document.querySelector<HTMLElement>('#kidsLabel')
   let selector;
+  let arrayLabels = [newLabel, mujerLabel, hombreLabel, kidsLabel];
 
     let categorias = document.querySelector('#categorias')
 
     categorias?.addEventListener("click", cambiarTema)
 
+    otros.style.display = "none"
+
 
 function cambiarTema(e){
     let label = e.target.closest("div")
-      if(label!=mujerLabel && label!=hombreLabel && label!=kidsLabel && label!=newLabel ){
+      if(arrayLabels.includes(label)==false ){
         return;
       }
       console.log(label);
@@ -140,6 +143,27 @@ function cambiarTema(e){
   label.style.backgroundColor = "white";
   label.style.color = "black"
   selector = label;
+  let contenido;
+
+  if (label == newLabel){
+    contenido = nuevo
+  }
+  else{
+    contenido = otros;
+  }
+
+  for (let iterable of arrayContenido){
+    if (contenido!=iterable){
+      iterable.style.display = "none"
+    }
+    else{
+      iterable.style.transform = "translatex(20rem)"
+      iterable.style.display = "block"
+ setTimeout(() => {
+      contenido.style.transition = "transform 0.3s ease-out";
+      contenido.style.transform = "translateX(0)";
+    }, 10);    }
+  }
 }
 
 

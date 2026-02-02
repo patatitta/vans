@@ -104,12 +104,20 @@ import Carrusel from "../components/Carrusel.astro";
 						</div>
 						<div class="Size">
 							<p class="mt-2">Talla</p>
-							<button
-								type="button"
-								class="mt-2 px-6 py-4 border-2 border-solid verTallas space-y-4 w-full hover:cursor-pointer"
-							>
+							<div class="mt-2 px-6 py-4 border-2 border-solid verTallas space-y-4 w-full hover:cursor-pointer flex justify-between items-center">
 								Elige una talla
-							</button>
+								<svg
+            class="w-6 h-6 rotate-90 transition-all duration-150"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32 32"
+        >
+            <path
+                fill="currentColor"
+                d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+            />
+							</div>
+							</div>
+							
 							<div class="mt-2 tableLink text-xs hover:cursor-pointer">
 								Tabla de tallas
 							</div>
@@ -140,6 +148,8 @@ import Carrusel from "../components/Carrusel.astro";
 							</div>
 						</div>
 					</div>
+
+					<div class="oscuro fixed bg-black top-0 right-0 w-full h-full pointer-events-none z-40"></div>
 
 					<div
 						class="tallas fixed bg-white *:text-black top-0 right-0 h-full backdrop-blur-sm z-999 w-75"
@@ -191,18 +201,24 @@ import Carrusel from "../components/Carrusel.astro";
 			const hamburguesa = document.querySelector<HTMLElement>(".tallas");
 			const abrirHamburguesa =
 				document.querySelector<HTMLElement>(".verTallas");
+			const oscuro =
+				document.querySelector<HTMLElement>(".oscuro");					
 
-			if (hamburguesa && abrirHamburguesa) {
+
+			if (hamburguesa && abrirHamburguesa && oscuro) {
 				hamburguesa.style.maxWidth = "0px"; //Lo oculto, esto se ejcuta por defecto al iniciar la pagina.
 				hamburguesa.style.overflow = "hidden";
 				hamburguesa.style.transition = "max-width 0.3s linear";
+				oscuro.style.opacity = "0"
 
 				abrirHamburguesa.addEventListener("click", abrirMenu);
 
 				function abrirMenu() {
-					if (!hamburguesa || !abrirHamburguesa) {
+					if (!hamburguesa || !abrirHamburguesa || !oscuro) {
 						return;
 					}
+					oscuro.style.opacity = "0.15"
+
 					if (hamburguesa.style.maxWidth === "0px") {
 						hamburguesa.style.maxWidth =
 							hamburguesa.scrollHeight + "px";
