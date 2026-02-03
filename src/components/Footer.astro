@@ -1,18 +1,50 @@
 ---
 import "../styles/global.css";
-import spain from "../assets/spain.svg";
 import Accordion from "./Accordion.astro";
 import AccordionScript from "./AccordionScript.astro";
 ---
 
 <footer class="*:bg-neutral-900 text-white bg-neutral-900">
     <div class="accordions md:max-w-1/4">
-        <Accordion></Accordion>
-        <Accordion></Accordion>
-        <Accordion></Accordion>
-        <Accordion></Accordion>
-</div>
+        <Accordion>
+            <div slot="title">title</div>
+            <div slot="Content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Incidunt soluta saepe nemo, fuga impedit cumque quaerat porro
+                accusamus consectetur dolorum, tenetur ratione voluptates
+                blanditiis non voluptas dolor iure! Quas, similique.
+            </div>
+        </Accordion>
+        <Accordion>
+            <div slot="title">title</div>
 
+            <div slot="Content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Incidunt soluta saepe nemo, fuga impedit cumque quaerat porro
+                accusamus consectetur dolorum, tenetur ratione voluptates
+                blanditiis non voluptas dolor iure! Quas, similique.
+            </div>
+        </Accordion>
+        <Accordion>
+            <div slot="title">title</div>
+
+            <div slot="Content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Incidunt soluta saepe nemo, fuga impedit cumque quaerat porro
+                accusamus consectetur dolorum, tenetur ratione voluptates
+                blanditiis non voluptas dolor iure! Quas, similique.
+            </div>
+        </Accordion>
+        <Accordion>
+            <div slot="title">title</div>
+
+            <div slot="Content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Incidunt soluta saepe nemo, fuga impedit cumque quaerat porro
+                accusamus consectetur dolorum, tenetur ratione voluptates
+                blanditiis non voluptas dolor iure! Quas, similique.
+            </div>
+        </Accordion>
     </div>
     <div class="bottomText *:ms-12 max-w-full md:max-w-1/4">
         <div class="icons flex">
@@ -87,6 +119,5 @@ import AccordionScript from "./AccordionScript.astro";
         </div>
     </div>
 
-<AccordionScript></AccordionScript>
-
+    <AccordionScript />
 </footer>

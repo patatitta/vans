@@ -1,9 +1,5 @@
 ---
-import mocasines1 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes.avif';
-import mocasines2 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (1).avif';
-import mocasines3 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (2).avif';
-import mocasines4 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (3).avif';
-import mocasines5 from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (4).avif';
+
 import inicio2 from '../assets/inicio2.avif';
 import inicio3 from '../assets/inicio3.avif';
 import inicio1 from '../assets/inicio1.webm'
@@ -12,6 +8,8 @@ import inicio1 from '../assets/inicio1.webm'
   <div class="marco overflow-auto">
     <div class="imagenes flex transition-all duration-150">
       <div class="relative w-full min-w-full h-full">
+
+
         <video class="w-full h-full object-contain p-2" autoplay muted loop>
           <source src={inicio1} type="video/webm">
         </video>
@@ -42,3 +40,11 @@ import inicio1 from '../assets/inicio1.webm'
     </div>
   </div>
 </div>
+
+<script>
+
+  setInterval(mover, 500)
+  function mover(){
+    //TODO: Que se mueva automatico
+  } 
+</script>

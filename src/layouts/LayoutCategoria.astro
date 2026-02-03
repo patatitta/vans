@@ -5,9 +5,6 @@ import Nav from '../components/Nav.astro';
 import categoriaVideo from '../assets/CategoriaVideo.webm'
 import Accordion from '../components/Accordion.astro';
 import AccordionScript from '../components/AccordionScript.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <!doctype html>
@@ -25,9 +22,9 @@ import AccordionScript from '../components/AccordionScript.astro';
 
 		<main class="bg-white">
 
-						<Nav></Nav>
+			<Nav></Nav>
 
-				<div class="smallText hover:underline text-xs ml-5 text-neutral-500">compra</div>
+			<div class="smallText hover:underline text-xs ml-5 text-neutral-500">compra</div>
 
 			<div class="frontText sticky z-40 bg-white top-0">
 				<div class="categoryName mt-3 ml-5 text-2xl font-semibold">Ropa y Calzado para hombre</div>
@@ -43,41 +40,8 @@ import AccordionScript from '../components/AccordionScript.astro';
 				
 			</div>
 
-				<div class="tarjetas grid grid-rows-3 grid-cols-2 md:grid-cols-3 ">
-				<div class="tarjeta">
-					<Card></Card>
-				</div>
-				<div class="tarjeta">
-					<Card></Card>
-				</div>
-				<div class="tarjeta">
-					<video autoplay muted loop src={categoriaVideo}></video>
-				</div>
-				<div class="tarjeta">
-					<Card></Card>
-				</div>				
-				<div class="tarjeta">
-					<Card></Card>
-				</div>
-				<div class="tarjeta">
-					<Card></Card>
-				</div>
-				<div class="tarjeta">
-					<Card></Card>
-				</div>
-				<div class="tarjeta">
-					<Card></Card>
-				</div>
-				<div class="tarjeta">
-					<Card></Card>
-				</div>
-				<div class="tarjeta">
-					<Card></Card>
-				</div>
-			</div>
-
-			</div>
-
+			<div class="tarjetas grid grid-rows-3 grid-cols-2 md:grid-cols-3 *:contents">
+				<slot name="cards"/>
 			</div>
 
 			<div class="text-center">
@@ -86,9 +50,21 @@ import AccordionScript from '../components/AccordionScript.astro';
 				type="button"
 				class="px-6 py-4 bg-gray-900 text-white hover:bg-black transition-all duration-150 mr-6 hover:cursor-pointer"
 				>Ver más</button>
+			</div>
+			
+			<Accordion>
+				<div slot="title">title</div>
+				<div slot="Content" class="bg-white">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure! Quas, similique.
 				</div>
-					<Accordion></Accordion>
-					<Accordion></Accordion>
+			</Accordion>
+			<Accordion>
+				<div slot="title">title</div>
+
+				<div slot="Content">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure! Quas, similique.
+				</div>				
+			</Accordion>
 
 		</main>
 		<Footer></Footer>
@@ -98,7 +74,7 @@ import AccordionScript from '../components/AccordionScript.astro';
 <AccordionScript></AccordionScript>
 
 <script>
-  const imagenes = document.querySelectorAll<HTMLElement>(".imagenes");
+ const imagenes = document.querySelectorAll<HTMLElement>(".imagenes");
   const rightArrow = document.querySelectorAll<HTMLElement>(".rightArrow");
   const leftArrow = document.querySelectorAll<HTMLElement>(".leftArrow");
 
@@ -141,14 +117,5 @@ import AccordionScript from '../components/AccordionScript.astro';
 
   //ARREGLA ESTO COLOCANDO EL METODO EN LA CATEGORIA!!!
   
-
 </script>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

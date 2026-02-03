@@ -8,8 +8,8 @@ import Carrusel from './Carrusel.astro';
         <Carrusel></Carrusel>
     </div>
     <div class="p-4 flex flex-col">
-        <div class=" text-gray-800 text-xl">Mocasines skate</div>
+        <div class=" text-gray-800 text-xl"><slot name="productName"></slot></div>
         <div class="text-sm text-gray-500">6 colores</div>
-        <div class="precio text-gray-900">90€</div>
+        <div class="precio text-gray-900"><slot name="price"></slot></div>
     </div>
 </div>

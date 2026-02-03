@@ -30,13 +30,16 @@ import Carrusel from "../components/Carrusel.astro";
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<body class="">
+	<body class="bg-white">
 		<div>
-			<main class="flex-col bg-white">
+			<main class="flex-col">
 				<Nav />
+				
+			<!-- Imagenes producto -->
+
 				<div class="up md:flex">
 					<div
-						class="hidden left md:flex flex-wrap gap-0 p-4 max-w-7xl mx-auto"
+						class="hidden left md:flex flex-wrap gap-0 max-w-7xl mx-auto"
 					>
 						<img
 							class="w-1/2 h-auto object-contain p-2 m-w-100"
@@ -58,12 +61,14 @@ import Carrusel from "../components/Carrusel.astro";
 							class="w-1/2 h-auto object-contain p-2 m-w-100"
 							src={mocasines5.src}
 						/>
-
 					</div>
-						<div class="md:hidden">
-							<Carrusel></Carrusel>
-						</div>
-					<div class="right max-w-md px-6">
+					<div class="md:hidden">
+						<Carrusel />
+					</div>
+
+					<!-- Menu laterla -->
+
+					<div class="right max-w-md pr-6">
 						<div class="Title">
 							<div class="categoryRoute text-xs text-right">
 								Compra &gt; zapatillas
@@ -76,6 +81,10 @@ import Carrusel from "../components/Carrusel.astro";
 							</div>
 							<div class="precio">95,00€</div>
 						</div>
+
+
+						<!-- Imagenes -->
+
 						<div class="Images">
 							<div
 								class="flex flex-wrap gap-0 p-1 max-w-7xl mx-auto *:border-transparent *:hover:border-solid *:hover:border-2 *:hover:border-black *:transition-all *:duration-150 hover:cursor-pointer"
@@ -101,58 +110,88 @@ import Carrusel from "../components/Carrusel.astro";
 									src={mocasines5.src}
 								/>
 							</div>
-						</div>
-						<div class="Size">
-							<p class="mt-2">Talla</p>
-							<div class="mt-2 px-6 py-4 border-2 border-solid verTallas space-y-4 w-full hover:cursor-pointer flex justify-between items-center">
-								Elige una talla
-								<svg
-            class="w-6 h-6 rotate-90 transition-all duration-150"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 32 32"
-        >
-            <path
-                fill="currentColor"
-                d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
-            />
-							</div>
-							</div>
-							
-							<div class="mt-2 tableLink text-xs hover:cursor-pointer">
-								Tabla de tallas
-							</div>
-						</div>
-						<div class="Sell">
-							<button
-								type="button"
-								class="mt-2 px-6 py-4 bg-gray-900 text-white hover:bg-black transition-all duration-150 space-y-4 min-w-full hover:cursor-pointer"
-								>Añade a la cesta</button
-							>
-							<div class="mt-2 payPalText text-xs">
-								Compra ahora y paga después con PayPal. <a
-									class="underline hover:cursor-pointer"
-									>Más Información</a
-								>
-							</div>
-							<div
-								class="Reserva px-6 py-4 bg-gray-100 underline hover:cursor-pointer flex"
-							>
-		
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M18 8.25H6V20.25H18V8.25ZM4.5 6.75V21.75H19.5V6.75H4.5Z" fill="black"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 6.5625C7.5 4.59499 9.09499 3 11.0625 3H12.9375C14.905 3 16.5 4.59499 16.5 6.5625V8.25H7.5V6.5625ZM11.0625 4.5C9.92341 4.5 9 5.42341 9 6.5625V6.75H15V6.5625C15 5.42341 14.0766 4.5 12.9375 4.5H11.0625Z" fill="black"/>
-<path d="M7.5 11.25C7.51156 11.3052 10.4131 20.25 10.4131 20.25H12.1448L14.8113 12.8075H19.125L19.2506 11.2508H13.5381L11.3248 17.4221L9.33264 11.25H7.5Z" fill="black"/>
-</svg>
 
-								<p class="ml-2">Reserva en tienda</p>
+
+							<!-- Botones -->
+
+							<div class="Size">
+								<p class="mt-2">Talla</p>
+								<div
+									class="mt-2 px-6 py-4 border-2 border-solid verTallas space-y-4 w-full hover:cursor-pointer flex justify-between items-center"
+								>
+									Elige una talla
+									<svg
+										class="w-6 h-6 rotate-90 transition-all duration-150"
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 32 32"
+									>
+										<path
+											fill="currentColor"
+											d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+										></path>
+									</svg>
+								</div>
+
+								<div
+									class="mt-2 tableLink text-xs hover:cursor-pointer"
+								>
+									Tabla de tallas
+								</div>
+							</div>
+							<div class="Sell">
+								<button
+									type="button"
+									class="mt-2 px-6 py-4 bg-neutral-900 text-white hover:bg-black transition-all duration-150 space-y-4 min-w-full hover:cursor-pointer"
+									>Añade a la cesta</button
+								>
+								<div class="mt-2 payPalText text-xs">
+									Compra ahora y paga después con PayPal. <a
+										class="underline hover:cursor-pointer"
+										>Más Información</a
+									>
+								</div>
+								<div
+									class="Reserva px-6 py-4 bg-gray-100 underline hover:cursor-pointer flex"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+									>
+										<path
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+											d="M18 8.25H6V20.25H18V8.25ZM4.5 6.75V21.75H19.5V6.75H4.5Z"
+											fill="black"></path>
+										<path
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+											d="M7.5 6.5625C7.5 4.59499 9.09499 3 11.0625 3H12.9375C14.905 3 16.5 4.59499 16.5 6.5625V8.25H7.5V6.5625ZM11.0625 4.5C9.92341 4.5 9 5.42341 9 6.5625V6.75H15V6.5625C15 5.42341 14.0766 4.5 12.9375 4.5H11.0625Z"
+											fill="black"></path>
+										<path
+											d="M7.5 11.25C7.51156 11.3052 10.4131 20.25 10.4131 20.25H12.1448L14.8113 12.8075H19.125L19.2506 11.2508H13.5381L11.3248 17.4221L9.33264 11.25H7.5Z"
+											fill="black"></path>
+									</svg>
+
+									<p class="ml-2">Reserva en tienda</p>
+								</div>
 							</div>
 						</div>
 					</div>
 
-					<div class="oscuro fixed bg-black top-0 right-0 w-full h-full pointer-events-none z-40"></div>
+					<div
+						class="oscuro fixed bg-black top-0 right-0 w-full h-full pointer-events-none z-40 transition-all duration-150"
+					>
+					</div>
+
+
+
+					<!-- Menu de tallas -->
 
 					<div
-						class="tallas fixed bg-white *:text-black top-0 right-0 h-full backdrop-blur-sm z-999 w-75"
+						class="tallas fixed bg-white *:text-black top-0 -right-20 h-full backdrop-blur-sm z-50 w-75 [transition:right_0.25s_ease-out,opacity_0.15s] pointer-events-none"
 					>
 						<div class="title text-xl py-2 px-2">
 							Elige una talla
@@ -180,7 +219,30 @@ import Carrusel from "../components/Carrusel.astro";
 						</button>
 					</div>
 				</div>
-				<Accordion />
+
+				<!-- Parte inferior de la pagina -->
+
+				<Accordion >
+					<div slot="title">Title</div>
+					<div slot="Content">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Incidunt soluta saepe nemo, fuga impedit cumque quaerat
+						porro accusamus consectetur dolorum, tenetur ratione
+						voluptates blanditiis non voluptas dolor iure! Quas,
+						similique.
+					</div>
+				</Accordion>
+				<Accordion>
+					<div slot="title">Title</div>
+
+					<div slot="Content">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Incidunt soluta saepe nemo, fuga impedit cumque quaerat
+						porro accusamus consectetur dolorum, tenetur ratione
+						voluptates blanditiis non voluptas dolor iure! Quas,
+						similique.
+					</div>
+				</Accordion>
 				<CarruselProducto />
 				<Review />
 				<Footer class="" />
@@ -201,15 +263,14 @@ import Carrusel from "../components/Carrusel.astro";
 			const hamburguesa = document.querySelector<HTMLElement>(".tallas");
 			const abrirHamburguesa =
 				document.querySelector<HTMLElement>(".verTallas");
-			const oscuro =
-				document.querySelector<HTMLElement>(".oscuro");					
-
+			const oscuro = document.querySelector<HTMLElement>(".oscuro");
 
 			if (hamburguesa && abrirHamburguesa && oscuro) {
-				hamburguesa.style.maxWidth = "0px"; //Lo oculto, esto se ejcuta por defecto al iniciar la pagina.
+				hamburguesa.style.opacity = "0";
 				hamburguesa.style.overflow = "hidden";
-				hamburguesa.style.transition = "max-width 0.3s linear";
-				oscuro.style.opacity = "0"
+				// hamburguesa.style.transition = "opacity 0.12s linear";
+				// hamburguesa.style.transition= "max-width 1s linear";
+				oscuro.style.opacity = "0";
 
 				abrirHamburguesa.addEventListener("click", abrirMenu);
 
@@ -217,15 +278,35 @@ import Carrusel from "../components/Carrusel.astro";
 					if (!hamburguesa || !abrirHamburguesa || !oscuro) {
 						return;
 					}
-					oscuro.style.opacity = "0.15"
+					hamburguesa.style.pointerEvents = "auto";
+					oscuro.style.opacity = "0.15";
 
-					if (hamburguesa.style.maxWidth === "0px") {
-						hamburguesa.style.maxWidth =
-							hamburguesa.scrollHeight + "px";
-					} else {
-						hamburguesa.style.maxWidth = "0px";
+					if (hamburguesa.style.opacity == "0") {
+						hamburguesa.style.right = "0";
+						hamburguesa.style.opacity = "1";
 					}
+					oscuro.style.pointerEvents = "auto";
+					oscuro.addEventListener("click", cerrar);
 				}
+			}
+
+			function cerrar() {
+				const hamburguesa =
+					document.querySelector<HTMLElement>(".tallas");
+				const abrirHamburguesa =
+					document.querySelector<HTMLElement>(".verTallas");
+				const oscuro = document.querySelector<HTMLElement>(".oscuro");
+
+				if (!hamburguesa || !abrirHamburguesa || !oscuro) {
+					return;
+				}
+				oscuro.style.opacity = "0.0";
+				hamburguesa.style.opacity = "0";
+				hamburguesa.style.right = "-80px";
+
+				oscuro.removeEventListener("click", cerrar);
+				oscuro.style.pointerEvents = "none";
+				hamburguesa.style.pointerEvents = "auto";
 			}
 		</script>
 		<AccordionScript />
