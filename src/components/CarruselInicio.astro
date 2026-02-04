@@ -43,8 +43,26 @@ import inicio1 from '../assets/inicio1.webm'
 
 <script>
 
-  setInterval(mover, 500)
+  setInterval(mover, 5000)
+  let marco = document.querySelector('.marco');
+  let posicion = 0;
+  let ancho = 0;
+  if (marco!=null){
+    ancho =  marco?.scrollWidth/3;
+  }
   function mover(){
-    //TODO: Que se mueva automatico
+    if (marco==null || ancho==null  || posicion==null){
+        return
+    }
+    posicion += ancho;
+    if(posicion >(marco?.scrollWidth)){
+
+      posicion = 0;
+    }
+      marco?.scrollTo({
+        left: posicion, 
+        top: 0,
+        behavior: "smooth"});
+  
   } 
 </script>

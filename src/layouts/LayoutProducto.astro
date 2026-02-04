@@ -132,6 +132,11 @@ import Carrusel from "../components/Carrusel.astro";
 									</svg>
 								</div>
 
+
+<div
+
+
+
 								<div
 									class="mt-2 tableLink text-xs hover:cursor-pointer"
 								>
@@ -151,7 +156,7 @@ import Carrusel from "../components/Carrusel.astro";
 									>
 								</div>
 								<div
-									class="Reserva px-6 py-4 bg-gray-100 underline hover:cursor-pointer flex"
+									class="Reserva my-4 px-6 py-4 bg-gray-100 underline hover:cursor-pointer flex"
 								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
@@ -190,34 +195,87 @@ import Carrusel from "../components/Carrusel.astro";
 
 					<!-- Menu de tallas -->
 
-					<div
-						class="tallas fixed bg-white *:text-black top-0 -right-20 h-full backdrop-blur-sm z-50 w-75 [transition:right_0.25s_ease-out,opacity_0.15s] pointer-events-none"
-					>
-						<div class="title text-xl py-2 px-2">
-							Elige una talla
-						</div>
-						<button
-							type="button"
-							class="py-2 border-t-2 border-gray-200 border-solid flex justify-between w-full *:px-2"
-						>
-							<div class="talla">37</div>
-							<div class="precio">100€</div>
-						</button>
-						<button
-							type="button"
-							class="py-2 border-t-2 border-gray-200 border-solid flex justify-between w-full *:px-2"
-						>
-							<div class="talla">38</div>
-							<div class="precio">100€</div>
-						</button>
-						<button
-							type="button"
-							class="py-2 border-t-2 bg-gray-100 border-gray-200 border-solid flex justify-between w-full *:px-2 *:text-gray-500"
-						>
-							<div class="talla">38</div>
-							<div class="precio text-xs">agotado</div>
-						</button>
-					</div>
+<!-- Menu de tallas -->
+<div
+  class="tallas fixed bg-white *:text-black md:top-0 md:right-0 md:left-auto -bottom-full left-0 w-full h-3/4 md:h-full backdrop-blur-sm z-50 md:w-96 transition-all duration-300 ease-out pointer-events-none opacity-0"
+>
+  <div class="title text-xl py-4 px-4 border-b border-gray-200">
+    Elige una talla
+  </div>
+  
+  <div class="">
+    <button
+      type="button"
+      class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full hover:bg-gray-50 transition-colors"
+    >
+      <div class="talla font-medium">37</div>
+      <div class="precio">95,00€</div>
+    </button>
+    <button
+      type="button"
+      class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full hover:bg-gray-50 transition-colors"
+    >
+      <div class="talla font-medium">38</div>
+      <div class="precio">95,00€</div>
+    </button>
+    <button
+      type="button"
+      class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full bg-gray-50 cursor-not-allowed"
+    >
+      <div class="talla font-medium text-gray-500">39</div>
+      <div class="precio text-gray-500 text-sm">Agotado</div>
+    </button>
+    <button
+      type="button"
+      class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full hover:bg-gray-50 transition-colors"
+    >
+      <div class="talla font-medium">40</div>
+      <div class="precio">95,00€</div>
+    </button>
+    <button
+      type="button"
+      class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full hover:bg-gray-50 transition-colors"
+    >
+      <div class="talla font-medium">41</div>
+      <div class="precio">95,00€</div>
+    </button>
+    <button
+      type="button"
+      class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full hover:bg-gray-50 transition-colors"
+    >
+      <div class="talla font-medium">42</div>
+      <div class="precio">95,00€</div>
+    </button>
+    <button
+      type="button"
+      class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full hover:bg-gray-50 transition-colors"
+    >
+      <div class="talla font-medium">43</div>
+      <div class="precio">95,00€</div>
+    </button>
+    <button
+      type="button"
+      class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full hover:bg-gray-50 transition-colors"
+    >
+      <div class="talla font-medium">44</div>
+      <div class="precio">95,00€</div>
+    </button>
+    <button
+      type="button"
+      class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full bg-gray-50 cursor-not-allowed"
+    >
+      <div class="talla font-medium text-gray-500">45</div>
+      <div class="precio text-gray-500 text-sm">Agotado</div>
+    </button>
+    <button
+      type="button"
+      class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full hover:bg-gray-50 transition-colors"
+    >
+      <div class="talla font-medium">46</div>
+      <div class="precio">95,00€</div>
+    </button>
+  </div>
+</div>
 				</div>
 
 				<!-- Parte inferior de la pagina -->
@@ -244,8 +302,8 @@ import Carrusel from "../components/Carrusel.astro";
 					</div>
 				</Accordion>
 				<CarruselProducto />
-				<Review />
-				<Footer class="" />
+				<Review/>
+				<Footer/>
 			</main>
 		</div>
 
@@ -259,56 +317,54 @@ import Carrusel from "../components/Carrusel.astro";
 		</style>
 
 		<script>
-			//ABRIR MENU HAMBURGUESA
-			const hamburguesa = document.querySelector<HTMLElement>(".tallas");
-			const abrirHamburguesa =
-				document.querySelector<HTMLElement>(".verTallas");
-			const oscuro = document.querySelector<HTMLElement>(".oscuro");
+  const hamburguesa = document.querySelector<HTMLElement>(".tallas");
+  const abrirHamburguesa = document.querySelector<HTMLElement>(".verTallas, .verTallasResponsive");
+  const oscuro = document.querySelector<HTMLElement>(".oscuro");
 
-			if (hamburguesa && abrirHamburguesa && oscuro) {
-				hamburguesa.style.opacity = "0";
-				hamburguesa.style.overflow = "hidden";
-				// hamburguesa.style.transition = "opacity 0.12s linear";
-				// hamburguesa.style.transition= "max-width 1s linear";
-				oscuro.style.opacity = "0";
+  if (hamburguesa && abrirHamburguesa && oscuro) {
+    hamburguesa.style.opacity = "0";
+    hamburguesa.style.overflow = "hidden";
+    oscuro.style.opacity = "0";
 
-				abrirHamburguesa.addEventListener("click", abrirMenu);
+    abrirHamburguesa.addEventListener("click", abrirMenu);
 
-				function abrirMenu() {
-					if (!hamburguesa || !abrirHamburguesa || !oscuro) {
-						return;
-					}
-					hamburguesa.style.pointerEvents = "auto";
-					oscuro.style.opacity = "0.15";
+    function abrirMenu() {
+		if (hamburguesa== null || oscuro==null || abrirHamburguesa ==null){
+			return
+		}
+      hamburguesa.style.pointerEvents = "auto";
+      oscuro.style.opacity = "0.15";
 
-					if (hamburguesa.style.opacity == "0") {
-						hamburguesa.style.right = "0";
-						hamburguesa.style.opacity = "1";
-					}
-					oscuro.style.pointerEvents = "auto";
-					oscuro.addEventListener("click", cerrar);
-				}
-			}
+      if (hamburguesa.style.opacity === "0") {
+        if (window.innerWidth < 768) { // VER SI ES RESPONSIVE O NO
+          hamburguesa.style.bottom = "0";
+          hamburguesa.style.right = "auto";
+        } else {
+          hamburguesa.style.right = "0";
+          hamburguesa.style.bottom = "auto";
+        }
+        hamburguesa.style.opacity = "1";
+      }
+      
+      oscuro.style.pointerEvents = "auto";
+      oscuro.addEventListener("click", cerrar);
+    }
 
-			function cerrar() {
-				const hamburguesa =
-					document.querySelector<HTMLElement>(".tallas");
-				const abrirHamburguesa =
-					document.querySelector<HTMLElement>(".verTallas");
-				const oscuro = document.querySelector<HTMLElement>(".oscuro");
-
-				if (!hamburguesa || !abrirHamburguesa || !oscuro) {
-					return;
-				}
-				oscuro.style.opacity = "0.0";
-				hamburguesa.style.opacity = "0";
-				hamburguesa.style.right = "-80px";
-
-				oscuro.removeEventListener("click", cerrar);
-				oscuro.style.pointerEvents = "none";
-				hamburguesa.style.pointerEvents = "auto";
-			}
-		</script>
+    function cerrar() {
+		if (hamburguesa== null || oscuro==null || abrirHamburguesa ==null){
+			return
+		}
+      oscuro.style.opacity = "0.0";
+      hamburguesa.style.opacity = "0";
+      hamburguesa.style.right = "-80px";
+      hamburguesa.style.bottom = "-80px";
+      
+      oscuro.removeEventListener("click", cerrar);
+      oscuro.style.pointerEvents = "none";
+      hamburguesa.style.pointerEvents = "none";
+    }
+  }
+</script>
 		<AccordionScript />
 	</body>
 </html>
