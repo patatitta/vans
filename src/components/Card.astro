@@ -1,15 +1,15 @@
 ---
-import impermeables from '../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes.avif';
-import Carrusel from './Carrusel.astro';
+import impermeables from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes.avif";
+import Carrusel from "./Carrusel.astro";
 ---
 
-<div class="card flex flex-col h-full">
-    <div class="">
-        <Carrusel></Carrusel>
-    </div>
-    <div class="p-4 flex flex-col">
-        <div class=" text-gray-800 text-xl"><slot name="productName"></slot></div>
-        <div class="text-sm text-gray-500">6 colores</div>
-        <div class="precio text-gray-900"><slot name="price"></slot></div>
-    </div>
+<div class="card flex flex-col">
+  <div class="">
+    <Carrusel />
+  </div>
+  <div class="p-4 flex flex-col">
+    <div class="text-gray-800 text-xl"><slot name="productName" /></div>
+    <div class="text-sm text-gray-500">6 colores</div>
+    <div class="precio text-gray-900"><slot name="price" /></div>
+  </div>
 </div>
