@@ -1,13 +1,14 @@
 ---
-import vansLogo from "../assets/Vans-logo.svg.png";
 import "../styles/global.css";
 import HamburguesaNav from "./HamburguesaNav.astro";
 ---
 
 <HamburguesaNav />
 
-<nav class="sticky top-0 left-0 w-full h-20 flex flex-col bg-white z-40">
-  <div class="w-full h-20 grid grid-rows-1 grid-cols-2 md:grid-cols-3 bg-white">
+<nav
+  class="sticky top-0 left-0 w-full h-20 flex flex-col bg-white z-40 transition-all length-150"
+>
+  <div class="h-20 grid grid-rows-1 grid-cols-2 md:grid-cols-3">
     <!--Icono para abrir hamburguesa -->
     <div class="hidden md:flex items-center hamburguesa pl-3">
       <svg
@@ -15,6 +16,7 @@ import HamburguesaNav from "./HamburguesaNav.astro";
         id="abrirHamburguesa"
         viewBox="0 0 32 32"
         class="w-10 h-10 hover:bg-gray-500 transition-all duration-150 p-1 hover:cursor-pointer"
+        fill="currentColor"
       >
         <path
           d="M5.9 7.9h20.2v2.2H5.9V7.9Zm0 7h20.2v2.2H5.9v-2.2Zm0 7h20.2v2.2H5.9v-2.2Z"
@@ -25,11 +27,18 @@ import HamburguesaNav from "./HamburguesaNav.astro";
     <!-- Logo -->
 
     <div class="flex items-center justify-start md:justify-center ml-2 md:ml-0">
-      <img
-        src={vansLogo.src}
-        alt="Vans logo"
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        width="67"
+        height="23"
+        viewBox="0 0 25 9"
         class="h-1/4 md:h-1/3 w-auto hover:-rotate-2 transition-all duration-150 hover:cursor-pointer"
-      />
+      >
+        <path
+          d="m8.84 6.5.67-2.01.66 2H8.84ZM6.3 8.51h1.72l.33-.94h2.28l.33.94h1.7L10.5 2.5H8.67L6.3 8.52Zm8.57-3.04 2.25 3.04h1.4V2.5h-1.62v3.28L14.88 2.5h-1.56v6.02h1.56V5.48ZM0 0l3.03 8.53h1.8L7.6 1.47h17.2L24.95 0H6.27l-2.3 5.85L1.9 0H0Zm24.42 4.2h-1.44c-.14-.36-.3-.63-1.1-.63-.57 0-.8.23-.8.46 0 .25.2.47.81.6l1.3.36c.87.23 1.28.91 1.28 1.63 0 .4-.08.9-.46 1.29-.29.3-.72.69-2.14.69-1.96 0-2.6-1.25-2.6-2h1.52c.15.55.53.76 1.27.76.51 0 .96-.18.96-.58 0-.38-.32-.52-.74-.63l-1.03-.28c-.5-.15-.92-.28-1.21-.53a1.56 1.56 0 0 1 .12-2.45c.47-.35.94-.52 1.7-.52.88 0 1.4.25 1.79.53.35.24.77.83.77 1.3Z"
+        ></path>
+      </svg>
     </div>
 
     <!-- Otros iconos -->
@@ -39,6 +48,7 @@ import HamburguesaNav from "./HamburguesaNav.astro";
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           class="w-10 h-10 hover:bg-gray-500 transition-all duration-150 p-1 hover:cursor-pointer"
+          fill="currentColor"
         >
           <path
             fill-rule="evenodd"
@@ -49,10 +59,10 @@ import HamburguesaNav from "./HamburguesaNav.astro";
         <svg
           viewBox="0 0 32 32"
           class="hidden md:block w-10 h-10 hover:bg-gray-500 transition-all duration-150 p-1 hover:cursor-pointer"
+          fill="currentColor"
         >
           <path
             xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
             d="m11.35 10.61-6.06.51-.23.03a2.5 2.5 0 0 0-1.2 4.35l4.6 4-1.37 5.93-.04.22a2.5 2.5 0 0 0 3.77 2.48L16 25l5.18 3.14.2.11c1.85.92 4.01-.73 3.53-2.81l-1.38-5.94 4.6-3.99.17-.16a2.5 2.5 0 0 0-1.6-4.22l-6.05-.5-2.35-5.6a2.5 2.5 0 0 0-4.6 0l-2.35 5.6Zm5.33-4.9 2.56 6.08c.13.3.41.5.74.53l6.58.55c.65.06.92.87.42 1.3l-5 4.34a.88.88 0 0 0-.28.86l1.5 6.46a.74.74 0 0 1-1.1.8l-5.65-3.43a.88.88 0 0 0-.9 0L9.9 26.63a.74.74 0 0 1-1.1-.8l1.49-6.46a.88.88 0 0 0-.28-.86l-5-4.34a.74.74 0 0 1 .42-1.3l6.58-.55c.33-.02.61-.23.74-.53l2.56-6.08a.74.74 0 0 1 1.36 0Z"
           ></path>
         </svg>
@@ -61,6 +71,7 @@ import HamburguesaNav from "./HamburguesaNav.astro";
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           class="w-10 h-10 hover:bg-gray-500 transition-all duration-150 p-1 hover:cursor-pointer"
+          fill="currentColor"
         >
           <path d="M19 17.59 26.41 25 25 26.41 17.59 19 19 17.59Z"></path>
           <path
@@ -73,6 +84,7 @@ import HamburguesaNav from "./HamburguesaNav.astro";
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
           class="w-10 h-10 hover:bg-gray-500 transition-all duration-150 p-1 hover:cursor-pointer"
+          fill="currentColor"
         >
           <path
             d="M12 26a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm12 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
@@ -93,7 +105,9 @@ import HamburguesaNav from "./HamburguesaNav.astro";
             viewBox="0 0 32 32"
             id="abrirHamburguesaResponsive"
             class="w-10 h-10 hover:bg-gray-500 transition-all duration-150 p-1 hover:cursor-pointer"
-          >
+         fill="currentColor"
+
+            >
             <path
               d="M5.9 7.9h20.2v2.2H5.9V7.9Zm0 7h20.2v2.2H5.9v-2.2Zm0 7h20.2v2.2H5.9v-2.2Z"
             ></path>
@@ -130,7 +144,12 @@ import HamburguesaNav from "./HamburguesaNav.astro";
     //activo eventos, lo hago visible, y lo muevo a donde debe de estar
     hamburguesa.style.pointerEvents = "auto";
     hamburguesa.style.opacity = "1";
-    hamburguesa.style.left = "0px";
+    if (window.innerWidth < 768) {
+    hamburguesa.style.bottom = "0px";
+    }
+    else{
+      hamburguesa.style.left = "0px"
+    }
     document.addEventListener("click", cerrarMenu);
     cerrar.addEventListener("click", cerrarMenu);
   }
@@ -147,9 +166,14 @@ import HamburguesaNav from "./HamburguesaNav.astro";
       ) {
         return;
       }
-      hamburguesa.style.left = 0.25 * -20 + "rem"; //Formula del left en tailwind.
-      hamburguesa.style.opacity = "0";
-      hamburguesa.style.pointerEvents = "none";
+      if (window.innerWidth < 768) {
+        hamburguesa.style.bottom = 0.25 * -20 + "rem";
+      }
+      else{
+        hamburguesa.style.left = 0.25 * -20 + "rem"; //Formula del left en tailwind.
+      }
+        hamburguesa.style.opacity = "0";
+        hamburguesa.style.pointerEvents = "none";      
     }
   }
 </script>

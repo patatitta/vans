@@ -33,7 +33,6 @@ import AccordionScript from "../components/AccordionScript.astro";
           </div>
           <div class="flex justify-between">
             <div class="showFilters flex ml-5 mt-2">
-              <p class="hidden md:block">
                 <div class="hidden md:block">
                   <div class="flex">
                     Mostrar Filtros
@@ -47,7 +46,6 @@ import AccordionScript from "../components/AccordionScript.astro";
                     >
                   </div>
                 </div>
-              </p>
               <p class="md:hidden text-xs">1000 Producto</p>
             </div>
 
@@ -67,8 +65,7 @@ import AccordionScript from "../components/AccordionScript.astro";
           </div>
         </div>
 
-        <div class="md:hidden">
-          <p class="md:hidden botonFiltrosResponsive">
+        <div class="md:hidden botonFiltrosResponsive">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
@@ -77,12 +74,10 @@ import AccordionScript from "../components/AccordionScript.astro";
                 d="M19.9 5.9v6.2h2.2v-2h5V7.9h-5v-2h-2.2Zm-1.8 2H4.9v2.2h13.2V7.9Zm-8.2 5v2h-5v2.2h5v2h2.2v-6.2H9.9Zm17.2 2H13.9v2.2h13.2v-2.2Zm-12.07 5v6.2h2.19v-2h9.87v-2.2h-9.87v-2h-2.19Zm-2.4 2H4.95v2.17h7.68V21.9Z"
               ></path></svg
             >
-          </p>
         </div>
       </div>
 
       
-    </main>
 
 
     <div class="flex">
@@ -287,6 +282,8 @@ import AccordionScript from "../components/AccordionScript.astro";
         Quas, similique.
       </div>
     </Accordion>
+        </main>
+
   </body>
   <Footer />
 </html>
@@ -370,43 +367,62 @@ const oscuro = document.querySelector<HTMLElement>(".oscuro");
   //ABRIR PC
 
   if (botonFiltros != null && menuFiltros != null) {
-    botonFiltros.addEventListener("click", (e) => {
-      if (abierto == false) {
-        menuFiltros.style.display = "block";
-        abierto = true;
-      } else {
-        menuFiltros.style.display = "none";
-        abierto = false;
-
-      }
-    });
+    botonFiltros.addEventListener("click", abrirMenu)
   }
 
+  function abrirMenu() {
+    if(menuFiltros == null){
+      return
+    }
+      if (abierto == false ) {
+        menuFiltros.style.display = "block";
+        abierto = true;
+     } else {
+        menuFiltros.style.display = "none";
+        abierto = false;
+      }
+    };
 
 
   //ABRIR RESPONSIVE
 
 
   if (botonFiltrosResponsive != null && oscuro!=null && menuFiltros != null) {
-    botonFiltrosResponsive.addEventListener("click", (e) => {
+    botonFiltrosResponsive.addEventListener("click", abrirMenuResponsive)
+  }
+
+
+  function abrirMenuResponsive(){
+    if(menuFiltros == null  || oscuro == null){
+      return
+    }
 		if (abierto == false) {
 			menuFiltros.style.opacity = "1";
 		  oscuro.style.opacity = "0.25";
 			menuFiltros.style.transform = "translateY(-75%)";
         abierto = true;
+       document.addEventListener("click", cerrarFuera);
+ 
       } else {
 		menuFiltros.style.transform = "translateY(75%)";
 			   oscuro.style.opacity="0"
-			   menuFiltros.style.opacity ="0";
+			   menuFiltros.style.opacity = "0";
 			   abierto = false;
-	
+          document.removeEventListener("click", cerrarFuera);
+ 	
       }
-    });
+    ;
   }
 
-
-  
-
+function cerrarFuera(e: Event){
+  let target = (e.target) as HTMLElement;
+  if(target==null){
+    return
+  }
+  if(!menuFiltros?.contains(target) && !botonFiltrosResponsive?.contains(target)){
+    abrirMenuResponsive();
+  }
+}
 
 
   const cuadrado = document.querySelector<HTMLElement>(".cuadrado");
