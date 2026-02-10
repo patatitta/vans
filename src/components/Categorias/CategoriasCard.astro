@@ -1,0 +1,18 @@
+---
+import impermeables from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes.avif";
+import GeneralCarrusel from "@general/GeneralCarrusel.astro";
+
+
+const {Nombre, Colores, Precio, arrayImagenes } = Astro.props;
+---
+
+<div class="card flex flex-col">
+  <div class="">
+    <GeneralCarrusel arrayImagenes ={arrayImagenes}/>
+  </div>
+  <div class="p-4 flex flex-col">
+    <div class="text-gray-800 text-xl">{Nombre}</div>
+    <div class="text-sm text-gray-500">{Colores} colores</div>
+    <div class="precio text-gray-900">{Precio}€</div>
+  </div>
+</div>

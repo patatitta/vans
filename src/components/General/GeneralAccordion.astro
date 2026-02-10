@@ -1,8 +1,12 @@
+---
+const { title, content } = Astro.props;
+---
+
 <div class="accordionsProduct">
   <div
     class="text-white Open hover:cursor-pointer productBuy ms-6 px-3 py-2 border-b-2 border-white/20 mix-blend-difference flex justify-between bg-transparent"
   >
-    <slot name="title" />
+    {title}
     <svg
       class="w-6 h-6 rotate-90 transition-all duration-150"
       xmlns="http://www.w3.org/2000/svg"
@@ -15,6 +19,7 @@
     </svg>
   </div>
   <div class="Hidden *:ms-4 mt-4">
-    <slot name="Content" />
+    {content}
+    <slot></slot>
   </div>
 </div>

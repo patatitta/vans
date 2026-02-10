@@ -1,0 +1,298 @@
+---
+import GeneralAccordion from "@components/General/GeneralAccordion.astro";
+
+
+
+---
+
+<div class="oscuro z-50 bg-black fixed inset-0 min-w-full pointer-events-none opacity-0 md:hidden" ></div>
+
+      <!-- MENU FILTROS-->
+<div class="z-50 w-full md:min-w-1/4 max-h-6/7 bg-white opacity-0 md:hidden md:opacity-100 filtros md:static fixed bottom-0 translate-y-3/4 md:translate-y-0 transition-all duration-150 ease-out overflow-y-auto">
+    <GeneralAccordion title="Orden">
+
+          <div>
+            <ul>
+              <li>
+                <input type="radio" id="importancia" name="orden" />
+                <label for="orden">Importancia</label>
+              </li>
+              <li>
+                <input type="radio" id="bajoAlto" name="orden" />
+                <label for="bajoAlto">Precios: De bajo a alto</label>
+              </li>
+              <li>
+                <input type="radio" id="altoBajo" name="orden" />
+                <label for="altoBajo">Precios: De alto a bajo</label>
+              </li>
+              <li>
+                <input type="radio" id="masVendidos" name="orden" />
+                <label for="masVendidos">Más vendidos</label>
+              </li>
+              <li>
+                <input type="radio" id="novedades" name="orden" />
+                <label for="novedades">Novedades</label>
+              </li>
+            </ul>
+          </div>
+        </GeneralAccordion>
+        <GeneralAccordion title="Tipo de producto">
+
+          <div>
+            <ul class="*:my-1">
+              <li>
+                <input type="checkbox" id="zapatos" class="mr-1" />
+                <label for="zapatos">Zapatos</label>
+              </li>
+              <li>
+                <input type="checkbox" id="accesorios" class="mr-1" />
+                <label for="accesorios">Accesorios</label>
+              </li>
+              <li>
+                <input type="checkbox" id="ropa" class="mr-1" />
+                <label for="ropa">Ropa</label>
+              </li>
+              <li>
+                <input type="checkbox" id="snowboard" class="mr-1" />
+                <label for="snowboard">Botas de snowboard</label>
+              </li>
+            </ul>
+          </div>
+        </GeneralAccordion>
+        <GeneralAccordion title="Genero">
+
+          <div>
+            <ul class="*:my-1">
+              <li>
+                <input type="checkbox" id="mujer" class="mr-1" />
+                <label for="mujer">Mujer</label>
+              </li>
+              <li>
+                <input type="checkbox" id="hombre" class="mr-1" />
+                <label for="hombre">Hombre</label>
+              </li>
+              <li>
+                <input type="checkbox" id="chicas" class="mr-1" />
+                <label for="chicas">Chicas (8-14)</label>
+              </li>
+              <li>
+                <input type="checkbox" id="chicos" class="mr-1" />
+                <label for="chicos">Chicos (8-14)</label>
+              </li>
+              <li>
+                <input type="checkbox" id='kids"' class="mr-1" />
+                <label for="kids">Niños (0-8)</label>
+              </li>
+            </ul>
+          </div>
+        </GeneralAccordion>
+        <GeneralAccordion title="Talla">
+
+          <div>
+            <ul
+              class="*:p-2 *:border *:m-1 flex cuadrado *:transition-all *:length-150"
+            >
+              <li id="opcionCuadrado">
+                <div class="">22</div>
+              </li>
+              <li id="opcionCuadrado">
+                <div class="">23</div>
+              </li>
+              <li id="opcionCuadrado">
+                <div class="">24</div>
+              </li>
+              <li id="opcionCuadrado">
+                <div class="">25</div>
+              </li>
+            </ul>
+          </div>
+        </GeneralAccordion>
+        <GeneralAccordion title="Color">
+
+          <div>
+            <ul class="grid grid-cols-6 gap-4 text-xs">
+              <li class="flex flex-col items-center justify-center">
+                <div class="w-3/4 aspect-square rounded-full bg-black"></div>
+                <div class="py-3">Negro</div>
+              </li>
+
+              <li class="flex flex-col items-center justify-center">
+                <div class="w-3/4 aspect-square rounded-full bg-white border">
+                </div>
+                <div class="py-3">Blanco</div>
+              </li>
+
+              <li class="flex flex-col items-center justify-center">
+                <div
+                  class="w-3/4 aspect-square rounded-full bg-[rgb(40,62,141)]"
+                >
+                </div>
+                <div class="py-3">Azul</div>
+              </li>
+
+              <li class="flex flex-col items-center justify-center">
+                <div
+                  class="w-3/4 aspect-square rounded-full bg-[rgb(204,153,102)]"
+                >
+                </div>
+                <div class="py-3">Beis</div>
+              </li>
+
+              <li class="flex flex-col items-center justify-center">
+                <div class="w-3/4 aspect-square rounded-full bg-black"></div>
+                <div class="py-3">Negro</div>
+              </li>
+
+              <li class="flex flex-col items-center justify-center">
+                <div class="w-3/4 aspect-square rounded-full bg-white border">
+                </div>
+                <div class="py-3">Blanco</div>
+              </li>
+
+              <li class="flex flex-col items-center justify-center">
+                <div
+                  class="w-3/4 aspect-square rounded-full bg-[rgb(40,62,141)]"
+                >
+                </div>
+                <div class="py-3">Azul</div>
+              </li>
+
+              <li class="flex flex-col items-center justify-center">
+                <div
+                  class="w-3/4 aspect-square rounded-full bg-[rgb(204,153,102)]"
+                >
+                </div>
+                <div class="py-3">Beis</div>
+              </li>
+            </ul>
+          </div>
+        </GeneralAccordion>
+      </div>
+      <div
+        class="grow tarjetas grid grid-rows-3 grid-cols-2 md:grid-cols-3 *:contents"
+      >
+        <slot name="cards" />
+      </div>
+
+
+
+    <script>
+        
+  // MENU FILTROS
+  document.addEventListener('DOMContentLoaded', () => {
+
+      const botonFiltros = document.querySelector<HTMLElement>(".botonFiltros");
+        const botonFiltrosResponsive = document.querySelector<HTMLElement>(".botonFiltrosResponsive");
+            const menuFiltros = document.querySelector<HTMLElement>(".filtros");
+                const oscuro = document.querySelector<HTMLElement>(".oscuro");
+                    let abierto = false;
+                    
+                    //ABRIR LA PRIMERA DE DEFAULT, O TODAS SI ES RESPONSIVE
+                    if (menuFiltros != null) {
+                        
+                        
+
+		if (window.innerWidth < 768) {
+            
+            for (let iterable of menuFiltros.children){
+                (iterable.firstElementChild as HTMLElement).click();
+			}
+		}
+		else{
+            console.log(menuFiltros.firstElementChild?.firstElementChild)
+            menuFiltros.style.display = "block";
+			(menuFiltros.firstElementChild?.firstElementChild as HTMLElement)?.click();
+            menuFiltros.style.display = "none";
+            
+		}
+	}
+    
+    
+    
+    
+    //ABRIR PC
+    
+    if (botonFiltros != null && menuFiltros != null) {
+        botonFiltros.addEventListener("click", abrirMenu)
+    }
+    
+    function abrirMenu() {
+        if(menuFiltros == null){
+            return
+        }
+        if (abierto == false ) {
+            menuFiltros.style.display = "block";
+            abierto = true;
+        } else {
+        menuFiltros.style.display = "none";
+        abierto = false;
+      }
+    };
+    
+    
+    //ABRIR RESPONSIVE
+    
+    
+    
+    
+    if (botonFiltrosResponsive != null && oscuro!=null && menuFiltros != null) {
+        botonFiltrosResponsive.addEventListener("click", abrirMenuResponsive)
+    }
+    
+    
+    function abrirMenuResponsive(){
+        if(menuFiltros == null  || oscuro == null){
+            return
+        }
+		if (abierto == false) {
+            menuFiltros.style.opacity = "1";
+            oscuro.style.opacity = "0.25";
+			menuFiltros.style.transform = "translateY(-75%)";
+            abierto = true;
+            document.addEventListener("click", cerrarFuera);
+            
+        } else {
+            menuFiltros.style.transform = "translateY(75%)";
+            oscuro.style.opacity="0"
+            menuFiltros.style.opacity = "0";
+            abierto = false;
+            document.removeEventListener("click", cerrarFuera);
+            
+        }
+        ;
+    }
+    
+    function cerrarFuera(e: Event){
+        let target = (e.target) as HTMLElement;
+        if(target==null){
+            return
+        }
+        if(!menuFiltros?.contains(target) && !botonFiltrosResponsive?.contains(target)){
+            abrirMenuResponsive();
+        }
+    }
+    
+    
+    const cuadrado = document.querySelector<HTMLElement>(".cuadrado");
+        if (cuadrado != null) {
+            cuadrado.addEventListener("click", colorear);
+        }
+        
+        function colorear(e: Event) {
+            if (e.target == null) {
+                return;
+            }
+            let seleccion = (e.target as HTMLInputElement).closest("li");
+    if (seleccion == null || seleccion.id != "opcionCuadrado") {
+        return;
+    }
+    if (seleccion.style.backgroundColor != "black") {
+        seleccion.style.backgroundColor = "black";
+        seleccion.style.color = "white";
+    } else {
+        seleccion.style.backgroundColor = "white";
+        seleccion.style.color = "black";
+    }
+}
+})
+</script>

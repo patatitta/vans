@@ -1,36 +1,24 @@
 ---
-import mocasines1 from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes.avif";
-import mocasines2 from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (1).avif";
-import mocasines3 from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (2).avif";
-import mocasines4 from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (3).avif";
-import mocasines5 from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (4).avif";
+
+
+const {arrayImagenes } = Astro.props;
+
+
 ---
 
 <div class="carrusel w-full h-full relative group overflow-hidden">
   <div class="marco w-full h-full overflow-auto">
     <div class="imagenes flex transition-all duration-150">
-      <img
+
+      {ArrayImagenes.map((Imagen) =>(
+
+        <img
         class="w-full min-w-full h-full object-contain p-2 shrink-0"
-        src={mocasines1.src}
-      />
-      <img
-        class="w-full min-w-full h-full object-contain p-2 shrink-0"
-        src={mocasines2.src}
-      />
-      <img
-        class="w-full min-w-full h-full object-contain p-2 shrink-0"
-        src={mocasines3.src}
-      />
-      <img
-        class="w-full min-w-full h-full object-contain p-2 shrink-0"
-        src={mocasines4.src}
-      />
-      <img
-        class="w-full min-w-full h-full object-contain p-2 shrink-0"
-        src={mocasines5.src}
-      />
-    </div>
-  </div>
+        src={Imagen.src}
+        />
+      ))}
+</div>
+</div>
 
   <!-- Flecha izquierda -->
   <button
@@ -77,3 +65,50 @@ import mocasines5 from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes 
     </svg>
   </button>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+const imagenes = document.querySelectorAll<HTMLElement>(".imagenes");
+  const rightArrow = document.querySelectorAll<HTMLElement>(".rightArrow");
+  const leftArrow = document.querySelectorAll<HTMLElement>(".leftArrow");
+
+  let contador = 0;
+  // function moverDerecha(){
+  //     if(imagenes != null){
+  //         imagenes.append(imagenes.firstElementChild);
+  //     }
+  // }
+  // imagenes?.addEventListener("click", moverDerecha);
+
+  // function moverIzquierda(){
+  //     if(imagenes != null){
+  //         imagenes.prepend(imagenes.lastElementChild);
+  //     }
+  // }
+  // imagenes?.addEventListener("keyup", moverIzquierda);
+  // Loop through each element
+  for (let iteracion of imagenes) {
+    let currentPosition = 0;
+
+    function moverDerecha() {
+      if (currentPosition > -400) {
+        currentPosition -= 100;
+        iteracion!.style.transform = `translateX(${currentPosition}%)`;
+      }
+    }
+
+    function moverIzquierda() {
+      if (currentPosition <= -100) {
+        currentPosition += 100;
+        iteracion!.style.transform = `translateX(${currentPosition}%)`;
+      }
+    }
+
+    rightArrow[contador].addEventListener("click", moverDerecha);
+    leftArrow[contador].addEventListener("click", moverIzquierda);
+    contador += 1;
+  }
+})
+
+</script>

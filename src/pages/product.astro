@@ -1,10 +1,84 @@
 ---
-import LayoutProducto from "../layouts/LayoutProducto.astro";
+import GeneralCarrusel from "@general/GeneralCarrusel.astro"
+import Layout from "../layouts/Layout.astro"
+import ProductoImagenes from "@producto/ProductoImagenes.astro";
+import ProductoLateral from "@producto/ProductoLateral.astro"
+import ProductoTallas from "@producto/ProductoTallas.astro"
+import GeneralAccordion from "@general/GeneralAccordion.astro"
+import GeneralAccordionScript from "@general/GeneralAccordionScript.astro"
+import ProductoReview from "@producto/ProductoReview.astro"
+import ProductoCarrusel from "@producto/ProductoCarrusel.astro"
 
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import mocasines1 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes.avif";
+import mocasines2 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (1).avif";
+import mocasines3 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (2).avif";
+import mocasines4 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (3).avif";
+import mocasines5 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (4).avif";
+
+
+let ArrayProductoImagenes = [mocasines1, mocasines2, mocasines3, mocasines4, mocasines5, mocasines1]
+let ArrayRecomendaciones = [
+    {
+        Nombre: "Zapatillas Knu Skool",
+        Imagen: mocasines1,
+        Precio: 100
+    },
+    {
+        Nombre: "Zapatillas Knu Skool",
+        Imagen: mocasines1,
+        Precio: 10
+    },
+    {
+        Nombre: "Zapatillas Knu Skool",
+        Imagen: mocasines4,
+        Precio: 100
+    },
+    {
+        Nombre: "Zapatillas  s Skool",
+        Imagen: mocasines1,
+        Precio: 100
+    },
+    {
+        Nombre: "Zapatillas Knu Skool",
+        Imagen: mocasines1,
+        Precio: 100
+    },
+    {
+        Nombre: "Zapatillas Knu Skool",
+        Imagen: mocasines1,
+        Precio: 100
+    }
+]
+
+
+
 ---
 
-<LayoutProducto>
-</LayoutProducto>
+<Layout>
+    <div class="up md:flex">
+    <ProductoImagenes ArrayProductoImagenes={ArrayProductoImagenes}></ProductoImagenes>
+    
+    <div class="md:hidden">
+        <GeneralCarrusel/>
+    </div>
+    
+    <ProductoLateral ArrayColoresImagenes={ArrayProductoImagenes} Precio=100 Nombre="Zapatillas Knu Skool" Descripcion="Uso Diario, diseño retro" Categoria="zapatillas" />
+    <ProductoTallas>
+</div>
+
+
+    <GeneralAccordion
+      title="title"
+      content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure! Quas, similique"
+    />
+    <GeneralAccordion
+      title="title"
+      content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure! Quas, similique"
+    />
+        <GeneralAccordionScript/>
+        <ProductoCarrusel  ArrayRecomendaciones={ArrayRecomendaciones}/>
+        <ProductoReview NumeroReviews="300" Puntuacion=51 /> <!-- La puntuacion que hay que mandar es SOBRE 100 -->
+
+    </Layout>
+

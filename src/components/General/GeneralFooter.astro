@@ -1,51 +1,30 @@
 ---
-import "../styles/global.css";
-import Accordion from "./Accordion.astro";
-import AccordionScript from "./AccordionScript.astro";
-import spain from "../assets/spain.svg"
+import Accordion from "./GeneralAccordion.astro";
+import AccordionScript from "./GeneralAccordionScript.astro";
+const { flag, lang } = Astro.props;
 ---
 
-<footer class="*:bg-neutral-900 text-white bg-neutral-900 mt-3">
+<footer class="*:bg-neutral-900 text-white bg-neutral-900">
   <div class="accordions md:max-w-1/4">
-    <Accordion>
-      <div slot="title">title</div>
-      <div slot="Content">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta
-        saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur
-        dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure!
-        Quas, similique.
-      </div>
-    </Accordion>
-    <Accordion>
-      <div slot="title">title</div>
+    <Accordion
+      title="title"
+      content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure! Quas, similique"
+    />
 
-      <div slot="Content">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta
-        saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur
-        dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure!
-        Quas, similique.
-      </div>
-    </Accordion>
-    <Accordion>
-      <div slot="title">title</div>
+    <Accordion
+      title="title"
+      content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure! Quas, similique"
+    />
 
-      <div slot="Content">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta
-        saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur
-        dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure!
-        Quas, similique.
-      </div>
-    </Accordion>
-    <Accordion>
-      <div slot="title">title</div>
+    <Accordion
+      title="title"
+      content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure! Quas, similique"
+    />
 
-      <div slot="Content">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta
-        saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur
-        dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure!
-        Quas, similique.
-      </div>
-    </Accordion>
+    <Accordion
+      title="title"
+      content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure! Quas, similique"
+    />
   </div>
   <div class="bottomText *:ms-12 max-w-full md:max-w-1/4">
     <div class="icons flex">
@@ -91,7 +70,8 @@ import spain from "../assets/spain.svg"
       </svg>
     </div>
     <div class="idioma flex">
-      <a class="hover:cursor-pointer hover:underline flex items-center text-xs "><img class=" w-5 h-5 mr-2" src={spain.src}> ES | Cambiar de pais</a
+      <a class="hover:cursor-pointer hover:underline flex items-center text-xs"
+        ><img class="w-5 h-5 mr-2" src={flag} /> {lang} | Cambiar de pais</a
       >
     </div>
     <div class="links *:text-xs">

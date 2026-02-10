@@ -1,19 +1,23 @@
 ---
 import GeneralHeader from "../components/General/GeneralHeader.astro";
-import Nav from "../components/Nav.astro";
-import Footer from "../components/Footer.astro";
+import Nav from "@general/GeneralNav.astro";
+import Footer from "@general/GeneralFooter.astro";
+
+const {title, lang, flag} = Astro.props
 
 
 ---
 
-<GeneralHeader>
+<GeneralHeader title={title} lang={lang}/>
 
-</GeneralHeader>
+
 
   <body class="bg-white">
     <Nav/>
+    <main>
     <slot>
-        
+
     </slot>
-    <Footer/>
+  </main>
+    <Footer flag={flag}/>
 </body>

@@ -2,18 +2,19 @@
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
 import Review from "../components/Review.astro";
-import CarruselProducto from "../components/CarruselProducto.astro";
+import GeneralCarrusel from "@general/GeneralCarrusel.astro";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 
-import mocasines1 from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes.avif";
-import mocasines2 from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (1).avif";
-import mocasines3 from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (2).avif";
-import mocasines4 from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (3).avif";
-import mocasines5 from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (4).avif";
+import mocasines1 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes.avif";
+import mocasines2 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (1).avif";
+import mocasines3 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (2).avif";
+import mocasines4 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (3).avif";
+import mocasines5 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (4).avif";
 import Accordion from "../components/Accordion.astro";
 import AccordionScript from "../components/AccordionScript.astro";
-import Carrusel from "../components/Carrusel.astro";
+import CarruselProducto from "@components/CarruselProducto.astro";
+
 ---
 
 <!doctype html>
@@ -57,10 +58,10 @@ import Carrusel from "../components/Carrusel.astro";
             />
           </div>
           <div class="md:hidden">
-            <Carrusel />
+            <GeneralCarrusel/>
           </div>
 
-          <!-- Menu laterla -->
+          <!-- Menu lateral -->
 
           <div class="right max-w-md pr-6">
             <div class="Title">
