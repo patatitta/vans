@@ -1,10 +1,12 @@
 ---
 import GeneralAccordion from "@components/General/GeneralAccordion.astro";
+const {numeroCards, numeroProductos} = Astro.props;
+
 
 ---
 
 <div class="text-center">
-      <p>Viendo 48 de 1185 Productos</p>
+      <p>Viendo {numeroCards} de {numeroProductos} Productos</p>
       <button
         type="button"
         class="px-6 py-4 bg-gray-900 text-white hover:bg-black transition-all duration-150 mr-6 hover:cursor-pointer"
@@ -12,22 +14,6 @@ import GeneralAccordion from "@components/General/GeneralAccordion.astro";
       >
     </div>
 
-    <GeneralAccordion>
-      <div slot="title">title</div>
-      <div slot="Content" class="bg-white">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta
-        saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur
-        dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure!
-        Quas, similique.
-      </div>
-    </GeneralAccordion>
-    <GeneralAccordion>
-      <div slot="title">title</div>
+    <GeneralAccordion title="title" content="placeholder"/>
+    <GeneralAccordion title="title" content="placeholder"/>
 
-      <div slot="Content">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta
-        saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur
-        dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure!
-        Quas, similique.
-      </div>
-    </GeneralAccordion>

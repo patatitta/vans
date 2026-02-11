@@ -1,7 +1,7 @@
 ---
 
 
-const {arrayImagenes } = Astro.props;
+ const {arrayImagenes} = Astro.props;
 
 
 ---
@@ -10,7 +10,7 @@ const {arrayImagenes } = Astro.props;
   <div class="marco w-full h-full overflow-auto">
     <div class="imagenes flex transition-all duration-150">
 
-      {ArrayImagenes.map((Imagen) =>(
+      {arrayImagenes.map((Imagen: HTMLSourceElement) =>(
 
         <img
         class="w-full min-w-full h-full object-contain p-2 shrink-0"

@@ -4,7 +4,7 @@ const { title, content } = Astro.props;
 
 <div class="accordionsProduct">
   <div
-    class="text-white Open hover:cursor-pointer productBuy ms-6 px-3 py-2 border-b-2 border-white/20 mix-blend-difference flex justify-between bg-transparent"
+    class="Open hover:cursor-pointer productBuy ms-6 px-3 py-2 border-b mix-blend-difference flex justify-between bg-transparent"
   >
     {title}
     <svg
@@ -18,7 +18,7 @@ const { title, content } = Astro.props;
       ></path>
     </svg>
   </div>
-  <div class="Hidden *:ms-4 mt-4">
+  <div class="Hidden *:ms-4 mt-4 ml-4">
     {content}
     <slot></slot>
   </div>

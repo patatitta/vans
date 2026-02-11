@@ -1,114 +1,183 @@
 ---
-const {ArrayColoresImagenes, Precio, Nombre, Descripcion, Categoria} = Astro.props
+const { ArrayColoresImagenes, Precio, Nombre, Descripcion, Categoria } =
+  Astro.props;
 
-
+let ArrayColoresImagenesSegmento1 = ArrayColoresImagenes.splice(0, 9);
 ---
 
-          <div class="right max-w-md pr-6">
-            <div class="Title">
-              <div class="categoryRoute text-xs text-right">
-                Compra &gt; {Categoria}
-              </div>
-              <div class="nombreProducto text-xl">{Nombre}</div>
-              <div class="smallText text-xs">{Descripcion}</div>
-              <div class="precio">{Precio}€</div>
-            </div>
+<div class="right min-w-md px-2">
+  <div class="Title">
+    <div class="categoryRoute text-xs text-right">
+      Compra &gt; {Categoria}
+    </div>
+    <div class="nombreProducto text-xl">{Nombre}</div>
+    <div class="smallText text-xs">{Descripcion}</div>
+    <div class="precio">{Precio}€</div>
+  </div>
 
-            <!-- Imagenes -->
+  <!-- Imagenes -->
 
-            <div class="Images">
-              <div
-                class="flex flex-wrap gap-0 p-1 max-w-7xl mx-auto *:border-transparent *:hover:border-solid *:hover:border-2 *:hover:border-black *:transition-all *:duration-150 hover:cursor-pointer"
-              >
-              {ArrayColoresImagenes.map((imagen: HTMLSourceElement) =>(
+  <div class="Images">
+    <div
+      class="grid grid-cols-5 gap-1 p-1 max-w-7xl mx-auto *:hover:cursor-pointer"
+    >
+      {
+        ArrayColoresImagenesSegmento1.map((imagen: HTMLSourceElement) => (
+          <img
+            class="h-auto object-cover  border-transparent hover:border-solid border hover:border-black transition-all duration-150 rounded "
+            src={imagen.src}
+          />
+        ))
+      }
 
-                <img
-                class="w-1/4 h-auto object-contain p-1"
-                src={imagen.src}
-                />
-              ))}
+      { ArrayColoresImagenes.length>0 ? (
+      <div
+        class="h-auto continuar bg-gray-100 flex items-center justify-center flex-col hover:bg-gray-200"
+      >
 
-              </div>
+        <p>+{ArrayColoresImagenes.length}</p>
+        <div>Mostrar</div>
+      </div>
 
-              <!-- Botones -->
+) : null
+}
+      {
+        ArrayColoresImagenes.map((imagen: HTMLSourceElement) => (
+          <img
+            class="h-auto object-cover hidden  escondido border-transparent hover:border-solid border hover:border-black transition-all duration-150 rounded "
+            src={imagen.src}
+          />
+        ))
+      }
 
-              <div class="Size">
-                <p class="mt-2">Talla</p>
-                <div
-                  class="mt-2 px-6 py-4 border border-solid verTallas space-y-4 w-full hover:cursor-pointer flex justify-between items-center"
-                >
-                  Elige una talla
-                  <svg
-                    class="w-6 h-6 rotate-90 transition-all duration-150"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 32 32"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
-                    ></path>
-                  </svg>
-                </div>
+            <div
+        class="h-auto object-contain ocultar hidden escondido bg-gray-100 items-center justify-center flex-col hover:bg-gray-200"
+      >
+        <p>Ocultar</p>
+      </div>
 
-                <div class="mt-2 tableLink text-xs hover:cursor-pointer">
-                  Tabla de tallas
-                </div>
-              </div>
-              <div class="Sell">
-                <button
-                  type="button"
-                  class="mt-2 px-6 py-3 bg-neutral-900 text-white hover:bg-black transition-all duration-150 space-y-4 min-w-full hover:cursor-pointer"
-                  >Añade a la cesta</button
-                >
-                <button
-                  type="button"
-                  class="flex justify-center mt-2 px-6 py-3 border text-neutral-900 hover:bg-neutral-200 hover:text-black transition-all duration-150 space-y-4 min-w-full hover:cursor-pointer"
-                  ><svg
-                    class="w-20 h-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 64 27"
-                    ><g fill="currentColor"
-                      ><path
-                        d="M12.331 3.746c.765-1.008 1.284-2.362 1.147-3.746-1.12.059-2.486.779-3.277 1.788-.71.864-1.339 2.275-1.175 3.6 1.257.116 2.513-.662 3.305-1.642"
-                      ></path><path
-                        d="M13.38 5.407c-1.821-.105-3.37.997-4.239.997-.87 0-2.202-.944-3.642-.919A5.4 5.4 0 0 0 .933 8.162c-1.957 3.254-.516 8.082 1.387 10.733.924 1.312 2.037 2.756 3.505 2.704 1.386-.053 1.93-.867 3.615-.867 1.684 0 2.173.867 3.641.84 1.522-.026 2.474-1.312 3.398-2.624 1.06-1.495 1.494-2.939 1.521-3.018-.027-.026-2.935-1.103-2.962-4.33-.027-2.703 2.283-3.989 2.392-4.068-1.305-1.862-3.343-2.072-4.05-2.125M29.268 1.8C33.237 1.8 36 4.448 36 8.304c0 3.87-2.82 6.531-6.831 6.531h-4.394V21.6H21.6V1.8h7.668Zm-4.493 10.456h3.642c2.764 0 4.337-1.44 4.337-3.938 0-2.497-1.573-3.925-4.323-3.925h-3.656v7.863Zm12.125 4.89c0-2.585 1.987-4.172 5.511-4.37l4.059-.238V11.4c0-1.644-1.114-2.627-2.974-2.627-1.762 0-2.861.843-3.129 2.164h-2.875c.17-2.67 2.452-4.637 6.117-4.637 3.594 0 5.891 1.897 5.891 4.861v10.186h-2.918v-2.43h-.07c-.86 1.643-2.734 2.683-4.679 2.683-2.903 0-4.933-1.798-4.933-4.454Zm9.57-1.334v-1.166l-3.65.224c-1.819.127-2.847.928-2.847 2.192 0 1.293 1.07 2.136 2.706 2.136 2.128 0 3.79-1.462 3.79-3.386Zm5.337 11.119v-2.4c.216.056.703.056.947.056 1.352 0 2.083-.576 2.529-2.057 0-.028.257-.878.257-.891L50.4 7.2h3.165l3.599 11.737h.053L60.816 7.2H63.9l-5.33 15.179C57.353 25.876 55.946 27 52.997 27c-.243 0-.974-.028-1.19-.069Z"
-                      ></path></g
-                    ></svg
-                  ></button
-                >
 
-                <div class="mt-2 payPalText text-xs">
-                  Compra ahora y paga después con PayPal. <a
-                    class="underline hover:cursor-pointer">Más Información</a
-                  >
-                </div>
-                <div
-                  class="Reserva my-4 px-6 py-4 bg-gray-100 underline hover:cursor-pointer flex"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M18 8.25H6V20.25H18V8.25ZM4.5 6.75V21.75H19.5V6.75H4.5Z"
-                      fill="black"></path>
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M7.5 6.5625C7.5 4.59499 9.09499 3 11.0625 3H12.9375C14.905 3 16.5 4.59499 16.5 6.5625V8.25H7.5V6.5625ZM11.0625 4.5C9.92341 4.5 9 5.42341 9 6.5625V6.75H15V6.5625C15 5.42341 14.0766 4.5 12.9375 4.5H11.0625Z"
-                      fill="black"></path>
-                    <path
-                      d="M7.5 11.25C7.51156 11.3052 10.4131 20.25 10.4131 20.25H12.1448L14.8113 12.8075H19.125L19.2506 11.2508H13.5381L11.3248 17.4221L9.33264 11.25H7.5Z"
-                      fill="black"></path>
-                  </svg>
 
-                  <p class="ml-2">Reserva en tienda</p>
-                </div>
-              </div>
-            </div>
-          </div>
+    </div>
+
+    <!-- Botones -->
+
+    <div class="Size">
+      <p class="mt-2">Talla</p>
+      <div
+        class="mt-2 px-6 py-4 border border-solid verTallas space-y-4 w-full hover:cursor-pointer flex justify-between items-center"
+      >
+        Elige una talla
+        <svg
+          class="w-6 h-6 rotate-90 transition-all duration-150"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 32 32"
+        >
+          <path
+            fill="currentColor"
+            d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+          ></path>
+        </svg>
+      </div>
+
+      <div class="mt-2 tableLink text-xs hover:cursor-pointer">
+        Tabla de tallas
+      </div>
+    </div>
+    <div class="Sell">
+      <button
+        type="button"
+        class="mt-2 px-6 py-3 bg-neutral-900 text-white hover:bg-black transition-all duration-150 space-y-4 min-w-full hover:cursor-pointer"
+        >Añade a la cesta</button
+      >
+      <button
+        type="button"
+        class="flex justify-center mt-2 px-6 py-3 border text-neutral-900 hover:bg-neutral-200 hover:text-black transition-all duration-150 space-y-4 min-w-full hover:cursor-pointer"
+        ><svg
+          class="w-20 h-5"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 64 27"
+          ><g fill="currentColor"
+            ><path
+              d="M12.331 3.746c.765-1.008 1.284-2.362 1.147-3.746-1.12.059-2.486.779-3.277 1.788-.71.864-1.339 2.275-1.175 3.6 1.257.116 2.513-.662 3.305-1.642"
+            ></path><path
+              d="M13.38 5.407c-1.821-.105-3.37.997-4.239.997-.87 0-2.202-.944-3.642-.919A5.4 5.4 0 0 0 .933 8.162c-1.957 3.254-.516 8.082 1.387 10.733.924 1.312 2.037 2.756 3.505 2.704 1.386-.053 1.93-.867 3.615-.867 1.684 0 2.173.867 3.641.84 1.522-.026 2.474-1.312 3.398-2.624 1.06-1.495 1.494-2.939 1.521-3.018-.027-.026-2.935-1.103-2.962-4.33-.027-2.703 2.283-3.989 2.392-4.068-1.305-1.862-3.343-2.072-4.05-2.125M29.268 1.8C33.237 1.8 36 4.448 36 8.304c0 3.87-2.82 6.531-6.831 6.531h-4.394V21.6H21.6V1.8h7.668Zm-4.493 10.456h3.642c2.764 0 4.337-1.44 4.337-3.938 0-2.497-1.573-3.925-4.323-3.925h-3.656v7.863Zm12.125 4.89c0-2.585 1.987-4.172 5.511-4.37l4.059-.238V11.4c0-1.644-1.114-2.627-2.974-2.627-1.762 0-2.861.843-3.129 2.164h-2.875c.17-2.67 2.452-4.637 6.117-4.637 3.594 0 5.891 1.897 5.891 4.861v10.186h-2.918v-2.43h-.07c-.86 1.643-2.734 2.683-4.679 2.683-2.903 0-4.933-1.798-4.933-4.454Zm9.57-1.334v-1.166l-3.65.224c-1.819.127-2.847.928-2.847 2.192 0 1.293 1.07 2.136 2.706 2.136 2.128 0 3.79-1.462 3.79-3.386Zm5.337 11.119v-2.4c.216.056.703.056.947.056 1.352 0 2.083-.576 2.529-2.057 0-.028.257-.878.257-.891L50.4 7.2h3.165l3.599 11.737h.053L60.816 7.2H63.9l-5.33 15.179C57.353 25.876 55.946 27 52.997 27c-.243 0-.974-.028-1.19-.069Z"
+            ></path></g
+          ></svg
+        ></button
+      >
+
+      <div class="mt-2 payPalText text-xs">
+        Compra ahora y paga después con PayPal. <a
+          class="underline hover:cursor-pointer">Más Información</a
+        >
+      </div>
+      <div
+        class="Reserva my-4 px-6 py-4 bg-gray-100 underline hover:cursor-pointer flex"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M18 8.25H6V20.25H18V8.25ZM4.5 6.75V21.75H19.5V6.75H4.5Z"
+            fill="black"></path>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M7.5 6.5625C7.5 4.59499 9.09499 3 11.0625 3H12.9375C14.905 3 16.5 4.59499 16.5 6.5625V8.25H7.5V6.5625ZM11.0625 4.5C9.92341 4.5 9 5.42341 9 6.5625V6.75H15V6.5625C15 5.42341 14.0766 4.5 12.9375 4.5H11.0625Z"
+            fill="black"></path>
+          <path
+            d="M7.5 11.25C7.51156 11.3052 10.4131 20.25 10.4131 20.25H12.1448L14.8113 12.8075H19.125L19.2506 11.2508H13.5381L11.3248 17.4221L9.33264 11.25H7.5Z"
+            fill="black"></path>
+        </svg>
+
+        <p class="ml-2">Reserva en tienda</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+let continuar = document.querySelector<HTMLElement>('.continuar');
+let ocultar = document.querySelector<HTMLElement>('.ocultar');
+let escondidos = document.querySelectorAll('.escondido')
+continuar?.addEventListener("click", mostrarMas)
+function mostrarMas(){
+  if (continuar==null){
+    return
+  }
+    continuar.style.display="none";
+    for (let iterable of escondidos){
+      (iterable as HTMLElement).style.display="flex"
+    }
+  }
+if (ocultar!=null){
+
+  ocultar.addEventListener("click", mostrarMenos)
+
+    function mostrarMenos(){
+    if (continuar==null){
+      return
+    }
+    continuar.style.display="none";
+    for (let iterable of escondidos){
+      (iterable as HTMLElement).style.display="none"
+    }
+    continuar.style.display="flex"
+  }
+}
+  
+
+})
+
+
+
+</script>

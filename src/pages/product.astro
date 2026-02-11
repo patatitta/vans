@@ -17,7 +17,7 @@ import mocasines4 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (3
 import mocasines5 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (4).avif";
 
 
-let ArrayProductoImagenes = [mocasines1, mocasines2, mocasines3, mocasines4, mocasines5, mocasines1]
+let ArrayProductoImagenes = [mocasines1, mocasines2, mocasines3, mocasines4, mocasines5, mocasines1, mocasines2, mocasines3, mocasines4, mocasines5, mocasines1, mocasines2, mocasines3, mocasines4, mocasines5, mocasines1]
 let ArrayRecomendaciones = [
     {
         Nombre: "Zapatillas Knu Skool",
@@ -53,6 +53,101 @@ let ArrayRecomendaciones = [
 
 
 
+let ArrayTallas = [
+    {
+        Size: 35,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 36,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 37,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 38,
+        Precio: 95,
+        Disponibilidad: false
+    },
+    {
+        Size: 39,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 40,
+        Precio: 95,
+        Disponibilidad: false
+    },
+    {
+        Size: 41,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 42,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 43,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 35,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 36,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 37,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 38,
+        Precio: 95,
+        Disponibilidad: false
+    },
+    {
+        Size: 39,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 40,
+        Precio: 95,
+        Disponibilidad: false
+    },
+    {
+        Size: 41,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 42,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 43,
+        Precio: 95,
+        Disponibilidad: true
+    }
+]
+
+
+
 ---
 
 <Layout>
@@ -60,11 +155,11 @@ let ArrayRecomendaciones = [
     <ProductoImagenes ArrayProductoImagenes={ArrayProductoImagenes}></ProductoImagenes>
     
     <div class="md:hidden">
-        <GeneralCarrusel/>
+        <GeneralCarrusel arrayImagenes={ArrayProductoImagenes}/>
     </div>
     
     <ProductoLateral ArrayColoresImagenes={ArrayProductoImagenes} Precio=100 Nombre="Zapatillas Knu Skool" Descripcion="Uso Diario, diseño retro" Categoria="zapatillas" />
-    <ProductoTallas>
+    <ProductoTallas ArrayTallas = {ArrayTallas}>
 </div>
 
 

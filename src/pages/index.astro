@@ -1,7 +1,5 @@
 ---
-import InicioCarruselResponsive from "@components/Inicio/InicioCarruselResponsive.astro"
 import InicioCarrusel from "../components/Inicio/InicioCarrusel.astro"
-import InicioCarrusel2 from "../components/Inicio/InicioCarrusel2.astro"
 import InicioSlider from "../components/Inicio/InicioSlider.astro"
 import Layout from "../layouts/Layout.astro"
 import spain from "@assets/spain.svg"
@@ -41,3 +39,30 @@ let ArrayCategorias = [
 
 </Layout>
 
+<script>
+
+document.addEventListener("scroll", transparentarNav)
+let nav = document.querySelector('nav');
+
+if (nav!=null){
+
+  nav.style.backgroundColor = "transparent"
+  nav.style.position = "fixed"
+  nav.style.color="white"  
+}
+function transparentarNav(){
+  if (nav==null){
+    return
+  }
+
+  if(window.scrollY>nav.clientHeight){
+        nav.style.backgroundColor = "white"
+        nav.style.color="black"
+  }
+  else{
+    nav.style.backgroundColor = "transparent"
+    nav.style.color="white"
+  }
+}
+
+</script>

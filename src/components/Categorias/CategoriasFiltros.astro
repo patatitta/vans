@@ -1,14 +1,24 @@
 ---
 import GeneralAccordion from "@components/General/GeneralAccordion.astro";
+const {ArrayTallas, arrayColores} = Astro.props
+interface arrayColores
+  {
+    Nombre: string,
+    Color: string
+  }
 
-
+  interface InterfazTallas {
+  Precio: number;
+  Size: number;
+  Disponibilidad: boolean;
+}
 
 ---
 
 <div class="oscuro z-50 bg-black fixed inset-0 min-w-full pointer-events-none opacity-0 md:hidden" ></div>
 
       <!-- MENU FILTROS-->
-<div class="z-50 w-full md:min-w-1/4 max-h-6/7 bg-white opacity-0 md:hidden md:opacity-100 filtros md:static fixed bottom-0 translate-y-3/4 md:translate-y-0 transition-all duration-150 ease-out overflow-y-auto">
+<div class="z-50 md:z-30 w-full md:min-w-1/4 max-h-6/7 opacity-0 md:hidden md:opacity-100 filtros md:static fixed bottom-0 translate-y-3/4 md:translate-y-0 transition-all duration-150 ease-out overflow-y-auto">
     <GeneralAccordion title="Orden">
 
           <div>
@@ -92,18 +102,12 @@ import GeneralAccordion from "@components/General/GeneralAccordion.astro";
             <ul
               class="*:p-2 *:border *:m-1 flex cuadrado *:transition-all *:length-150"
             >
+
+            {ArrayTallas.map((Talla: InterfazTallas)=>(
               <li id="opcionCuadrado">
-                <div class="">22</div>
+                <div class="">{Talla.Size}</div>
               </li>
-              <li id="opcionCuadrado">
-                <div class="">23</div>
-              </li>
-              <li id="opcionCuadrado">
-                <div class="">24</div>
-              </li>
-              <li id="opcionCuadrado">
-                <div class="">25</div>
-              </li>
+            ))}
             </ul>
           </div>
         </GeneralAccordion>
@@ -111,10 +115,14 @@ import GeneralAccordion from "@components/General/GeneralAccordion.astro";
 
           <div>
             <ul class="grid grid-cols-6 gap-4 text-xs">
-              <li class="flex flex-col items-center justify-center">
-                <div class="w-3/4 aspect-square rounded-full bg-black"></div>
-                <div class="py-3">Negro</div>
-              </li>
+
+
+              {arrayColores.map((color: arrayColores)=>(              
+                <li class="flex flex-col items-center justify-center">
+                  <div class="w-3/4 aspect-square rounded-full" style={`background-color: ${color.Color}`} ></div>
+                  <div class="py-3">{color.Nombre}</div>
+                </li>
+              ))}
 
               <li class="flex flex-col items-center justify-center">
                 <div class="w-3/4 aspect-square rounded-full bg-white border">
@@ -122,48 +130,6 @@ import GeneralAccordion from "@components/General/GeneralAccordion.astro";
                 <div class="py-3">Blanco</div>
               </li>
 
-              <li class="flex flex-col items-center justify-center">
-                <div
-                  class="w-3/4 aspect-square rounded-full bg-[rgb(40,62,141)]"
-                >
-                </div>
-                <div class="py-3">Azul</div>
-              </li>
-
-              <li class="flex flex-col items-center justify-center">
-                <div
-                  class="w-3/4 aspect-square rounded-full bg-[rgb(204,153,102)]"
-                >
-                </div>
-                <div class="py-3">Beis</div>
-              </li>
-
-              <li class="flex flex-col items-center justify-center">
-                <div class="w-3/4 aspect-square rounded-full bg-black"></div>
-                <div class="py-3">Negro</div>
-              </li>
-
-              <li class="flex flex-col items-center justify-center">
-                <div class="w-3/4 aspect-square rounded-full bg-white border">
-                </div>
-                <div class="py-3">Blanco</div>
-              </li>
-
-              <li class="flex flex-col items-center justify-center">
-                <div
-                  class="w-3/4 aspect-square rounded-full bg-[rgb(40,62,141)]"
-                >
-                </div>
-                <div class="py-3">Azul</div>
-              </li>
-
-              <li class="flex flex-col items-center justify-center">
-                <div
-                  class="w-3/4 aspect-square rounded-full bg-[rgb(204,153,102)]"
-                >
-                </div>
-                <div class="py-3">Beis</div>
-              </li>
             </ul>
           </div>
         </GeneralAccordion>
@@ -199,7 +165,6 @@ import GeneralAccordion from "@components/General/GeneralAccordion.astro";
 			}
 		}
 		else{
-            console.log(menuFiltros.firstElementChild?.firstElementChild)
             menuFiltros.style.display = "block";
 			(menuFiltros.firstElementChild?.firstElementChild as HTMLElement)?.click();
             menuFiltros.style.display = "none";

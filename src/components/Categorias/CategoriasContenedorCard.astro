@@ -2,36 +2,25 @@
 import CategoriasCard from "./CategoriasCard.astro";
 
 import categoriaVideo from "@assets/CategoriaVideo.webm";
+const {arrayCards} = Astro.props;
+
+
+interface InterfazArrayCards {
+    Nombre: string,
+    Colores: number,
+    Precio: number,
+    arrayImagenes: Array<HTMLSourceElement>
+  }
+
 ---
 
 <div
-  class="grow tarjetas grid grid-rows-3 grid-cols-2 md:grid-cols-3"
+  class="grow tarjetas grid grid-cols-2 md:grid-cols-3"
 >
-  <CategoriasCard Nombre="Mocasines skate" Precio=90 Colores="6">
-  </CategoriasCard>
 
-  <div class="tarjeta">
-    <video autoplay muted loop src={categoriaVideo}></video>
-  </div>
-  <CategoriasCard Nombre="Mocasines skate" Precio=90 Colores="6">
-  </CategoriasCard>
-
-  <CategoriasCard Nombre="Mocasines skate" Precio=90 Colores="6">
-  </CategoriasCard>
-
-  <CategoriasCard Nombre="Mocasines skate" Precio=90 Colores="6">
-  </CategoriasCard>
-
-  <CategoriasCard Nombre="Mocasines skate" Precio=90 Colores="6">
-  </CategoriasCard>
-
-  <CategoriasCard Nombre="Mocasines skate" Precio=90 Colores="6">
-  </CategoriasCard>
-
-  <CategoriasCard Nombre="Mocasines skate" Precio=90 Colores="6">
-  </CategoriasCard>
-
-  <CategoriasCard Nombre="Mocasines skate" Precio=90 Colores="6">
-  </CategoriasCard>
-  <slot name="Categoriascards" />
+{arrayCards.map((Valor: InterfazArrayCards) => (
+  <CategoriasCard Nombre={Valor.Nombre} Precio={Valor.Precio} Colores={Valor.Colores} arrayImagenes = {Valor.arrayImagenes}/>
+  
+)
+)}
 </div>

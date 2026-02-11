@@ -1,16 +1,82 @@
 ---
-import CategoriasMenuSticky from "@components/Categorias/CategoriasMenuSticky.astro"
-import Layout from "../layouts/Layout.astro"
-import CategoriasFiltros from "@components/Categorias/CategoriasFiltros.astro"
-import CategoriasFinal from "@components/Categorias/CategoriasFinal.astro"
-import CategoriasContenedorCard from "@components/Categorias/CategoriasContenedorCard.astro"
+import CategoriasMenuSticky from "@components/Categorias/CategoriasMenuSticky.astro";
+import Layout from "../layouts/Layout.astro";
+import CategoriasFiltros from "@components/Categorias/CategoriasFiltros.astro";
+import CategoriasFinal from "@components/Categorias/CategoriasFinal.astro";
+import CategoriasContenedorCard from "@components/Categorias/CategoriasContenedorCard.astro";
+
+import mocasines1 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes.avif";
+import mocasines2 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (1).avif";
+import mocasines3 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (2).avif";
+import mocasines4 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (3).avif";
+import mocasines5 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (4).avif";
+
+let arrayImagenes = [
+  mocasines1,
+  mocasines2,
+  mocasines3,
+  mocasines4,
+  mocasines5,
+];
+let arrayCards = [
+  {
+    Nombre: "Mocasines skate",
+    Colores: 7,
+    Precio: 100,
+    arrayImagenes: arrayImagenes,
+  },
+  {
+    Nombre: "Mocasines skate",
+    Colores: 7,
+    Precio: 100,
+    arrayImagenes: arrayImagenes,
+  },
+  {
+    Nombre: "Mocasines skate",
+    Colores: 7,
+    Precio: 100,
+    arrayImagenes: arrayImagenes,
+  },
+];
+
+let titulo = "Ropa y Calzado para hombre"
+let numeroProductos = 1000
+
+let ArrayTallas = [
+    {
+        Size: 35,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 36,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 37,
+        Precio: 95,
+        Disponibilidad: true
+    }]
+
+
+    let arrayColores=[
+        {
+            Nombre: "azul",
+            Color: "rgb(40,62,141"
+        },
+        {
+            Nombre: "beis",
+            Color: "rgb(204,153,102)"
+        }
+    ]
 ---
 
 <Layout>
-    <CategoriasMenuSticky/>
-    <div class="flex">
-        <CategoriasFiltros/>  <!-- Now only contains the filter menu -->
-        <CategoriasContenedorCard/>  <!-- Contains the cards -->
-    </div>
-    <CategoriasFinal/>
+  <CategoriasMenuSticky titulo={titulo}, numeroProductos={numeroProductos} />
+  <div class="flex">
+    <CategoriasFiltros ArrayTallas={ArrayTallas} arrayColores={arrayColores}/>
+    <CategoriasContenedorCard arrayCards={arrayCards} />
+  </div>
+  <CategoriasFinal numeroProductos={numeroProductos} numeroCards={arrayCards.length} />
 </Layout>
