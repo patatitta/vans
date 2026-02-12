@@ -1,8 +1,7 @@
 ---
 import CategoriasCard from "./CategoriasCard.astro";
 
-import categoriaVideo from "@assets/CategoriaVideo.webm";
-const {arrayCards} = Astro.props;
+const {arrayCards, arrayPromocion} = Astro.props;
 
 
 interface InterfazArrayCards {
@@ -23,4 +22,10 @@ interface InterfazArrayCards {
   
 )
 )}
+
+
+  <slot>
+
+  </slot>
+
 </div>

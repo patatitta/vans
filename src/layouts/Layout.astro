@@ -2,14 +2,15 @@
 import GeneralHeader from "../components/General/GeneralHeader.astro";
 import Nav from "@general/GeneralNav.astro";
 import Footer from "@general/GeneralFooter.astro";
+import GeneralTicker from "@components/General/GeneralTicker.astro";
 
-const {title, lang, flag} = Astro.props
+const {title, lang, flag, arrayTexto, mostrarTicker = false} = Astro.props
 
 
 ---
 
 <GeneralHeader title={title} lang={lang}/>
-
+{mostrarTicker &&<GeneralTicker arrayTexto={arrayTexto}/>}
 
 
   <body class="bg-white">

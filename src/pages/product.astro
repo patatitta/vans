@@ -16,6 +16,7 @@ import mocasines3 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (2
 import mocasines4 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (3).avif";
 import mocasines5 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (4).avif";
 
+let arrayTexto = ["Entrega gratuita en pedidos superiores a 80", "¡20% Extra en todos los artículos en rebajas! Se aplica en el carrito", "Devoluciones gratuitas", "Entrega gratuita en pedidos superiores a 80", "¡20% Extra en todos los artículos en rebajas! Se aplica en el carrito", "Devoluciones gratuitas", "Entrega gratuita en pedidos superiores a 80", "¡20% Extra en todos los artículos en rebajas! Se aplica en el carrito", "Devoluciones gratuitas"]
 
 let ArrayProductoImagenes = [mocasines1, mocasines2, mocasines3, mocasines4, mocasines5, mocasines1, mocasines2, mocasines3, mocasines4, mocasines5, mocasines1, mocasines2, mocasines3, mocasines4, mocasines5, mocasines1]
 let ArrayRecomendaciones = [
@@ -150,7 +151,7 @@ let ArrayTallas = [
 
 ---
 
-<Layout>
+<Layout arrayTexto={arrayTexto} mostrarTicker={true}>
     <div class="up md:flex">
     <ProductoImagenes ArrayProductoImagenes={ArrayProductoImagenes}></ProductoImagenes>
     

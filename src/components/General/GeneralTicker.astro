@@ -1,0 +1,30 @@
+---
+const { arrayTexto } = Astro.props;
+---
+
+<div class="contenedor black w-full overflow-x-hidden bg-black">
+  <div class="ticker *:text-white *:mr-10 flex *:text-nowrap">
+    {arrayTexto.map((texto: string) => (
+      <>
+        <span class="">{texto}</span>
+        <span class="">•</span>
+      </>
+    ))}
+  </div>
+</div>
+
+<style is:global>
+  @keyframes ticker-loop {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }  
+  }
+
+
+
+
+  .ticker {
+    animation: ticker-loop 40s linear infinite;
+  }
+
+
+</style>

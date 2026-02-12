@@ -10,6 +10,9 @@ import mocasines2 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (1
 import mocasines3 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (2).avif";
 import mocasines4 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (3).avif";
 import mocasines5 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (4).avif";
+import categoriaVideo from "@assets/CategoriaVideo.webm";
+
+let arrayTexto = ["Entrega gratuita en pedidos superiores a 80", "¡20% Extra en todos los artículos en rebajas! Se aplica en el carrito", "Devoluciones gratuitas", "Entrega gratuita en pedidos superiores a 80", "¡20% Extra en todos los artículos en rebajas! Se aplica en el carrito", "Devoluciones gratuitas", "Entrega gratuita en pedidos superiores a 80", "¡20% Extra en todos los artículos en rebajas! Se aplica en el carrito", "Devoluciones gratuitas"]
 
 let arrayImagenes = [
   mocasines1,
@@ -72,11 +75,17 @@ let ArrayTallas = [
     ]
 ---
 
-<Layout>
+<Layout arrayTexto={arrayTexto} mostrarTicker={true}>
   <CategoriasMenuSticky titulo={titulo}, numeroProductos={numeroProductos} />
   <div class="flex">
     <CategoriasFiltros ArrayTallas={ArrayTallas} arrayColores={arrayColores}/>
-    <CategoriasContenedorCard arrayCards={arrayCards} />
+    <CategoriasContenedorCard arrayCards={arrayCards}>
+  <video autoplay muted loop class="row-start-1 row-end-1 col-start-2 col-end-2 md:col-start-3 md:col-end-3">
+              <source src={categoriaVideo} type="video/webm" />
+
+  </video>
+
+    </CategoriasContenedorCard>
   </div>
   <CategoriasFinal numeroProductos={numeroProductos} numeroCards={arrayCards.length} />
 </Layout>

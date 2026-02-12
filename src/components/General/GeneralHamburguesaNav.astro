@@ -6,6 +6,18 @@
   id="hamburguesaOculta"
   class="fixed md:top-0 -bottom-20 md:bottom-0 md:-left-20 bg-black/70 backdrop-blur-sm z-50 overflow-hidden transition-all duration-300 w-full md:w-100 h-screen text-neutral-300"
 >
+
+  <div
+    id="cerrar"
+    class="absolute bottom-7 right-7 inline-flex items-center justify-center cursor-pointer w-12 h-12 bg-white z-50"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="close" class="w-8 h-8">
+      <path d="m25.54 8-8 8 8 8L24 25.54l-8-8-8 8L6.46 24l8-8-8-8L8 6.46l8 8 8-8L25.54 8Z"></path>
+    </svg>
+  </div>
+
+
+
   <div class="flex flex-col h-full" id="principal">
     <div>
       <ul class="p-6 space-y-4 flex" id="categorias">
@@ -46,80 +58,146 @@
       <!-- NUEVO Y DESTACADO -->
       <div class="nuevo">
         <ul
-          class="space-y-2 *:hover:-rotate-2 *:transition-all duration-150 ml-7 *:mb-4"
+          class="space-y-2 *:transition-all duration-150 ml-7 *:mb-4 *:mr-4"
           id="new"
         >
-          <li class="relative inline-block group">
-            <span class="relative cursor-pointer"
-              >Valentino Garaavni y Vans</span
-            >
-            <span
-              class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
-            ></span>
-          </li>
-          <br />
-          <li class="relative inline-block group">
-            <span class="relative cursor-pointer">Kpop demon hunters</span>
-            <span
-              class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
-            ></span>
-          </li>
-          <br />
-          <li class="flex mb-0 justify-between">
-
-          <div class="relative inline-block group">
-
-            <span class="relative cursor-pointer" id="novedades">Novedades</span
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="valentinoGaraavni"
+                >Valentino Garaavni y Vans</span
               >
               <span
-              class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
               ></span>
-              
-              
+            </div>
+          </li>
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="kPop"
+                >Kpop demon hunters</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+
+
+          
+          <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="novedades"
+                >Novedades</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
             </div>
             <svg
-            class="w-6 h-6"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 32 32"
+              class="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
             >
-            <path
-            fill="currentColor"
-            d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
-            ></path>
-          </svg>          
-          
-        </li>
+              <path
+                fill="currentColor"
+                d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+              ></path>
+            </svg>
+          </li>
+
+          <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="tendencia"
+                >Tendencia ahora</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+            <svg
+              class="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+            >
+              <path
+                fill="currentColor"
+                d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+              ></path>
+            </svg>
+          </li>
+
+          <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="destacados"
+                >Destacados</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+            <svg
+              class="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+            >
+              <path
+                fill="currentColor"
+                d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+              ></path>
+            </svg>
+          </li>
 
 
 
-          <li class="relative inline-block group">
-            <span class="relative cursor-pointer">Tendencias ahora</span>
-            <span
-              class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
-            ></span>
+
+          <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="classics"
+                >Classics</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+            <svg
+              class="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+            >
+              <path
+                fill="currentColor"
+                d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+              ></path>
+            </svg>
           </li>
-          <br />
-          <li class="relative inline-block group">
-            <span class="relative cursor-pointer">Destacados</span>
-            <span
-              class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
-            ></span>
+
+
+
+
+
+          <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="actionSports"
+                >Action Sports</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+            <svg
+              class="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+            >
+              <path
+                fill="currentColor"
+                d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+              ></path>
+            </svg>
           </li>
-          <br />
-          <li class="relative inline-block group">
-            <span class="relative cursor-pointer">Classics</span>
-            <span
-              class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
-            ></span>
-          </li>
-          <br />
-          <li class="relative inline-block group">
-            <span class="relative cursor-pointer">Action Sports</span>
-            <span
-              class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
-            ></span>
-          </li>
-          <br />
+
+
           <li class="relative inline-block group">
             <span class="relative cursor-pointer">Rebajas</span>
             <span
@@ -132,61 +210,123 @@
       <!-- MUJER -->
       <div class="otros">
         <ul
-          class="space-y-2 *:hover:-rotate-2 *:transition-all duration-150 ml-7 *:mb-4"
+          class="space-y-2  *:transition-all duration-150 ml-7 *:mb-4 *:mr-4"
           id="woman"
         >
-          <li class="relative inline-block group">
-            <span class="relative cursor-pointer">Ver todo</span>
-            <span
-              class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
-            ></span>
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="verTodoOtro"
+                >Ver todo</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
           </li>
-          <br />
-          <li class="relative inline-block group">
-            <span class="relative cursor-pointer"
-              >Valentino Garaavni y Vans</span
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="valentinoGaraavniOtros"
+                >Valentino Garaavni y Vans</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+          
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="kpopOtros"
+                >Kpop demon hunters</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="nuevoDestacado"
+                >Nuevo y Destacado</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+
+
+          <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="zapatillas"
+                >Zapatillas</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+            <svg
+              class="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
             >
-            <span
-              class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
-            ></span>
+              <path
+                fill="currentColor"
+                d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+              ></path>
+            </svg>
           </li>
-          <br />
-          <li class="relative inline-block group">
-            <span class="relative cursor-pointer">KPop Demon Hunters</span>
-            <span
-              class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
-            ></span>
+
+
+
+
+
+          <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="ropa"
+                >Ropa</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+            <svg
+              class="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+            >
+              <path
+                fill="currentColor"
+                d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+              ></path>
+            </svg>
           </li>
-          <br />
-          <li class="relative inline-block group">
-            <span class="relative cursor-pointer">Nuevo y destacado</span>
-            <span
-              class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
-            ></span>
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="accesorios"
+                >Accesorios</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+            <svg
+              class="w-6 h-6"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+            >
+              <path
+                fill="currentColor"
+                d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+              ></path>
+            </svg>
           </li>
-          <br />
-          <li class="relative inline-block group">
-            <span class="relative cursor-pointer">Zapatillas</span>
-            <span
-              class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
-            ></span>
-          </li>
-          <br />
-          <li class="relative inline-block group">
-            <span class="relative cursor-pointer">Ropa</span>
-            <span
-              class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
-            ></span>
-          </li>
-          <br />
-          <li class="relative inline-block group">
-            <span class="relative cursor-pointer">Accesorios</span>
-            <span
-              class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
-            ></span>
-          </li>
-          <br />
-          <li class="relative inline-block group">
+
+
+          <li class="relative inline-block group hover:-rotate-2">
             <span class="relative cursor-pointer">Rebajas</span>
             <span
               class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
@@ -261,78 +401,755 @@
           </svg>
         </li>
       </ul>
-      <div
-        id="cerrar"
-        class="inline-flex items-center justify-center cursor-pointer w-10 h-10 bg-white mr-4"
+     
+    </div>
+  </div>
+
+  
+  <!--Novedades -->
+
+  <div class="flex-col h-full hidden *:ml-7 mt-10" id="novedadesMenu">
+    <div class="relative flex items-center mb-5" id="novedadesVolver">
+      <svg
+        class="w-4 h-4 rotate-180"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 32 32"
-          id="close"
-          class="w-8 h-8"
-        >
-          <path
-            d="m25.54 8-8 8 8 8L24 25.54l-8-8-8 8L6.46 24l8-8-8-8L8 6.46l8 8 8-8L25.54 8Z"
-          ></path>
-        </svg>
+        <path
+          fill="currentColor"
+          d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+        ></path>
+      </svg>
+
+      <div class="relative cursor-pointer group ml-3">
+        <span>
+
+          Novedades
+        </span>
+        <span
+          class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+        ></span>
       </div>
     </div>
-  </div>
 
- <div class="flex-col h-full hidden *:ml-7"  id="novedadesMenu">
-  <div class="relative flex  mb-5" id="novedadesVolver">
-    
-        <svg
-      class="w-6 h-6 rotate-180"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 32 32"
-    >
-      <path
-        fill="currentColor"
-        d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
-      ></path>
-    </svg>
-    
-    <div class="relative cursor-pointer group">
-      Novedades
-      <span
-        class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
-      ></span>
+    <ul class=" *:mb-4 mt-3" id="verTodo">
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="verTodoNovedades"
+                >Ver todo</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="novedadesZapatos"
+                >Novedades Zapatos</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
       
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="novedadesRopa"
+                >Novedades Ropa</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+          
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="novedadesAccesorio"
+                >Novedades Accesorio</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
+        </ul>
+</div>
+
+  <!--Tendencia ahora -->
+
+  <div class="flex-col h-full hidden *:ml-7 mt-10" id="tendenciaMenu">
+    <div class="relative flex items-center mb-5" id="tendenciaVolver">
+      <svg
+        class="w-4 h-4 rotate-180"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+      >
+        <path
+          fill="currentColor"
+          d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+        ></path>
+      </svg>
+
+      <div class="relative cursor-pointer group ml-3">
+        <span>
+
+          Tendencia ahora
+        </span>
+        <span
+          class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+        ></span>
+      </div>
     </div>
 
+    <ul class=" *:mb-4 mt-3" id="verTodo">
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="verTodoTendencia"
+                >Ver todo</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
 
 
-  </div>
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="masVendidosTendencia"
+                >Más vendidos</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+      
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="frioTendencia"
+                >Perfecto para el frío</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+          
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="lowproTendencia"
+                >Super Lowpro</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
 
-  <ul class="space-y-2 *:mb-4" id="woman">
-    <li class="relative inline-block group hover:-rotate-2">
-      <span class="relative cursor-pointer">Ver todo</span>
-      <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
-    </li>
-  </br>
-    <li class="relative inline-block  group hover:-rotate-2">
-      <span class="relative cursor-pointer">Novedades Zapatos</span>
-      <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
-    </li>
-  </br>
+          <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="knuSkoolTendencia"
+                >Knu Skool</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
 
-    <li class="relative inline-block group hover:-rotate-2">
-      <span class="relative cursor-pointer">Novedades Ropa</span>
-      <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
-    </li>
-  </br>
+          <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="kpopTendencia"
+                >KPop Demon Hunters</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
+        </ul>
+</div>
+  <!--Tendencia ahora -->
 
-    <li class="relative inline-block group hover:-rotate-2">
-      <span class="relative cursor-pointer">Novedades Accesorios</span>
-      <span class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"></span>
-    </li>
-  </br>
+  <div class="flex-col h-full hidden *:ml-7 mt-10" id="destacadosMenu">
+    <div class="relative flex items-center mb-5" id="destacadosVolver">
+      <svg
+        class="w-4 h-4 rotate-180"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+      >
+        <path
+          fill="currentColor"
+          d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+        ></path>
+      </svg>
 
-  </ul>
+      <div class="relative cursor-pointer group ml-3">
+        <span>
+
+          Destacados
+        </span>
+        <span
+          class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+        ></span>
+      </div>
+    </div>
+
+    <ul class=" *:mb-4 mt-3" id="verTodo">
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="verTodoDestacados"
+                >Ver todo</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="otwTendencia"
+                >OTW</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+      
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="vansPremiumTendencia"
+                >Vans Premium</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+          
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="soloVansTendencia"
+                >Solo en Vans</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
+        </ul>
 </div>
 
+<!-- Classics -->
+
+  <div class="flex-col h-full hidden *:ml-7 mt-10" id="classicsMenu">
+    <div class="relative flex items-center mb-5" id="classicsVolver">
+      <svg
+        class="w-4 h-4 rotate-180"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+      >
+        <path
+          fill="currentColor"
+          d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+        ></path>
+      </svg>
+
+      <div class="relative cursor-pointer group ml-3">
+        <span>
+
+          Classics
+        </span>
+        <span
+          class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+        ></span>
+      </div>
+    </div>
+
+    <ul class=" *:mb-4 mt-3" id="verTodo">
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="verTodoClassics"
+                >Ver todo</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="oldSkoolClassic"
+                >Old Skool</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+      
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="authenticClassic"
+                >Authentic</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+          
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="sk8Classic"
+                >Sk8-Hi</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
+          
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="slipOnClassic"
+                >Slip-on</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
+        </ul>
 </div>
+<!-- Action Sports -->
+
+  <div class="flex-col h-full hidden *:ml-7 mt-10" id="actionMenu">
+    <div class="relative flex items-center mb-5" id="actionVolver">
+      <svg
+        class="w-4 h-4 rotate-180"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+      >
+        <path
+          fill="currentColor"
+          d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+        ></path>
+      </svg>
+
+      <div class="relative cursor-pointer group ml-3">
+        <span>
+
+          Action Sports
+        </span>
+        <span
+          class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+        ></span>
+      </div>
+    </div>
+
+    <ul class=" *:mb-4 mt-3" id="verTodo">
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="verTodoAction"
+                >Ver todo</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="oldSkoolClassic"
+                >Old Skool</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+      
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="skateboardingAction"
+                >Skateboarding</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+          
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="bmxAction"
+                >BMX</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
+          
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="surfAction"
+                >Surf</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="snowboardingAction"
+                >Snowboarding</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
+        </ul>
+</div>
+<!-- Zapatillas -->
+
+  <div class="flex-col h-full hidden *:ml-7 mt-10" id="zapatillasMenu">
+    <div class="relative flex items-center mb-5" id="zapatillasVolver">
+      <svg
+        class="w-4 h-4 rotate-180"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+      >
+        <path
+          fill="currentColor"
+          d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+        ></path>
+      </svg>
+
+      <div class="relative cursor-pointer group ml-3">
+        <span>
+
+          Zapatillas
+        </span>
+        <span
+          class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+        ></span>
+      </div>
+    </div>
+
+    <ul class=" *:mb-4 mt-3" id="verTodo">
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="verTodoZapatillas"
+                >Ver todo</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="classicsZapatillas"
+                >Classics</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+      
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="skateZapatillas"
+                >Skate</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+          
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="atlasZapatillas"
+                >Atlas</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
+          
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="bajasZapatillas"
+                >Bajas</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+
+          </li>    
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="mteZapatillas"
+                >MTE</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
+
+          </li>    
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="botasSnowboardZapatillas"
+                >Botas de snowboard</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
+
+          </li>    
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="personalizarZapatillas"
+                >Personaliza nuestros Zapatos</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
+        </ul>
+</div>
+
+<!-- Ropa -->
+
+  <div class="flex-col h-full hidden *:ml-7 mt-10" id="ropaMenu">
+    <div class="relative flex items-center mb-5" id="ropaVolver">
+      <svg
+        class="w-4 h-4 rotate-180"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+      >
+        <path
+          fill="currentColor"
+          d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+        ></path>
+      </svg>
+
+      <div class="relative cursor-pointer group ml-3">
+        <span>
+
+          Zapatillas
+        </span>
+        <span
+          class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+        ></span>
+      </div>
+    </div>
+
+    <ul class=" *:mb-4 mt-3" id="verTodo">
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="verTodoRopa"
+                >Ver todo</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="SudarerasRopa"
+                >Sudaderas y Suéteres</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+      
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="camisetasRopa"
+                >Camisetas, camisas y tops</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+          
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="pantalonesRopa"
+                >Pantalones, chinos, vaqueros y cargo</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
+          
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="vestidosRopa"
+                >Vestidos y faldas</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+
+          </li>    
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="chaquetasRopa"
+                >Chaquetas</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
+
+       </ul>
+</div>
+
+<!-- Accesorios -->
+
+  <div class="flex-col h-full hidden *:ml-7 mt-10" id="accesoriosMenu">
+    <div class="relative flex items-center mb-5" id="accesoriosVolver">
+      <svg
+        class="w-4 h-4 rotate-180"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+      >
+        <path
+          fill="currentColor"
+          d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+        ></path>
+      </svg>
+
+      <div class="relative cursor-pointer group ml-3">
+        <span>
+
+          Accesorios
+        </span>
+        <span
+          class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+        ></span>
+      </div>
+    </div>
+
+    <ul class=" *:mb-4 mt-3" id="verTodo">
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="verTodoAccesorios"
+                >Ver todo</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+
+
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="bolsosAccesorios"
+                >Bolsos y mochilas</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+      
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="calcetinesAccesorios"
+                >Calcetines</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>
+          
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="GafasAccesorios"
+                >Gafas de sol</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
+          
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="gorrosAccesorios"
+                >Gorros y Gorras</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+
+          </li>    
+           <li class="flex mb-0 justify-between">
+            <div class="relative inline-block group hover:-rotate-2">
+              <span class="relative cursor-pointer" id="otrosAccesorios"
+                >Otros Complementos</span
+              >
+              <span
+                class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
+              ></span>
+            </div>
+          </li>    
+
+       </ul>
+
+
+
 
 <script>
   let nuevo = document.querySelector<HTMLElement>(".nuevo");
@@ -345,8 +1162,45 @@
   let mujerLabel = document.querySelector<HTMLElement>("#mujerLabel");
   let hombreLabel = document.querySelector<HTMLElement>("#hombreLabel");
   let kidsLabel = document.querySelector<HTMLElement>("#kidsLabel");
+
+  let novedadesLabel = document.querySelector<HTMLElement>("#novedades");
+  let tendenciaLabel = document.querySelector<HTMLElement>("#tendencia");
+  let destacadosLabel = document.querySelector<HTMLElement>("#destacados");
+  let classicsLabel = document.querySelector<HTMLElement>("#classics");
+  let actionSportLabel = document.querySelector<HTMLElement>("#actionSports");
+  let zapatillasLabel = document.querySelector<HTMLElement>("#zapatillas");
+  let ropaLabel = document.querySelector<HTMLElement>("#ropa");
+  let accesoriosLabel = document.querySelector<HTMLElement>("#accesorios");
+  
+
+  let novedadesVolver = document.querySelector<HTMLElement>("#novedadesVolver");
+  let tendenciaVolver = document.querySelector<HTMLElement>("#tendenciaVolver");
+  let destacadosVolver = document.querySelector<HTMLElement>("#destacadosVolver");
+  let classicsVolver = document.querySelector<HTMLElement>("#classicsVolver");
+  let actionVolver = document.querySelector<HTMLElement>("#actionVolver");
+  let zapatillasVolver = document.querySelector<HTMLElement>("#zapatillasVolver");
+  let ropaVolver = document.querySelector<HTMLElement>("#ropaVolver");
+  let accesoriosVolver = document.querySelector<HTMLElement>("#accesoriosVolver");
+
   let selector: HTMLElement;
+
+  let novedades = document.querySelector<HTMLElement>("#novedades");
+  let principal = document.querySelector<HTMLElement>("#principal");
+  let novedadesMenu = document.querySelector<HTMLElement>("#novedadesMenu");
+  let tendenciaMenu = document.querySelector<HTMLElement>("#tendenciaMenu");
+  let destacadosMenu = document.querySelector<HTMLElement>("#destacadosMenu");
+  let classicsMenu = document.querySelector<HTMLElement>("#classicsMenu");
+  let actionMenu = document.querySelector<HTMLElement>("#actionMenu");
+  let zapatillasMenu = document.querySelector<HTMLElement>("#zapatillasMenu");
+  let ropaMenu = document.querySelector<HTMLElement>("#ropaMenu");
+  let accesoriosMenu = document.querySelector<HTMLElement>("#accesoriosMenu");
+
+
+  let menuActual: HTMLElement;
+
   let arrayLabels = [newLabel, mujerLabel, hombreLabel, kidsLabel];
+  let arraySubcategoria = [novedadesLabel, tendenciaLabel, destacadosLabel, classicsLabel, actionSportLabel, zapatillasLabel, ropaLabel, accesoriosLabel];
+  let arrayVolver = [novedadesVolver, tendenciaVolver, destacadosVolver, classicsVolver, actionVolver, zapatillasVolver, ropaVolver, accesoriosVolver];
 
   let categorias = document.querySelector("#categorias");
 
@@ -386,6 +1240,7 @@
       contenido = otros;
     }
 
+
     for (let iterable of arrayContenido) {
       if (iterable == null) {
         return;
@@ -403,39 +1258,95 @@
     }
   }
 
-  let novedades = document.querySelector<HTMLElement>("#novedades");
-  let principal = document.querySelector<HTMLElement>("#principal");
-  let novedadesMenu = document.querySelector<HTMLElement>("#novedadesMenu");
-  let novedadesVolver = document.querySelector<HTMLElement>("#novedadesVolver");
-  if (novedades != null) {
-    novedades.addEventListener("click", cambiarSubcategoria);
-  }
 
-  if (novedadesVolver != null) {
-    novedadesVolver.addEventListener("click", volverSubcategoria);
-  }
+    // if (novedades != null) {
+  //   novedades.addEventListener("click", cambiarSubcategoria);
+  // }
 
-  function cambiarSubcategoria() {
-    if (principal == null || novedadesMenu == null) {
+
+for (let iterable of arrayVolver){
+  if (iterable!=null){
+    iterable.addEventListener("click", volverSubcategoria);
+  }
+}
+
+
+  document.addEventListener("click", cambiarSubcategoria)
+
+  function cambiarSubcategoria(e: Event) {
+
+    if (e.target == null) {
       return;
     }
-    novedadesMenu.style.transform = "translatex(20rem)";
+    let label = (e.target as HTMLInputElement).closest("span");
+
+
+    if (arraySubcategoria.includes(label) == false || label == null) {
+      return;
+    }
+    
+    
+    if (principal == null || novedadesMenu == null || tendenciaMenu == null || destacadosMenu == null || classicsMenu == null || actionMenu == null || zapatillasMenu == null || ropaMenu == null || accesoriosMenu == null) {
+      return;
+    }
+
+
+    let menu: HTMLElement;
+    if (label==novedadesLabel){
+      menu=novedadesMenu;
+    }
+    else if (label==tendenciaLabel){
+      menu=tendenciaMenu;
+    }
+    else if (label==destacadosLabel){
+      menu=destacadosMenu;
+    }
+    else if (label==classicsLabel){
+      menu=classicsMenu;
+    }
+    else if (label==actionSportLabel){
+      menu=actionMenu;
+    }
+    else if (label==zapatillasLabel){
+      menu=zapatillasMenu;
+    }
+    else if (label==ropaLabel){
+      menu=ropaMenu;
+    }
+    else if (label==accesoriosLabel){
+      menu=accesoriosMenu;
+    }
+    else {
+      return
+    }
+
+    
+
+
+    menuActual = menu;
+
+    menu.style.transform = "translatex(20rem)";
     principal.style.display = "none";
-    novedadesMenu.style.display = "flex";
+    menu.style.display = "flex";
     setTimeout(() => {
-      novedadesMenu.style.transition = "transform 0.15s ease-out";
-      novedadesMenu.style.transform = "translateX(0)";
+      menu.style.transition = "transform 0.15s ease-out";
+      menu.style.transform = "translateX(0)";
     }, 10);
+
+
   }
 
   function volverSubcategoria() {
-    if (principal == null || novedadesMenu == null) {
+    if (principal == null || menuActual == null) {
       return;
     }
     principal.style.transform = "translatex(20rem)";
-    novedadesMenu.style.display = "none";
+    menuActual.style.display = "none";
     principal.style.display = "flex";
     setTimeout(() => {
+      if (principal==null){
+        return
+      }
       principal.style.transition = "transform 0.15s ease-out";
       principal.style.transform = "translateX(0)";
     }, 10);

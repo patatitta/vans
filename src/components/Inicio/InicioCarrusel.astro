@@ -14,11 +14,11 @@ const {ArrayCategorias} = Astro.props
 ---
 
 <div class="mt-4">
-  <div class="flex overflow-x-auto md:overflow-visible md:grid md:grid-cols-3 gap-1">
+  <div class="flex overflow-x-scroll md:overflow-visible md:grid md:grid-cols-3 gap-1">
     {ArrayCategorias.map((category: InterfazArrayCategorias) => (
-      <div class="relative w-11/12 md:w-full shrink overflow-hidden">
+      <div class="relative w-11/12 md:w-full shrink-0 md:shrink overflow-hidden">
         <img
-          class="w-full h-full object-contain md:hover:-rotate-2 md:hover:scale-110 transition-all duration-150 p-2 md:p-0 cursor-pointer"
+          class="w-full md:hover:-rotate-2 md:hover:scale-110 transition-all duration-150 cursor-pointer"
           src={category.Imagen.src}
           alt={category.Alt}
         />
