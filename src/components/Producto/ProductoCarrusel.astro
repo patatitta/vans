@@ -10,7 +10,7 @@ interface InterfazArrayRecomendaciones {
     }
 ---
 
-<div class="text-xl ml-10 text-neutral-500 mt-5">También te aconsejamos</div>
+<div class=" ml-2 text-[rgb(38,36,36)] mt-10">También te aconsejamos</div>
 <div class="carrusel w-full h-full relative">
   <div class="carrusel w-full h-full relative">
     <div class="marco w-full h-full overflow-auto">
@@ -18,10 +18,10 @@ interface InterfazArrayRecomendaciones {
 
          {ArrayRecomendaciones.map((imagen: InterfazArrayRecomendaciones)=>(
         <div
-          class="relative w-1/1 min-w-1/1 md:w-1/5 md:min-w-1/5 h-full flex flex-col items-center"
+          class="relative w-5/6 min-w-5/7 md:w-5/7 md:min-w-1/5 h-full flex flex-col items-center"
         >
           <img
-            class="w-full h-full object-contain p-2"
+            class="w-full h-full object-contain p-1"
             src={imagen.Imagen.src}
             alt="Mocasines 1"
           />

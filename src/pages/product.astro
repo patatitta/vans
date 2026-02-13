@@ -152,7 +152,7 @@ let ArrayTallas = [
 ---
 
 <Layout arrayTexto={arrayTexto} mostrarTicker={true}>
-    <div class="up md:flex">
+    <div class="up md:flex md:items-start">
     <ProductoImagenes ArrayProductoImagenes={ArrayProductoImagenes}></ProductoImagenes>
     
     <div class="md:hidden">
@@ -178,3 +178,33 @@ let ArrayTallas = [
 
     </Layout>
 
+
+<script>
+if(window.innerWidth<756){
+    document.addEventListener("scroll", transparentarNav)
+    let nav = document.querySelector('nav');
+    
+    if (nav!=null){
+        
+        nav.style.backgroundColor = "transparent"
+        nav.style.position = "sticky"
+        nav.style.color="black"  
+        
+    }
+    function transparentarNav(){
+        if (nav==null){
+            return
+        }
+        
+        if(window.scrollY>nav.clientHeight){
+            nav.style.backgroundColor = "white"
+            nav.style.color="black"
+        }
+        else{
+            nav.style.backgroundColor = "transparent"
+            nav.style.color="black"
+        }
+    }
+}
+
+</script>

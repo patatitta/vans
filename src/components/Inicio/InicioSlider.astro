@@ -5,8 +5,8 @@ import inicio1 from "../../assets/inicio1.webm";
 ---
 
 <div class="carrusel relative h-screen">
-  <div class="marco overflow-auto h-full">
-    <div class="imagenes flex transition-all duration-150 h-full">
+  <div class="marco overflow-auto h-full snap-x snap-mandatory">
+    <div class="imagenes flex transition-all duration-150 h-full *:snap-start ">
       <div class="relative min-w-full h-full">
         <video class="w-full h-full object-cover" autoplay muted loop>
           <source src={inicio1} type="video/webm" />
@@ -73,15 +73,11 @@ import inicio1 from "../../assets/inicio1.webm";
   setInterval(mover, 5000);
   let marco = document.querySelector(".marco");
   let posicion = 0;
-  let ancho = 0;
-  if (marco != null) {
-    ancho = marco?.scrollWidth / 3;
-  }
   function mover() {
-    if (marco == null || ancho == null || posicion == null) {
+    if (marco == null || posicion == null) {
       return;
     }
-    posicion += ancho;
+    posicion += marco?.scrollWidth / 3;
     if (posicion >= marco?.scrollWidth) {
       posicion = 0;
     }

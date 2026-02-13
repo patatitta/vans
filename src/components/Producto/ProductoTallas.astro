@@ -17,13 +17,13 @@ console.log(ArrayTallas);
 
 <!-- Menu de tallas -->
 <div
-  class="tallas fixed bg-white *:text-black md:top-0 md:right-0 md:left-auto -bottom-full left-0 w-full h-3/4 md:h-full backdrop-blur-sm z-50 md:w-96 transition-all duration-300 ease-out pointer-events-none opacity-0 overflow-y-scroll"
+  class="tallas fixed flex flex-col bg-white *:text-black md:top-0 md:right-0 md:left-auto -bottom-full left-0 w-full h-3/4 md:h-full backdrop-blur-sm z-50 md:w-96 transition-all duration-300 ease-out pointer-events-none opacity-0 overflow-y-scroll"
 >
-  <div class="title text-xl py-4 px-4 border-b border-gray-200">
+  <div class="title text-xl  py-4 px-4 border-b border-gray-200">
     Elige una talla
   </div>
 
-  <div class="">
+  <div class="overflow-y-scroll" id="menuTallas">
     {
       ArrayTallas.map((Talla: InterfazTallas) =>
         Talla.Disponibilidad === true ? (
@@ -37,15 +37,21 @@ console.log(ArrayTallas);
         ) : (
           <button
             type="button"
-            class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full bg-gray-50 cursor-not-allowed"
+            class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full bg-gray-50"
           >
             <div class="talla font-medium text-gray-500">{Talla.Size}</div>
             <div class="precio text-gray-500 text-sm">Agotado</div>
           </button>
-        ),
+        )
       )
     }
   </div>
+  <div class="flex grow border-b border-gray-200 m-4 cursor-pointer">
+    <button class="grow">
+            <div class="talla font-medium text-white bg-[rgb(38,36,36)]">Añade a la cesta</div>
+      </button>
+  </div>
+
 </div>
 
 <script>
@@ -98,5 +104,30 @@ console.log(ArrayTallas);
       hamburguesa.style.pointerEvents = "none";
     }
   }
+
+let menuTallas = document.querySelector('#menuTallas');
+menuTallas?.addEventListener("click", marcar)
+let seleccionAntigua: HTMLElement;
+function marcar(e: Event){
+  if(!e.target || (e.target as HTMLElement).closest('button') == null){
+    return
+  }
+  let seleccion = (e.target as HTMLElement).closest('button');
+  if (seleccion == null){
+    return
+  }
+  seleccion.style.backgroundColor = "black";
+  seleccion.style.color = "white";
+
+  if (seleccionAntigua!=null){
+    seleccionAntigua.style.backgroundColor="white"
+    seleccionAntigua.style.color="black"
+  }
+
+  seleccionAntigua = seleccion;
+  
+
+}
+
 </script>
 

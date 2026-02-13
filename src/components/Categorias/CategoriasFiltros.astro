@@ -18,17 +18,17 @@ interface arrayColores
 <div class="oscuro z-50 bg-black fixed inset-0 min-w-full pointer-events-none opacity-0 md:hidden" ></div>
 
       <!-- MENU FILTROS-->
-<div class="z-50 md:z-30 w-full md:min-w-1/4 max-h-6/7 opacity-0 md:hidden md:opacity-100 filtros md:static fixed bottom-0 translate-y-3/4 md:translate-y-0 transition-all duration-150 ease-out overflow-y-auto">
-    <GeneralAccordion title="Orden">
-
-          <div>
-            <ul>
-              <li>
-                <input type="radio" id="importancia" name="orden" />
-                <label for="orden">Importancia</label>
-              </li>
-              <li>
-                <input type="radio" id="bajoAlto" name="orden" />
+<div class="z-50 md:z-30 bg-white w-full md:min-w-1/4 max-h-6/7 opacity-0 md:hidden md:opacity-100 filtros md:static fixed bottom-0 translate-y-3/4 md:translate-y-0 transition-all duration-150 ease-out overflow-y-auto *:text-black">
+  <GeneralAccordion title="Orden">
+    
+    <div>
+      <ul>
+        <li>
+          <input type="radio" id="importancia" name="orden" />
+          <label for="orden">Importancia</label>
+        </li>
+        <li>
+          <input type="radio" id="bajoAlto" name="orden" />
                 <label for="bajoAlto">Precios: De bajo a alto</label>
               </li>
               <li>
@@ -101,7 +101,7 @@ interface arrayColores
           <div>
             <ul
               class="*:p-2 *:border *:m-1 flex cuadrado *:transition-all *:duration-150"
-            >
+              >
 
             {ArrayTallas.map((Talla: InterfazTallas)=>(
               <li id="opcionCuadrado">
@@ -112,11 +112,11 @@ interface arrayColores
           </div>
         </GeneralAccordion>
         <GeneralAccordion title="Color">
-
+          
           <div>
             <ul class="grid grid-cols-6 gap-4 text-xs">
-
-
+              
+              
               {arrayColores.map((color: arrayColores)=>(              
                 <li class="flex flex-col items-center justify-center">
                   <div class="w-3/4 aspect-square rounded-full" style={`background-color: ${color.Color}`} ></div>
@@ -135,19 +135,19 @@ interface arrayColores
         </GeneralAccordion>
       </div>
       <div
-        class="grow tarjetas grid grid-rows-3 grid-cols-2 md:grid-cols-3 *:contents"
+      class="grow tarjetas grid grid-rows-3 grid-cols-2 md:grid-cols-3 *:contents"
       >
-        <slot name="cards" />
-      </div>
-
+      <slot name="cards" />
+    </div>
+    
 
 
     <script>
-        
+      
   // MENU FILTROS
   document.addEventListener('DOMContentLoaded', () => {
 
-      const botonFiltros = document.querySelector<HTMLElement>(".botonFiltros");
+    const botonFiltros = document.querySelector<HTMLElement>(".botonFiltros");
         const botonFiltrosResponsive = document.querySelector<HTMLElement>(".botonFiltrosResponsive");
             const menuFiltros = document.querySelector<HTMLElement>(".filtros");
                 const oscuro = document.querySelector<HTMLElement>(".oscuro");

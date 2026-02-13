@@ -3,7 +3,7 @@ const { arrayTexto } = Astro.props;
 ---
 
 <div class="contenedor black w-full overflow-x-hidden bg-black">
-  <div class="ticker *:text-white *:mr-10 flex *:text-nowrap">
+  <div class="ticker *:text-white *:mr-10 flex *:text-nowrap *:text-xs">
     {arrayTexto.map((texto: string) => (
       <>
         <span class="">{texto}</span>
@@ -24,6 +24,9 @@ const { arrayTexto } = Astro.props;
 
   .ticker {
     animation: ticker-loop 40s linear infinite;
+  }
+  .ticker:hover{
+animation-play-state: paused;
   }
 
 

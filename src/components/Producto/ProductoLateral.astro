@@ -2,16 +2,18 @@
 const { ArrayColoresImagenes, Precio, Nombre, Descripcion, Categoria } =
   Astro.props;
 
-let ArrayColoresImagenesSegmento1 = ArrayColoresImagenes.splice(0, 9);
+  let ArrayColoresImagenesSegmento1
+ArrayColoresImagenesSegmento1 = ArrayColoresImagenes.splice(0, 9);
+
 ---
 
-<div class="right min-w-md px-2">
+<div class="right md:min-w-1/3 px-4 sticky top-20">
   <div class="Title">
     <div class="categoryRoute text-xs text-right">
       Compra &gt; {Categoria}
     </div>
     <div class="nombreProducto text-xl">{Nombre}</div>
-    <div class="smallText text-xs">{Descripcion}</div>
+    <div class="smallText text-xs text-[rgb(112,112,112)]">{Descripcion}</div>
     <div class="precio">{Precio}€</div>
   </div>
 
@@ -19,42 +21,43 @@ let ArrayColoresImagenesSegmento1 = ArrayColoresImagenes.splice(0, 9);
 
   <div class="Images">
     <div
-      class="grid grid-cols-5 gap-1 p-1 max-w-7xl mx-auto *:hover:cursor-pointer"
+      class="md:grid md:grid-cols-5 md:gap-1 p-1 md:max-w-7xl mx-auto *:hover:cursor-pointer flex overflow-y-scroll"
     >
-      {
-        ArrayColoresImagenesSegmento1.map((imagen: HTMLSourceElement) => (
-          <img
-            class="h-auto object-cover  border-transparent hover:border-solid border hover:border-black transition-all duration-150 rounded "
-            src={imagen.src}
-          />
-        ))
-      }
-
-      { ArrayColoresImagenes.length>0 ? (
-      <div
-        class="h-auto continuar bg-gray-100 flex items-center justify-center flex-col hover:bg-gray-200"
-      >
-
-        <p>+{ArrayColoresImagenes.length}</p>
-        <div>Mostrar</div>
-      </div>
-
-) : null
+{
+  ArrayColoresImagenesSegmento1.map((imagen: HTMLSourceElement) => (
+    <img
+      class="w-1/7 md:w-auto md:h-auto border-transparent hover:border-solid border hover:border-black transition-all duration-150 rounded"
+      src={imagen.src}
+      alt="placeholder"
+    />
+  ))
 }
-      {
-        ArrayColoresImagenes.map((imagen: HTMLSourceElement) => (
-          <img
-            class="h-auto object-cover hidden  escondido border-transparent hover:border-solid border hover:border-black transition-all duration-150 rounded "
-            src={imagen.src}
-          />
-        ))
-      }
 
-            <div
-        class="h-auto object-contain ocultar hidden escondido bg-gray-100 items-center justify-center flex-col hover:bg-gray-200"
-      >
-        <p>Ocultar</p>
-      </div>
+{
+  ArrayColoresImagenes.length > 0 ? (
+    <div
+      class="h-auto continuar bg-gray-100 hidden md:flex items-center justify-center flex-col hover:bg-gray-200"
+    >
+      <p>+{ArrayColoresImagenes.length}</p>
+      <div>Mostrar</div>
+    </div>
+  ) : null
+}
+
+{
+  ArrayColoresImagenes.map((imagen: HTMLSourceElement) => (
+    <img
+      class="w-1/7 md:w-auto md:h-auto md:hidden escondido border-transparent hover:border-solid border hover:border-black transition-all duration-150 rounded"
+      src={imagen.src}
+    />
+  ))
+}
+
+<div
+  class="h-auto object-contain ocultar hidden escondido bg-gray-100 items-center justify-center flex-col hover:bg-gray-200"
+>
+  <p>Ocultar</p>
+</div>
 
 
 
@@ -65,7 +68,7 @@ let ArrayColoresImagenesSegmento1 = ArrayColoresImagenes.splice(0, 9);
     <div class="Size">
       <p class="mt-2">Talla</p>
       <div
-        class="mt-2 px-6 py-4 border border-solid verTallas space-y-4 w-full hover:cursor-pointer flex justify-between items-center"
+        class="mt-2 px-6 py-4 border border-solid verTallas space-y-4 w-full hover:cursor-pointer flex justify-between items-center text-[rgb(82,82,82)]"
       >
         Elige una talla
         <svg
@@ -80,19 +83,19 @@ let ArrayColoresImagenesSegmento1 = ArrayColoresImagenes.splice(0, 9);
         </svg>
       </div>
 
-      <div class="mt-2 tableLink text-xs hover:cursor-pointer">
+      <div class="my-4 tableLink text-xs hover:cursor-pointer underline">
         Tabla de tallas
       </div>
     </div>
     <div class="Sell">
       <button
         type="button"
-        class="mt-2 px-6 py-3 bg-neutral-900 text-white hover:bg-black transition-all duration-150 space-y-4 min-w-full hover:cursor-pointer"
+        class="mt-2 px-6 py-3 bg-[rgb(38,36,36)] text-white hover:bg-black transition-all duration-150 space-y-4 min-w-full hover:cursor-pointer"
         >Añade a la cesta</button
       >
       <button
         type="button"
-        class="flex justify-center mt-2 px-6 py-3 border text-neutral-900 hover:bg-neutral-200 hover:text-black transition-all duration-150 space-y-4 min-w-full hover:cursor-pointer"
+        class="flex justify-center mt-2 px-6 py-3 border text-[rgb(38,36,36)] hover:bg-neutral-200 hover:text-black transition-all duration-150 space-y-4 min-w-full hover:cursor-pointer"
         ><svg
           class="w-20 h-5"
           xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +110,7 @@ let ArrayColoresImagenesSegmento1 = ArrayColoresImagenes.splice(0, 9);
         ></button
       >
 
-      <div class="mt-2 payPalText text-xs">
+      <div class="mt-5 payPalText text-xs">
         Compra ahora y paga después con PayPal. <a
           class="underline hover:cursor-pointer">Más Información</a
         >
@@ -137,7 +140,7 @@ let ArrayColoresImagenesSegmento1 = ArrayColoresImagenes.splice(0, 9);
             fill="black"></path>
         </svg>
 
-        <p class="ml-2">Reserva en tienda</p>
+        <p class="ml-2 text-[rgb(38,36,36)]">Reserva en tienda</p>
       </div>
     </div>
   </div>
@@ -181,3 +184,17 @@ if (ocultar!=null){
 
 
 </script>
+
+
+
+<style>
+  /* este style es necesario para que al cambiar de pc a responsive sin recargar la pagina el estilo se aplique correctamente. */
+  @media (max-width: 767px) {
+    .continuar, .ocultar {
+      display: none !important;
+    }
+    img.escondido {
+      display: block !important;
+    }
+  }
+</style>
