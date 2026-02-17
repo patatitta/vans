@@ -152,6 +152,17 @@ let ArrayTallas = [
 ---
 
 <Layout arrayTexto={arrayTexto} mostrarTicker={true}>
+
+    <!-- Boton fixed en responsive que desaparece cuando esta en otro en pantalla, no tengo ni idea de como hacer esto -->
+        <!-- <div class="fixed bottom-0  z-50 bg-white w-full flex items-center justify-center border-t">
+        <button
+          type="button"
+          class="px-6 py-3 my-5 bg-[rgb(38,36,36)] text-white hover:bg-black transition-all duration-150 text-center hover:cursor-pointer w-9/10"
+        >
+          Añade a la cesta
+        </button>
+    </div> -->
+
     <div class="up md:flex md:items-start">
     <ProductoImagenes ArrayProductoImagenes={ArrayProductoImagenes}></ProductoImagenes>
     
@@ -163,7 +174,7 @@ let ArrayTallas = [
     <ProductoTallas ArrayTallas = {ArrayTallas}>
 </div>
 
-
+<div class="mt-8">
     <GeneralAccordion
       title="title"
       content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure! Quas, similique"
@@ -175,7 +186,7 @@ let ArrayTallas = [
         <GeneralAccordionScript/>
         <ProductoCarrusel  ArrayRecomendaciones={ArrayRecomendaciones}/>
         <ProductoReview NumeroReviews="300" Puntuacion=51 /> <!-- La puntuacion que hay que mandar es SOBRE 100 -->
-
+</div>
     </Layout>
 
 

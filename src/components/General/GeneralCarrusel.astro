@@ -13,7 +13,7 @@
       {arrayImagenes.map((Imagen: HTMLSourceElement) =>(
 
         <img
-        class="w-full min-w-full h-full object-contain p-2 shrink-0"
+        class="w-full min-w-full h-full object-contain p-0 shrink-0"
         src={Imagen.src}
         />
       ))}
@@ -105,8 +105,12 @@ const imagenes = document.querySelectorAll<HTMLElement>(".imagenes");
       }
     }
 
-    rightArrow[contador].addEventListener("click", moverDerecha);
-    leftArrow[contador].addEventListener("click", moverIzquierda);
+    if (rightArrow[contador]!=null){
+      rightArrow[contador].addEventListener("click", moverDerecha);
+    }
+    if (leftArrow[contador]!=null){
+      leftArrow[contador].addEventListener("click", moverIzquierda);
+    }    
     contador += 1;
   }
 })

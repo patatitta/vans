@@ -4,6 +4,7 @@ const { ArrayColoresImagenes, Precio, Nombre, Descripcion, Categoria } =
 
   let ArrayColoresImagenesSegmento1
 ArrayColoresImagenesSegmento1 = ArrayColoresImagenes.splice(0, 9);
+import paypal from "@assets/paypal.svg"
 
 ---
 
@@ -110,8 +111,9 @@ ArrayColoresImagenesSegmento1 = ArrayColoresImagenes.splice(0, 9);
         ></button
       >
 
-      <div class="mt-5 payPalText text-xs">
-        Compra ahora y paga después con PayPal. <a
+      <div class="mt-5 payPalText text-xs ">
+        Compra ahora y paga después con <img class="h-4 w-auto inline" src={paypal.src}> 
+        <a
           class="underline hover:cursor-pointer">Más Información</a
         >
       </div>
