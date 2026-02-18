@@ -3,6 +3,11 @@
 
  const {arrayImagenes} = Astro.props;
 
+  console.log("aaaaaa "+ arrayImagenes)
+
+  interface interfazArrayImagenes{
+    url: string
+  }
 
 ---
 
@@ -10,11 +15,11 @@
   <div class="marco w-full h-full overflow-auto">
     <div class="imagenes flex transition-all duration-150">
 
-      {arrayImagenes.map((Imagen: HTMLSourceElement) =>(
+      {arrayImagenes.map((Imagen: interfazArrayImagenes) =>(
 
         <img
         class="w-full min-w-full h-full object-contain p-0 shrink-0"
-        src={Imagen.src}
+        src={Imagen.url}
         />
       ))}
 </div>

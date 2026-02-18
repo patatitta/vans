@@ -4,15 +4,18 @@
 
 const {ArrayProductoImagenes} = Astro.props
 
+interface interfazImagen{
+  url: string;
+}
 
 ---
 
 
 <div class="hidden left md:flex flex-wrap gap-0  md:max-w-7xl mx-auto">
-    {ArrayProductoImagenes.map((imagen: HTMLSourceElement) => (
+    {ArrayProductoImagenes.arrayImages.map((imagen: interfazImagen) => (
             <img
               class="w-1/2 h-auto object-contain pl-2 pb-2 m-w-100"
-              src={imagen.src}
+              src={imagen.url}
             />        
     ))}
             <!-- <img

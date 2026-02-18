@@ -10,143 +10,69 @@ import ProductoReview from "@producto/ProductoReview.astro"
 import ProductoCarrusel from "@producto/ProductoCarrusel.astro"
 
 
-import mocasines1 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes.avif";
-import mocasines2 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (1).avif";
-import mocasines3 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (2).avif";
-import mocasines4 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (3).avif";
-import mocasines5 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (4).avif";
 
-let arrayTexto = ["Entrega gratuita en pedidos superiores a 80", "¡20% Extra en todos los artículos en rebajas! Se aplica en el carrito", "Devoluciones gratuitas", "Entrega gratuita en pedidos superiores a 80", "¡20% Extra en todos los artículos en rebajas! Se aplica en el carrito", "Devoluciones gratuitas", "Entrega gratuita en pedidos superiores a 80", "¡20% Extra en todos los artículos en rebajas! Se aplica en el carrito", "Devoluciones gratuitas"]
+const APIROCKET_ECOMMERCE_TOKEN = import.meta.env.APIROCKET_ECOMMERCE_TOKEN;
 
-let ArrayProductoImagenes = [mocasines1, mocasines2, mocasines3, mocasines4, mocasines5, mocasines1, mocasines2, mocasines3, mocasines4, mocasines5, mocasines1, mocasines2, mocasines3, mocasines4, mocasines5, mocasines1]
-let ArrayRecomendaciones = [
-    {
-        Nombre: "Zapatillas Knu Skool",
-        Imagen: mocasines1,
-        Precio: 100
-    },
-    {
-        Nombre: "Zapatillas Knu Skool",
-        Imagen: mocasines1,
-        Precio: 10
-    },
-    {
-        Nombre: "Zapatillas Knu Skool",
-        Imagen: mocasines4,
-        Precio: 100
-    },
-    {
-        Nombre: "Zapatillas  s Skool",
-        Imagen: mocasines1,
-        Precio: 100
-    },
-    {
-        Nombre: "Zapatillas Knu Skool",
-        Imagen: mocasines1,
-        Precio: 100
-    },
-    {
-        Nombre: "Zapatillas Knu Skool",
-        Imagen: mocasines1,
-        Precio: 100
+
+
+
+
+let queryCards = `query MyQuery {
+  Products {
+    name
+    price
+    sizes {
+      size
     }
-]
-
-
-
-let ArrayTallas = [
-    {
-        Size: 35,
-        Precio: 95,
-        Disponibilidad: true
-    },
-    {
-        Size: 36,
-        Precio: 95,
-        Disponibilidad: true
-    },
-    {
-        Size: 37,
-        Precio: 95,
-        Disponibilidad: true
-    },
-    {
-        Size: 38,
-        Precio: 95,
-        Disponibilidad: false
-    },
-    {
-        Size: 39,
-        Precio: 95,
-        Disponibilidad: true
-    },
-    {
-        Size: 40,
-        Precio: 95,
-        Disponibilidad: false
-    },
-    {
-        Size: 41,
-        Precio: 95,
-        Disponibilidad: true
-    },
-    {
-        Size: 42,
-        Precio: 95,
-        Disponibilidad: true
-    },
-    {
-        Size: 43,
-        Precio: 95,
-        Disponibilidad: true
-    },
-    {
-        Size: 35,
-        Precio: 95,
-        Disponibilidad: true
-    },
-    {
-        Size: 36,
-        Precio: 95,
-        Disponibilidad: true
-    },
-    {
-        Size: 37,
-        Precio: 95,
-        Disponibilidad: true
-    },
-    {
-        Size: 38,
-        Precio: 95,
-        Disponibilidad: false
-    },
-    {
-        Size: 39,
-        Precio: 95,
-        Disponibilidad: true
-    },
-    {
-        Size: 40,
-        Precio: 95,
-        Disponibilidad: false
-    },
-    {
-        Size: 41,
-        Precio: 95,
-        Disponibilidad: true
-    },
-    {
-        Size: 42,
-        Precio: 95,
-        Disponibilidad: true
-    },
-    {
-        Size: 43,
-        Precio: 95,
-        Disponibilidad: true
+    variants {
+      arrayImages {
+        url
+      }
+      color
     }
-]
+    defaultVariant {
+      id
+    }
+    colors
+    arrayImages {
+      url
+    }
+  }
+}
 
+
+
+`
+
+ 
+async function fetchApirocket(query: String) {
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${APIROCKET_ECOMMERCE_TOKEN}`
+    },
+    body: JSON.stringify({query})
+  }
+
+  const data = await fetch('https://graphql.apirocket.io', options).then(response => response.json())
+  return data
+}
+let respuesta = (await fetchApirocket(queryCards))
+
+let arrayProductos = respuesta.data.Products;
+let arrayTallas = respuesta.data.Sizes;
+
+
+let queryText = `query MyQuery {
+  TickerTexts {
+    text
+  }
+}
+`
+
+let arrayTexto = (await fetchApirocket(queryText)).data.TickerTexts
 
 
 ---
@@ -164,14 +90,14 @@ let ArrayTallas = [
     </div> -->
 
     <div class="up md:flex md:items-start">
-    <ProductoImagenes ArrayProductoImagenes={ArrayProductoImagenes}></ProductoImagenes>
+    <ProductoImagenes ArrayProductoImagenes={arrayProductos[0]}></ProductoImagenes>
     
     <div class="md:hidden">
-        <GeneralCarrusel arrayImagenes={ArrayProductoImagenes}/>
+        <GeneralCarrusel arrayImagenes={arrayProductos[0].arrayImages}/>
     </div>
     
-    <ProductoLateral ArrayColoresImagenes={ArrayProductoImagenes} Precio=100 Nombre="Zapatillas Knu Skool" Descripcion="Uso Diario, diseño retro" Categoria="zapatillas" />
-    <ProductoTallas ArrayTallas = {ArrayTallas}>
+    <ProductoLateral ArrayProductos={arrayProductos[0]} Precio=100 Nombre="Zapatillas Knu Skool" Descripcion="Uso Diario, diseño retro" Categoria="zapatillas" />
+    <ProductoTallas arrayTallas={arrayTallas}>
 </div>
 
 <div class="mt-8">
@@ -184,8 +110,8 @@ let ArrayTallas = [
       content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure! Quas, similique"
     />
         <GeneralAccordionScript/>
-        <ProductoCarrusel  ArrayRecomendaciones={ArrayRecomendaciones}/>
-        <ProductoReview NumeroReviews="300" Puntuacion=51 /> <!-- La puntuacion que hay que mandar es SOBRE 100 -->
+        <ProductoCarrusel  ArrayRecomendaciones={arrayProductos}/>
+        <ProductoReview NumeroReviews="300" Puntuacion=90 /> <!-- La puntuacion que hay que mandar es SOBRE 100 -->
 </div>
     </Layout>
 

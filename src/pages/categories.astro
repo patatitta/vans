@@ -5,42 +5,9 @@ import CategoriasFiltros from "@components/Categorias/CategoriasFiltros.astro";
 import CategoriasFinal from "@components/Categorias/CategoriasFinal.astro";
 import CategoriasContenedorCard from "@components/Categorias/CategoriasContenedorCard.astro";
 
-import mocasines1 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes.avif";
-import mocasines2 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (1).avif";
-import mocasines3 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (2).avif";
-import mocasines4 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (3).avif";
-import mocasines5 from "@assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes (4).avif";
 import categoriaVideo from "@assets/CategoriaVideo.webm";
 
-let arrayTexto = ["Entrega gratuita en pedidos superiores a 80", "¡20% Extra en todos los artículos en rebajas! Se aplica en el carrito", "Devoluciones gratuitas", "Entrega gratuita en pedidos superiores a 80", "¡20% Extra en todos los artículos en rebajas! Se aplica en el carrito", "Devoluciones gratuitas", "Entrega gratuita en pedidos superiores a 80", "¡20% Extra en todos los artículos en rebajas! Se aplica en el carrito", "Devoluciones gratuitas"]
 
-let arrayImagenes = [
-  mocasines1,
-  mocasines2,
-  mocasines3,
-  mocasines4,
-  mocasines5,
-];
-let arrayCards = [
-  {
-    Nombre: "Mocasines skate",
-    Colores: 7,
-    Precio: 100,
-    arrayImagenes: arrayImagenes,
-  },
-  {
-    Nombre: "Mocasines skate",
-    Colores: 7,
-    Precio: 100,
-    arrayImagenes: arrayImagenes,
-  },
-  {
-    Nombre: "Mocasines skate",
-    Colores: 7,
-    Precio: 100,
-    arrayImagenes: arrayImagenes,
-  },
-];
 
 let titulo = "Ropa y Calzado para hombre"
 let numeroProductos = 1000
@@ -63,16 +30,80 @@ let ArrayTallas = [
     }]
 
 
-    let arrayColores=[
-        {
-            Nombre: "azul",
-            Color: "rgb(40,62,141"
-        },
-        {
-            Nombre: "beis",
-            Color: "rgb(204,153,102)"
-        }
-    ]
+
+
+
+const APIROCKET_ECOMMERCE_TOKEN = import.meta.env.APIROCKET_ECOMMERCE_TOKEN;
+
+
+let queryCards = `
+query MyQuery {
+  Products {
+    name
+    price
+    sizes {
+      size
+    }
+    variants {
+      arrayImages {
+        url
+      }
+      color
+    }
+    defaultVariant {
+      id
+    }
+    colors
+    arrayImages {
+      url
+    }
+  }
+}
+
+
+`
+
+ 
+async function fetchApirocket(query: String) {
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${APIROCKET_ECOMMERCE_TOKEN}`
+    },
+    body: JSON.stringify({query})
+  }
+
+  const data = await fetch('https://graphql.apirocket.io', options).then(response => response.json())
+  return data
+}
+
+let arrayCards = (await fetchApirocket(queryCards)).data.Products;
+let queryColors = `query MyQuery {
+  Colors {
+    name
+    color {
+      hex
+    }
+  }
+}
+
+`
+
+
+
+let arrayColores = (await fetchApirocket(queryColors)).data.Colors;
+
+let queryText = `query MyQuery {
+  TickerTexts {
+    text
+  }
+}
+`
+
+let arrayTexto = (await fetchApirocket(queryText)).data.TickerTexts
+
 ---
 
 <Layout arrayTexto={arrayTexto} mostrarTicker={true}>

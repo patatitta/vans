@@ -3,9 +3,14 @@ import GeneralAccordion from "@components/General/GeneralAccordion.astro";
 const {ArrayTallas, arrayColores} = Astro.props
 interface arrayColores
   {
-    Nombre: string,
-    Color: string
+    name: string,
+    color: hex
   }
+
+  interface hex {
+  hex: String;
+}
+
 
   interface InterfazTallas {
   Precio: number;
@@ -119,8 +124,8 @@ interface arrayColores
               
               {arrayColores.map((color: arrayColores)=>(              
                 <li class="flex flex-col items-center justify-center">
-                  <div class="w-3/4 aspect-square rounded-full" style={`background-color: ${color.Color}`} ></div>
-                  <div class="py-3">{color.Nombre}</div>
+                  <div class="w-3/4 aspect-square rounded-full" style={`background-color: ${color.color.hex}`} ></div>
+                  <div class="py-3">{color.name}</div>
                 </li>
               ))}
 

@@ -1,12 +1,22 @@
 ---
 const { arrayTexto } = Astro.props;
+
+interface InterfazTexto {
+  text: string
+}
 ---
 
 <div class="contenedor black w-full overflow-x-hidden bg-black py-2">
-  <div class="ticker *:text-white *:mr-10 flex *:text-nowrap *:text-xs">
-    {arrayTexto.map((texto: string) => (
+  <div class="ticker *:text-white *:mr-10 flex *:text-nowrap *:text-xs"> 
+    {arrayTexto.map((texto: InterfazTexto) => ( //lo duplico para asegurarme que nunca haya espacio en blanco
       <>
-        <span class="">{texto}</span>
+        <span class="">{texto.text}</span>
+        <span class="">•</span>
+      </>
+    ))}
+    {arrayTexto.map((texto: InterfazTexto) => ( 
+      <>
+        <span class="">{texto.text}</span>
         <span class="">•</span>
       </>
     ))}

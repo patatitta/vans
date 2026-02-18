@@ -1,13 +1,14 @@
 ---
-const { ArrayTallas } = Astro.props;
+const {arrayTallas} = Astro.props;
+
+
 
 interface InterfazTallas {
-  Precio: number;
-  Size: number;
-  Disponibilidad: boolean;
+  price: number;
+  size: number;
+  availability: boolean;
 }
 
-console.log(ArrayTallas);
 ---
 
 <div
@@ -25,21 +26,21 @@ console.log(ArrayTallas);
 
   <div class="overflow-y-scroll" id="menuTallas">
     {
-      ArrayTallas.map((Talla: InterfazTallas) =>
-        Talla.Disponibilidad === true ? (
+      arrayTallas.map((Talla: InterfazTallas) =>
+        Talla.availability === true ? (
           <button
             type="button"
             class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full hover:bg-gray-50 transition-colors"
           >
-            <div class="talla font-medium">{Talla.Size}</div>
-            <div class="precio">{Talla.Precio}€</div>
+            <div class="talla font-medium">{Talla.size}</div>
+            <div class="precio">{Talla.price}€</div>
           </button>
         ) : (
           <button
             type="button"
             class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full bg-gray-50"
           >
-            <div class="talla font-medium text-gray-500">{Talla.Size}</div>
+            <div class="talla font-medium text-gray-500">{Talla.size}</div>
             <div class="precio text-gray-500 text-sm">Agotado</div>
           </button>
         )

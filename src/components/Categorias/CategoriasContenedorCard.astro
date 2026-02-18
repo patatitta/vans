@@ -5,9 +5,9 @@ const {arrayCards, arrayPromocion} = Astro.props;
 
 
 interface InterfazArrayCards {
-    Nombre: string,
-    Colores: number,
-    Precio: number,
+    name: string,
+    colors: number,
+    price: number,
     arrayImagenes: Array<HTMLSourceElement>
   }
 
@@ -18,7 +18,7 @@ interface InterfazArrayCards {
 >
 
 {arrayCards.map((Valor: InterfazArrayCards) => (
-  <CategoriasCard Nombre={Valor.Nombre} Precio={Valor.Precio} Colores={Valor.Colores} arrayImagenes = {Valor.arrayImagenes}/>
+  <CategoriasCard Nombre={Valor.name} Precio={Valor.price} Colores={Valor.colors} arrayImagenes = {Valor.arrayImages}/>
   
 )
 )}

@@ -1,10 +1,17 @@
 ---
-const { ArrayColoresImagenes, Precio, Nombre, Descripcion, Categoria } =
+const { ArrayProductos, Precio, Nombre, Descripcion, Categoria } =
   Astro.props;
+
+  let ArrayColoresImagenes = ArrayProductos.arrayColors
 
   let ArrayColoresImagenesSegmento1
 ArrayColoresImagenesSegmento1 = ArrayColoresImagenes.splice(0, 9);
 import paypal from "@assets/paypal.svg"
+
+
+interface interfazImagen{
+  url: string;
+}
 
 ---
 
@@ -25,10 +32,10 @@ import paypal from "@assets/paypal.svg"
       class="md:grid md:grid-cols-5 md:gap-1 p-1 md:max-w-7xl mx-auto *:hover:cursor-pointer flex overflow-y-scroll"
     >
 {
-  ArrayColoresImagenesSegmento1.map((imagen: HTMLSourceElement) => (
+  ArrayColoresImagenesSegmento1.map((imagen: interfazImagen) => (
     <img
       class="w-1/7 md:w-auto md:h-auto border-transparent hover:border-solid border hover:border-black transition-all duration-150 rounded"
-      src={imagen.src}
+      src={imagen.url}
       alt="placeholder"
     />
   ))
@@ -46,10 +53,11 @@ import paypal from "@assets/paypal.svg"
 }
 
 {
-  ArrayColoresImagenes.map((imagen: HTMLSourceElement) => (
+  ArrayColoresImagenes.map((imagen: interfazImagen) => (
     <img
       class="w-1/7 md:w-auto md:h-auto md:hidden escondido border-transparent hover:border-solid border hover:border-black transition-all duration-150 rounded"
-      src={imagen.src}
+      src={imagen.url}
+      alt="placeholder"
     />
   ))
 }

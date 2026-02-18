@@ -3,10 +3,14 @@
 
 const {ArrayRecomendaciones} = Astro.props
 
+interface InterfazImagenes{
+  url: string
+}
+
 interface InterfazArrayRecomendaciones {
-        Nombre: String,
-        Imagen: HTMLSourceElement,
-        Precio: Number
+        name: String,
+        arrayImages: Array<InterfazImagenes>,
+        price: Number
     }
 ---
 
@@ -22,14 +26,14 @@ interface InterfazArrayRecomendaciones {
         >
           <img
             class="w-full h-full object-contain p-1"
-            src={imagen.Imagen.src}
+            src={imagen.arrayImages[0].url}
             alt="Mocasines 1"
           />
           <p class="text-center p-2 w-full">
-            <div>{imagen.Nombre}</div><div
+            <div>{imagen.name}</div><div
               class="text-xs text-neutral-500"
             >
-              {imagen.Precio}€
+              {imagen.price}€
             </div>
           </p>
 

@@ -4,31 +4,50 @@ import InicioSlider from "../components/Inicio/InicioSlider.astro"
 import Layout from "../layouts/Layout.astro"
 import spain from "@assets/spain.svg"
 
-import women from "@assets/women.avif";
-import men from "@assets/men.avif";
-import kids from "@assets/kids.avif";
 
 import inicio2 from "@assets/inicio2.avif";
 import inicio3 from "@assets/inicio3.avif";
 import inicio1 from "@assets/inicio1.webm";
 
 
-let ArrayCategorias = [
-    {
-        Nombre: "Mujer",
-        Imagen: women,
-        Alt: "women"
+
+
+const APIROCKET_ECOMMERCE_TOKEN = import.meta.env.APIROCKET_ECOMMERCE_TOKEN;
+
+
+let myQuery = `query MyQuery {
+  Categories {
+    image {
+      url
+    }
+    name
+    alt
+  }
+}
+
+
+`
+
+    async function fetchApirocket(query: String) {
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${APIROCKET_ECOMMERCE_TOKEN}`
     },
-    {
-        Nombre: "Hombre",
-        Imagen: men,
-        Alt: "men"
-    },
-    {
-        Nombre: "Niños",
-        Imagen: kids,
-        Alt: "kids"
-    }]
+    body: JSON.stringify({query})
+  }
+
+  const data = await fetch('https://graphql.apirocket.io', options).then(response => response.json())
+  return data
+}
+
+let ArrayCategorias = (await fetchApirocket(myQuery)).data.Categories;
+
+
+    
+
 
 ---
 
@@ -127,5 +146,6 @@ function transparentarNav(){
     nav.style.color="white"
   }
 }
+
 
 </script>
