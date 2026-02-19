@@ -1,14 +1,15 @@
 ---
-const {arrayTallas} = Astro.props;
-
+const {arrayProductos} = Astro.props;
+console.table(arrayProductos)
+let arrayTallas = arrayProductos.sizes
 
 
 interface InterfazTallas {
   price: number;
-  size: number;
   availability: boolean;
 }
 
+console.log(arrayTallas)
 ---
 
 <div
@@ -33,7 +34,7 @@ interface InterfazTallas {
             class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full hover:bg-gray-50 transition-colors"
           >
             <div class="talla font-medium">{Talla.size}</div>
-            <div class="precio">{Talla.price}€</div>
+            <div class="precio">{arrayProductos.price}€</div>
           </button>
         ) : (
           <button

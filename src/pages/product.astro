@@ -23,14 +23,15 @@ let queryCards = `query MyQuery {
     price
     sizes {
       size
+      availability
     }
-    variants {
+    variations {
       arrayImages {
         url
       }
       color
     }
-    defaultVariant {
+    defaultVariation {
       id
     }
     colors
@@ -38,7 +39,14 @@ let queryCards = `query MyQuery {
       url
     }
   }
+  Reviews {
+    score
+    product {
+      name
+    }
+  }
 }
+
 
 
 
@@ -75,6 +83,8 @@ let queryText = `query MyQuery {
 let arrayTexto = (await fetchApirocket(queryText)).data.TickerTexts
 
 
+
+
 ---
 
 <Layout arrayTexto={arrayTexto} mostrarTicker={true}>
@@ -97,7 +107,7 @@ let arrayTexto = (await fetchApirocket(queryText)).data.TickerTexts
     </div>
     
     <ProductoLateral ArrayProductos={arrayProductos[0]} Precio=100 Nombre="Zapatillas Knu Skool" Descripcion="Uso Diario, diseño retro" Categoria="zapatillas" />
-    <ProductoTallas arrayTallas={arrayTallas}>
+    <ProductoTallas arrayProductos={arrayProductos[0]}>
 </div>
 
 <div class="mt-8">
@@ -111,7 +121,7 @@ let arrayTexto = (await fetchApirocket(queryText)).data.TickerTexts
     />
         <GeneralAccordionScript/>
         <ProductoCarrusel  ArrayRecomendaciones={arrayProductos}/>
-        <ProductoReview NumeroReviews="300" Puntuacion=90 /> <!-- La puntuacion que hay que mandar es SOBRE 100 -->
+        <ProductoReview arrayProductos={arrayProductos}></ProductoReview> NumeroReviews="300" Puntuacion=90 /> <!-- La puntuacion que hay que mandar es SOBRE 100 -->
 </div>
     </Layout>
 
