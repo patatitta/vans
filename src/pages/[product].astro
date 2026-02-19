@@ -1,4 +1,7 @@
 ---
+const {product} = Astro.params;
+
+
 import GeneralCarrusel from "@general/GeneralCarrusel.astro"
 import Layout from "../layouts/Layout.astro"
 import ProductoImagenes from "@producto/ProductoImagenes.astro";
@@ -8,79 +11,45 @@ import GeneralAccordion from "@general/GeneralAccordion.astro"
 import GeneralAccordionScript from "@general/GeneralAccordionScript.astro"
 import ProductoReview from "@producto/ProductoReview.astro"
 import ProductoCarrusel from "@producto/ProductoCarrusel.astro"
-
-
-
-const APIROCKET_ECOMMERCE_TOKEN = import.meta.env.APIROCKET_ECOMMERCE_TOKEN;
+import {fetchProductos} from "../utils/fetchProductos.ts";
+import { array } from "astro:schema";
 
 
 
 
 
-let queryCards = `query MyQuery {
-  Products {
-    name
-    price
-    sizes {
-      size
-      availability
-    }
-    variations {
-      arrayImages {
-        url
-      }
-      color
-    }
-    defaultVariation {
-      id
-    }
-    colors
-    arrayImages {
-      url
-    }
-  }
-  Reviews {
-    score
-    product {
-      name
-    }
-  }
-}
+let respuesta = await fetchProductos()
+let arrayProductos = respuesta.data.Products;
+
+
+let arrayTexto = respuesta.data.TickerTexts
+
+ let test = [{params: {product: "Impermeables"}}]
+
+
+export async function getStaticPaths() {
+let respuesta = await fetchProductos()
+let arrayProductos = respuesta.data.Products;
 
 
 
+let listaProductos: any = []
 
-`
+    arrayProductos.map((producto: any) => {
+      listaProductos.push({params: {product: producto.name, id: producto.id}})
+    })
 
  
-async function fetchApirocket(query: String) {
 
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${APIROCKET_ECOMMERCE_TOKEN}`
-    },
-    body: JSON.stringify({query})
-  }
-
-  const data = await fetch('https://graphql.apirocket.io', options).then(response => response.json())
-  return data
+  return listaProductos;
 }
-let respuesta = (await fetchApirocket(queryCards))
-
-let arrayProductos = respuesta.data.Products;
-let arrayTallas = respuesta.data.Sizes;
 
 
-let queryText = `query MyQuery {
-  TickerTexts {
-    text
-  }
-}
-`
 
-let arrayTexto = (await fetchApirocket(queryText)).data.TickerTexts
+
+let find = arrayProductos.findIndex(iteracion => iteracion.name == product)
+
+
 
 
 
@@ -90,7 +59,7 @@ let arrayTexto = (await fetchApirocket(queryText)).data.TickerTexts
 <Layout arrayTexto={arrayTexto} mostrarTicker={true}>
 
     <!-- Boton fixed en responsive que desaparece cuando esta en otro en pantalla, no tengo ni idea de como hacer esto -->
-        <!-- <div class="fixed bottom-0  z-50 bg-white w-full flex items-center justify-center border-t">
+         <!-- <div class="fixed bottom-0  z-50 bg-white w-full flex items-center justify-center border-t">
         <button
           type="button"
           class="px-6 py-3 my-5 bg-[rgb(38,36,36)] text-white hover:bg-black transition-all duration-150 text-center hover:cursor-pointer w-9/10"
@@ -100,14 +69,14 @@ let arrayTexto = (await fetchApirocket(queryText)).data.TickerTexts
     </div> -->
 
     <div class="up md:flex md:items-start">
-    <ProductoImagenes ArrayProductoImagenes={arrayProductos[0]}></ProductoImagenes>
+    <ProductoImagenes ArrayProductoImagenes={arrayProductos[find]}></ProductoImagenes>
     
     <div class="md:hidden">
-        <GeneralCarrusel arrayImagenes={arrayProductos[0].arrayImages}/>
+        <GeneralCarrusel arrayImagenes={arrayProductos[find].arrayImages}/>
     </div>
     
-    <ProductoLateral ArrayProductos={arrayProductos[0]} Precio=100 Nombre="Zapatillas Knu Skool" Descripcion="Uso Diario, diseño retro" Categoria="zapatillas" />
-    <ProductoTallas arrayProductos={arrayProductos[0]}>
+    <ProductoLateral ArrayProductos={arrayProductos[find]} Precio=100 Nombre="Zapatillas Knu Skool" Descripcion="Uso Diario, diseño retro" Categoria="zapatillas" />
+    <ProductoTallas arrayProductos={arrayProductos[find]}>
 </div>
 
 <div class="mt-8">

@@ -1,6 +1,6 @@
 ---
 const {arrayProductos} = Astro.props;
-console.table(arrayProductos)
+
 let arrayTallas = arrayProductos.sizes
 
 
@@ -9,7 +9,7 @@ interface InterfazTallas {
   availability: boolean;
 }
 
-console.log(arrayTallas)
+
 ---
 
 <div
@@ -25,7 +25,7 @@ console.log(arrayTallas)
     Elige una talla
   </div>
 
-  <div class="overflow-y-scroll" id="menuTallas">
+  <div class="overflow-y-scroll h-full" id="menuTallas">
     {
       arrayTallas.map((Talla: InterfazTallas) =>
         Talla.availability === true ? (
