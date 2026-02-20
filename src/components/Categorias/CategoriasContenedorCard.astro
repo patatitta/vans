@@ -6,20 +6,28 @@ const {arrayCards, arrayPromocion} = Astro.props;
 
 interface InterfazArrayCards {
     name: string,
-    colors: number,
+    variations: string[],
     price: number,
     arrayImagenes: Array<HTMLSourceElement>
   }
 
+//console.log(arrayCards[0].defaultVariation)
+
+
+
+
 ---
 
 <div
-  class="grow tarjetas grid grid-cols-2 md:grid-cols-3 gap-2"
+  class="grow tarjetas grid grid-cols-2 md:grid-cols-3 gap-2 px-6"
 >
 
 {arrayCards.map((Valor: InterfazArrayCards) => (
-  <CategoriasCard Nombre={Valor.name} Precio={Valor.price} Colores={Valor.colors} arrayImagenes = {Valor.arrayImages}/>
-  
+
+<CategoriasCard Nombre={Valor.name} Precio={Valor.price} Colores={Valor.variations.length} 
+  id = {Valor.id}
+  arrayImagenes = {Valor.variations[Valor.variations.findIndex(iteracion => iteracion.id == Valor.defaultVariation[0].id)].arrayImages} />
+
 )
 )}
 
@@ -29,3 +37,4 @@ interface InterfazArrayCards {
   </slot>
 
 </div>
+

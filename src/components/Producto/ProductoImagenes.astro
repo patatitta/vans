@@ -12,18 +12,24 @@ interface interfazVariacion {
 
   arrayImages: interfazImagen[]
   color: string
+  id: string
 }
+
+//console.log("PRODUCTOIMAGENE"+ArrayProductoImagenes);
 ---
 
+
+<div class="carrusel w-full h-full relative group overflow-hidden">
+  <div class="marco w-full h-full overflow-auto">
 {
   ArrayProductoImagenes.variations.map((variacion: interfazVariacion, index: number) => (
     <div
       class={
         index === 0
-          ? "grid grid-cols-2 gap-1 md:max-w-7xl mx-auto left productoImagenes"
-          : "hidden grid-cols-2 gap-1 md:max-w-7xl mx-auto left productoImagenes"
+          ? "flex md:grid  md:grid-cols-2 gap-1 md:max-w-7xl mx-auto left productoImagenes"
+          : "hidden  md:grid-cols-2 gap-1 md:max-w-7xl mx-auto left productoImagenes"
       }
-      id={variacion.color+"Imagenes"}
+      id={variacion.id}
     >
       {variacion.arrayImages.map((imagen: interfazImagen) => (
         <img class="" src={imagen.url} />
@@ -31,3 +37,5 @@ interface interfazVariacion {
     </div>
   ))
 }
+</div>
+</div>

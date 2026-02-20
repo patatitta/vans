@@ -12,20 +12,19 @@ let queryCards = `query MyQuery {
       size
       availability
     }
+    defaultVariation {
+      id
+    }
+
+    id
     variations {
       arrayImages {
         url
       }
       color
-    }
-    defaultVariation {
       id
     }
-    colors
-    arrayImages {
-      url
-    }
-    id
+    description
   }
   Reviews {
     score
@@ -37,6 +36,9 @@ let queryCards = `query MyQuery {
     text
   }
 }
+
+
+
 
 
 

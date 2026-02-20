@@ -36,30 +36,37 @@ let ArrayTallas = [
 const APIROCKET_ECOMMERCE_TOKEN = import.meta.env.APIROCKET_ECOMMERCE_TOKEN;
 
 
-let queryCards = `
-query MyQuery {
+let queryCards = `query MyQuery {
   Products {
     name
     price
     sizes {
       size
+      availability
     }
+    defaultVariation {
+      id
+    }
+    id
     variations {
       arrayImages {
         url
       }
       color
-    }
-    defaultVariation {
       id
     }
-    colors
-    arrayImages {
-      url
+    description
+  }
+  Reviews {
+    score
+    product {
+      name
     }
   }
+  TickerTexts {
+    text
+  }
 }
-
 
 `
 

@@ -1,5 +1,5 @@
 ---
-const {product} = Astro.params;
+const {product, id} = Astro.params;
 
 
 import GeneralCarrusel from "@general/GeneralCarrusel.astro"
@@ -17,14 +17,20 @@ import { array } from "astro:schema";
 
 
 
+interface interfazIteracion{
+    id: string[]
+}
 
 let respuesta = await fetchProductos()
-let arrayProductos = respuesta.data.Products;
+let arrayProductos: interfazIteracion[] = respuesta.data.Products;
+
+let find = arrayProductos.findIndex(iteracion => iteracion.id == id)
+
+
+
 
 
 let arrayTexto = respuesta.data.TickerTexts
-
- let test = [{params: {product: "Impermeables"}}]
 
 
 export async function getStaticPaths() {
@@ -39,15 +45,11 @@ let listaProductos: any = []
       listaProductos.push({params: {product: producto.name, id: producto.id}})
     })
 
- 
+    console.table(listaProductos)
 
   return listaProductos;
 }
 
-
-
-
-let find = arrayProductos.findIndex(iteracion => iteracion.name == product)
 
 
 
@@ -71,11 +73,8 @@ let find = arrayProductos.findIndex(iteracion => iteracion.name == product)
     <div class="up md:flex md:items-start">
     <ProductoImagenes ArrayProductoImagenes={arrayProductos[find]}></ProductoImagenes>
     
-    <div class="md:hidden">
-        <GeneralCarrusel arrayImagenes={arrayProductos[find].arrayImages}/>
-    </div>
     
-    <ProductoLateral ArrayProductos={arrayProductos[find]} Precio=100 Nombre="Zapatillas Knu Skool" Descripcion="Uso Diario, diseño retro" Categoria="zapatillas" />
+    <ProductoLateral ArrayProductos={arrayProductos[find]}/>
     <ProductoTallas arrayProductos={arrayProductos[find]}>
 </div>
 
@@ -90,7 +89,7 @@ let find = arrayProductos.findIndex(iteracion => iteracion.name == product)
     />
         <GeneralAccordionScript/>
         <ProductoCarrusel  ArrayRecomendaciones={arrayProductos}/>
-        <ProductoReview arrayProductos={arrayProductos}></ProductoReview> NumeroReviews="300" Puntuacion=90 /> <!-- La puntuacion que hay que mandar es SOBRE 100 -->
+        <ProductoReview arrayProductos={arrayProductos} NumeroReviews="300" Puntuacion=90 /> <!-- La puntuacion que hay que mandar es SOBRE 100 -->
 </div>
     </Layout>
 

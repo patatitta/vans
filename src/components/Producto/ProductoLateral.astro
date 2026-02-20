@@ -1,5 +1,5 @@
 ---
-const { ArrayProductos, Precio, Nombre, Descripcion, Categoria } =
+const { ArrayProductos } =
   Astro.props;
 
 
@@ -9,12 +9,14 @@ const { ArrayProductos, Precio, Nombre, Descripcion, Categoria } =
 
     {ArrayProductos.variations.map((producto: any) => {
       let objeto = {imagen: producto.arrayImages[0], 
-        color: producto.color}
+        color: producto.color, id: producto.id}
       ArrayColoresImagenes.push(objeto);
     })}
 
-
-
+    let Precio = ArrayProductos.price;
+    let Nombre = ArrayProductos.name
+    let Descripcion = ArrayProductos.description
+    let Categoria = "Zapatilla"
 let ArrayColoresImagenesSegmento1 = ArrayColoresImagenes.splice(0, 9);
 import paypal from "@assets/paypal.svg"
 
@@ -28,7 +30,7 @@ interface interfazImagen{
 
 
 
-<div class="right md:min-w-1/3 px-4 sticky top-20">
+<div class="right md:min-w-1/4 max-w-1/4 px-4 sticky top-20">
   <div class="Title">
     <div class="categoryRoute text-xs text-right">
       Compra &gt; {Categoria}
@@ -50,7 +52,8 @@ interface interfazImagen{
       class="w-1/7 md:w-auto md:h-auto border-transparent hover:border-solid border hover:border-black transition-all duration-150 rounded"
       src={imagen.imagen.url}
       alt="placeholder"
-      id={imagen.color}
+      id={imagen.id}
+      data-color={imagen.color}
     />
   ))
 }
@@ -67,11 +70,13 @@ interface interfazImagen{
 }
 
 {
-  ArrayColoresImagenes.map((imagen: interfazImagen) => (
+  ArrayColoresImagenes.map((imagen: any) => (
     <img
       class="w-1/7 md:w-auto md:h-auto md:hidden escondido border-transparent hover:border-solid border hover:border-black transition-all duration-150 rounded"
-      src={imagen.url}
+      src={imagen.imagen.url}
       alt="placeholder"
+      id={imagen.id}
+      data-color={imagen.color}
     />
   ))
 }
@@ -87,7 +92,7 @@ interface interfazImagen{
 
     </div>
     <div class="text-xs">
-  color <span id="textoColor">{ArrayColoresImagenesSegmento1[0].color}</span>
+  Color: <span id="textoColor">{ArrayColoresImagenesSegmento1[0].color}</span>
 </div>
 
 
@@ -218,20 +223,28 @@ let actual =
 selectorImagen?.addEventListener("click", cambiarImagen)
 
 function cambiarImagen(e: Event){
-  if (e.target==null || e.target.closest('img')==null){
+  if (e.target==null || (e.target as HTMLElement).closest('img')==null){
     return
   }
 
 Array.from(document.querySelectorAll('.productoImagenes')).forEach((elemento) => {
-  elemento.classList.remove('grid');
+  elemento.classList.remove('flex');
+  elemento.classList.remove('md:grid');
   elemento.classList.add('hidden');
 });
 
+  
+
   let objetivo = (e.target as HTMLElement).closest('img');
-  let objetivoImagen = (document.querySelector(`#${objetivo.id+"Imagenes"}`));
+  let textoColor = document.querySelector<HTMLElement>('#textoColor');
+  if (textoColor==null || objetivo==null){
+    return
+  }
+  let objetivoImagen = (document.getElementById(objetivo.id));
   objetivoImagen?.classList.remove("hidden")
-  objetivoImagen?.classList.add("grid");
-  document.querySelector('#textoColor').textContent=objetivo.id;
+  objetivoImagen?.classList.add("flex");
+  objetivoImagen?.classList.add("md:grid");
+  textoColor.textContent=objetivo.dataset.color ?? null;
 
 }
 

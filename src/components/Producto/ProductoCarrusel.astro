@@ -7,11 +7,23 @@ interface InterfazImagenes{
   url: string
 }
 
+interface InterfazVariaciones {
+        arrayImages: InterfazImagenes[]
+        id: string
+    }
+
 interface InterfazArrayRecomendaciones {
         name: String,
-        arrayImages: Array<InterfazImagenes>,
         price: Number
+        variations: InterfazVariaciones[]
+        defaultVariation: InterfazVariaciones[]
     }
+
+
+
+
+
+
 ---
 
 <div class=" ml-2 text-[rgb(38,36,36)] mt-10">También te aconsejamos</div>
@@ -20,20 +32,20 @@ interface InterfazArrayRecomendaciones {
     <div class="marco w-full h-full overflow-auto">
       <div class="imagenes flex transition-all duration-150">
 
-         {ArrayRecomendaciones.map((imagen: InterfazArrayRecomendaciones)=>(
+         {ArrayRecomendaciones.map((Valor: InterfazArrayRecomendaciones)=>(
         <div
           class="relative w-5/6 min-w-5/7 md:w-5/7 md:min-w-1/5 h-full flex flex-col items-center"
         >
           <img
             class="w-full h-full object-contain p-1"
-            src={imagen.arrayImages[0].url}
+            src={Valor.variations[Valor.variations.findIndex(iteracion => iteracion.id == Valor.defaultVariation[0].id)].arrayImages[0].url}
             alt="Mocasines 1"
           />
           <p class="text-center p-2 w-full">
-            <div>{imagen.name}</div><div
+            <div>{Valor.name}</div><div
               class="text-xs text-neutral-500"
             >
-              {imagen.price}€
+              {Valor.price}€
             </div>
           </p>
 
