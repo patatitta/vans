@@ -19,6 +19,27 @@ const {title, lang, flag, arrayTexto, mostrarTicker = false} = Astro.props
     <slot>
 
     </slot>
+
+
+        <div
+            x-data="{abrirMenu: false}"
+            @abrir.window="abrirMenu = true"
+            class="fixed inset-0 bg-black/60 hidden z-60"
+            :class="{'hidden': !abrirMenu}"
+        >
+            <p>pepe</p>
+        </div>
   </main>
     <Footer flag={flag}/>
+
+    <script>
+      import lozad from 'lozad'
+      import Alpine from 'alpinejs'
+      const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+      observer.observe();
+      import collapse from '@alpinejs/collapse'
+Alpine.plugin(collapse)
+        Alpine.start()
+
+    </script>
 </body>

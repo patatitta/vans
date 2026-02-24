@@ -8,7 +8,6 @@ import ProductoImagenes from "@producto/ProductoImagenes.astro";
 import ProductoLateral from "@producto/ProductoLateral.astro"
 import ProductoTallas from "@producto/ProductoTallas.astro"
 import GeneralAccordion from "@general/GeneralAccordion.astro"
-import GeneralAccordionScript from "@general/GeneralAccordionScript.astro"
 import ProductoReview from "@producto/ProductoReview.astro"
 import ProductoCarrusel from "@producto/ProductoCarrusel.astro"
 import {fetchProductos} from "../utils/fetchProductos.ts";
@@ -87,9 +86,8 @@ let listaProductos: any = []
       title="title"
       content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure! Quas, similique"
     />
-        <GeneralAccordionScript/>
         <ProductoCarrusel  ArrayRecomendaciones={arrayProductos}/>
-        <ProductoReview arrayProductos={arrayProductos} NumeroReviews="300" Puntuacion=90 /> <!-- La puntuacion que hay que mandar es SOBRE 100 -->
+        <ProductoReview reviews={respuesta.data.Reviews}  id={id}  /> <!-- La puntuacion que hay que mandar es SOBRE 100 -->
 </div>
     </Layout>
 

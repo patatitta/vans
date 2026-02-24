@@ -30,6 +30,7 @@ let queryCards = `query MyQuery {
     score
     product {
       name
+      id
     }
   }
   TickerTexts {

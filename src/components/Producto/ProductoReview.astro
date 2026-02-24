@@ -1,11 +1,53 @@
 ---
-const {NumeroReviews, Puntuacion, arrayProductos} = Astro.props;
+const {reviews, id} = Astro.props;
+
+interface interfazValores{
+  id: string
+}
+
+interface interfazReview{
+  puntuacion: number,
+  product: interfazValores[],
+  score: number
+}
+
+let puntuacion = 0;
+let contador = 0;
+let total = 0;
+let puntuacionTotal="5";
+
+console.log(reviews)
+
+reviews.map((review: interfazReview)=>{
+  if (review.product[0].id==id){
+    total+=1;
+    puntuacion += review.score
+  }
+  contador+=1;
+})
+
+if (puntuacion!=0){
+  puntuacion = puntuacion/total;
+}
+else{
+  puntuacionTotal="-";
+}
 ---
 
 <div class="flex flex-col items-center align-center reviews text-center mt-10 *:my-2">
   <div class="reviewNumber text-neutral-600">Opinión</div>
-  <div class="puntuacion mt-3 flex justify-center items-center"><div class="notaGrande text-4xl">{Puntuacion/20}</div><div class="text-2xl"> / 5</div></div>
-  <div class="estrellas flex relative items-center justify-center w-fit">
+
+<div class="puntuacion mt-3 flex justify-center items-center">
+  <div class="notaGrande text-4xl">
+    {puntuacion === 0 ? '- /' : Math.round(puntuacion * 100) / 100+'/'}
+  </div>
+  <div class="text-2xl ml-2">
+    {puntuacion === 0 ? ' -' : '5'}
+  </div>
+</div>
+
+  {puntuacion === 0 ? (<div class="text-xs">Se el primero en opinar </div>) : (
+<div class="estrellas flex relative items-center justify-center w-fit">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="w-5 h-5"
@@ -15,8 +57,7 @@ const {NumeroReviews, Puntuacion, arrayProductos} = Astro.props;
       ><path
         fill-rule="evenodd"
         d="M15.29 4.23a.75.75 0 0 1 1.42 0l2.43 7.56c.1.31.39.52.71.52h7.87c.72 0 1.03.93.44 1.36l-6.38 4.7a.75.75 0 0 0-.27.83l2.43 7.6a.75.75 0 0 1-1.15.82l-6.35-4.67a.75.75 0 0 0-.88 0L9.2 27.62a.75.75 0 0 1-1.15-.83l2.43-7.59a.75.75 0 0 0-.27-.83l-6.38-4.7a.75.75 0 0 1 .44-1.36h7.87c.32 0 .61-.2.71-.52l2.43-7.56Z"
-        clip-rule="evenodd"></path></svg
-    >
+        clip-rule="evenodd"></path></svg>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="w-5 h-5"
@@ -26,8 +67,7 @@ const {NumeroReviews, Puntuacion, arrayProductos} = Astro.props;
       ><path
         fill-rule="evenodd"
         d="M15.29 4.23a.75.75 0 0 1 1.42 0l2.43 7.56c.1.31.39.52.71.52h7.87c.72 0 1.03.93.44 1.36l-6.38 4.7a.75.75 0 0 0-.27.83l2.43 7.6a.75.75 0 0 1-1.15.82l-6.35-4.67a.75.75 0 0 0-.88 0L9.2 27.62a.75.75 0 0 1-1.15-.83l2.43-7.59a.75.75 0 0 0-.27-.83l-6.38-4.7a.75.75 0 0 1 .44-1.36h7.87c.32 0 .61-.2.71-.52l2.43-7.56Z"
-        clip-rule="evenodd"></path></svg
-    >
+        clip-rule="evenodd"></path></svg>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="w-5 h-5"
@@ -37,8 +77,7 @@ const {NumeroReviews, Puntuacion, arrayProductos} = Astro.props;
       ><path
         fill-rule="evenodd"
         d="M15.29 4.23a.75.75 0 0 1 1.42 0l2.43 7.56c.1.31.39.52.71.52h7.87c.72 0 1.03.93.44 1.36l-6.38 4.7a.75.75 0 0 0-.27.83l2.43 7.6a.75.75 0 0 1-1.15.82l-6.35-4.67a.75.75 0 0 0-.88 0L9.2 27.62a.75.75 0 0 1-1.15-.83l2.43-7.59a.75.75 0 0 0-.27-.83l-6.38-4.7a.75.75 0 0 1 .44-1.36h7.87c.32 0 .61-.2.71-.52l2.43-7.56Z"
-        clip-rule="evenodd"></path></svg
-    >
+        clip-rule="evenodd"></path></svg>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="w-5 h-5"
@@ -48,8 +87,7 @@ const {NumeroReviews, Puntuacion, arrayProductos} = Astro.props;
       ><path
         fill-rule="evenodd"
         d="M15.29 4.23a.75.75 0 0 1 1.42 0l2.43 7.56c.1.31.39.52.71.52h7.87c.72 0 1.03.93.44 1.36l-6.38 4.7a.75.75 0 0 0-.27.83l2.43 7.6a.75.75 0 0 1-1.15.82l-6.35-4.67a.75.75 0 0 0-.88 0L9.2 27.62a.75.75 0 0 1-1.15-.83l2.43-7.59a.75.75 0 0 0-.27-.83l-6.38-4.7a.75.75 0 0 1 .44-1.36h7.87c.32 0 .61-.2.71-.52l2.43-7.56Z"
-        clip-rule="evenodd"></path></svg
-    >
+        clip-rule="evenodd"></path></svg>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="w-5 h-5"
@@ -59,11 +97,10 @@ const {NumeroReviews, Puntuacion, arrayProductos} = Astro.props;
       ><path
         fill-rule="evenodd"
         d="M15.29 4.23a.75.75 0 0 1 1.42 0l2.43 7.56c.1.31.39.52.71.52h7.87c.72 0 1.03.93.44 1.36l-6.38 4.7a.75.75 0 0 0-.27.83l2.43 7.6a.75.75 0 0 1-1.15.82l-6.35-4.67a.75.75 0 0 0-.88 0L9.2 27.62a.75.75 0 0 1-1.15-.83l2.43-7.59a.75.75 0 0 0-.27-.83l-6.38-4.7a.75.75 0 0 1 .44-1.36h7.87c.32 0 .61-.2.71-.52l2.43-7.56Z"
-        clip-rule="evenodd"></path></svg
-    >
+        clip-rule="evenodd"></path></svg>
 
     <!-- ESTRELLAS RELLENAS -->
-<div class="absolute flex z-40 h-full overflow-clip inset-0" style={`width: ${Puntuacion}%`}> <!--Hay que usar inline aqui para asignarle valores dinamicos -->      
+<div class="absolute flex z-40 h-full overflow-clip inset-0" style={`width: ${puntuacion*20}%`}> <!--Hay que usar inline aqui para asignarle valores dinamicos -->      
   <svg
         xmlns="http://www.w3.org/2000/svg"
         class="min-w-5 min-h-5"
@@ -73,8 +110,7 @@ const {NumeroReviews, Puntuacion, arrayProductos} = Astro.props;
         ><path
           fill-rule="evenodd"
           d="M15.29 4.23a.75.75 0 0 1 1.42 0l2.43 7.56c.1.31.39.52.71.52h7.87c.72 0 1.03.93.44 1.36l-6.38 4.7a.75.75 0 0 0-.27.83l2.43 7.6a.75.75 0 0 1-1.15.82l-6.35-4.67a.75.75 0 0 0-.88 0L9.2 27.62a.75.75 0 0 1-1.15-.83l2.43-7.59a.75.75 0 0 0-.27-.83l-6.38-4.7a.75.75 0 0 1 .44-1.36h7.87c.32 0 .61-.2.71-.52l2.43-7.56Z"
-          clip-rule="evenodd"></path></svg
-      >
+          clip-rule="evenodd"></path></svg>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="min-w-5 min-h-5"
@@ -84,8 +120,7 @@ const {NumeroReviews, Puntuacion, arrayProductos} = Astro.props;
         ><path
           fill-rule="evenodd"
           d="M15.29 4.23a.75.75 0 0 1 1.42 0l2.43 7.56c.1.31.39.52.71.52h7.87c.72 0 1.03.93.44 1.36l-6.38 4.7a.75.75 0 0 0-.27.83l2.43 7.6a.75.75 0 0 1-1.15.82l-6.35-4.67a.75.75 0 0 0-.88 0L9.2 27.62a.75.75 0 0 1-1.15-.83l2.43-7.59a.75.75 0 0 0-.27-.83l-6.38-4.7a.75.75 0 0 1 .44-1.36h7.87c.32 0 .61-.2.71-.52l2.43-7.56Z"
-          clip-rule="evenodd"></path></svg
-      >
+          clip-rule="evenodd"></path></svg>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="min-w-5 min-h-5"
@@ -95,8 +130,7 @@ const {NumeroReviews, Puntuacion, arrayProductos} = Astro.props;
         ><path
           fill-rule="evenodd"
           d="M15.29 4.23a.75.75 0 0 1 1.42 0l2.43 7.56c.1.31.39.52.71.52h7.87c.72 0 1.03.93.44 1.36l-6.38 4.7a.75.75 0 0 0-.27.83l2.43 7.6a.75.75 0 0 1-1.15.82l-6.35-4.67a.75.75 0 0 0-.88 0L9.2 27.62a.75.75 0 0 1-1.15-.83l2.43-7.59a.75.75 0 0 0-.27-.83l-6.38-4.7a.75.75 0 0 1 .44-1.36h7.87c.32 0 .61-.2.71-.52l2.43-7.56Z"
-          clip-rule="evenodd"></path></svg
-      >
+          clip-rule="evenodd"></path></svg>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="min-w-5 min-h-5"
@@ -106,8 +140,7 @@ const {NumeroReviews, Puntuacion, arrayProductos} = Astro.props;
         ><path
           fill-rule="evenodd"
           d="M15.29 4.23a.75.75 0 0 1 1.42 0l2.43 7.56c.1.31.39.52.71.52h7.87c.72 0 1.03.93.44 1.36l-6.38 4.7a.75.75 0 0 0-.27.83l2.43 7.6a.75.75 0 0 1-1.15.82l-6.35-4.67a.75.75 0 0 0-.88 0L9.2 27.62a.75.75 0 0 1-1.15-.83l2.43-7.59a.75.75 0 0 0-.27-.83l-6.38-4.7a.75.75 0 0 1 .44-1.36h7.87c.32 0 .61-.2.71-.52l2.43-7.56Z"
-          clip-rule="evenodd"></path></svg
-      >
+          clip-rule="evenodd"></path></svg>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="min-w-5 min-h-5"
@@ -117,21 +150,27 @@ const {NumeroReviews, Puntuacion, arrayProductos} = Astro.props;
         ><path
           fill-rule="evenodd"
           d="M15.29 4.23a.75.75 0 0 1 1.42 0l2.43 7.56c.1.31.39.52.71.52h7.87c.72 0 1.03.93.44 1.36l-6.38 4.7a.75.75 0 0 0-.27.83l2.43 7.6a.75.75 0 0 1-1.15.82l-6.35-4.67a.75.75 0 0 0-.88 0L9.2 27.62a.75.75 0 0 1-1.15-.83l2.43-7.59a.75.75 0 0 0-.27-.83l-6.38-4.7a.75.75 0 0 1 .44-1.36h7.87c.32 0 .61-.2.71-.52l2.43-7.56Z"
-          clip-rule="evenodd"></path></svg
-      >
+          clip-rule="evenodd"></path></svg>
     </div>
-  </div>
+  </div>  
+  )}
+
+  
 
   <div class="botones">
+
+{puntuacion === 0 ? (<div></div>) : 
+  (
     <button
       type="button"
       class="px-6 py-4 bg-gray-900 text-white hover:bg-black transition-all duration-150 hover:cursor-pointer"
-      >{NumeroReviews} Reseñas</button
-    >
+      >{total} Reseñas</button>
+  )}
+
+    
     <button
       type="button"
       class="px-6 py-4 border-2 border-solid hover:cursor-pointer"
-      >Escribir una opinión</button
-    >
+      >Escribir una opinión</button>
   </div>
 </div>

@@ -26,6 +26,77 @@ interface InterfazArrayRecomendaciones {
 
 ---
 
+<script>
+  // core version + navigation, pagination modules:
+import Swiper from 'swiper';
+// import Swiper and modules styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+// init Swiper:
+const swiper =  new Swiper('.carruselProducto', {
+    slidesPerView: 1.2,             
+    spaceBetween: 16,
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+      }
+    }                  
+});
+</script>
+
+<div class=" ml-2 text-[rgb(38,36,36)] mt-10">También te aconsejamos</div>
+
+<!-- Slider main container -->
+<div class="swiper carruselProducto w-full h-full relative">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper w-full h-full relative">
+    <!-- Slides -->
+     {ArrayRecomendaciones.map((Valor: InterfazArrayRecomendaciones)=>(
+               <div class="relative swiper-slide ">
+
+
+          <img
+            class="w-full h-full object-contain p-1"
+            src={`${Valor.variations[Valor.variations.findIndex(iteracion => iteracion.id == Valor.defaultVariation[0].id)].arrayImages[0].url}?w=700`}
+            alt="Mocasines 1"
+            loading="lazy"
+          />
+          <p class="text-center p-2 w-full">
+            <div>{Valor.name}</div><div
+              class="text-xs text-neutral-500"
+            >
+              {Valor.price}€
+            </div>
+          </p>
+
+                    <button
+    class="absolute right-4 top-9 -translate-y-1/2 z z-20 cursor-pointer p-2 hover:bg-white hidden md:block"
+  >
+    <svg
+      class="w-6 h-6"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 32 32"
+      id="close"
+    >
+      <path
+        xmlns="http://www.w3.org/2000/svg"
+        d="M17.1 5.9v9h9v2.2h-9v9h-2.2v-9h-9v-2.2h9v-9h2.2Z"></path>
+    </svg>
+  </button>
+
+
+
+    </div>
+        ))} 
+
+
+
+  </div>
+ 
+</div>
+<!-- 
 <div class=" ml-2 text-[rgb(38,36,36)] mt-10">También te aconsejamos</div>
 <div class="carrusel w-full h-full relative">
   <div class="carrusel w-full h-full relative">
@@ -67,24 +138,7 @@ interface InterfazArrayRecomendaciones {
 
 
 
-        ))} 
-
-        <!-- <div
-          class="relative w-1/1 min-w-1/1 md:w-1/5 md:min-w-1/5 h-full flex flex-col items-center"
-        >
-          <img
-            class="w-full h-full object-contain p-2"
-            src={mocasines1.src}
-            alt="Mocasines 1"
-          />
-          <p class="text-center p-2 w-full">
-            <div>Zapatillas Knu Skool</div><div
-              class="text-xs text-neutral-500"
-            >
-              100€
-            </div>
-          </p>
-        </div> -->
+        ))}  -->
 
       </div>
     </div>

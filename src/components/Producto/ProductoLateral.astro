@@ -30,7 +30,7 @@ interface interfazImagen{
 
 
 
-<div class="right md:min-w-1/4 max-w-1/4 px-4 sticky top-20">
+<div class="right md:min-w-1/4 md:max-w-1/4 px-4 sticky top-20">
   <div class="Title">
     <div class="categoryRoute text-xs text-right">
       Compra &gt; {Categoria}
@@ -73,7 +73,7 @@ interface interfazImagen{
   ArrayColoresImagenes.map((imagen: any) => (
     <img
       class="w-1/7 md:w-auto md:h-auto md:hidden escondido border-transparent hover:border-solid border hover:border-black transition-all duration-150 rounded"
-      src={imagen.imagen.url}
+       src={`${imagen.imagen.url}?w=80&q=60&format=auto`}
       alt="placeholder"
       id={imagen.id}
       data-color={imagen.color}

@@ -76,7 +76,7 @@ let ArrayCategorias = (await fetchApirocket(myQuery)).data.Categories;
 
       <div class="relative w-full min-w-full h-full">
         <img
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover aspect-1920/1080"
           src={inicio2.src}
           alt="Mocasines 2"
         />
@@ -96,8 +96,8 @@ let ArrayCategorias = (await fetchApirocket(myQuery)).data.Categories;
 
       <div class="relative w-full min-w-full h-full">
         <img
-          class="w-full h-full object-cover "
-          src={inicio3.src}
+          class="w-full h-full object-cover lozad"
+          data-src={`${inicio3.src}?w=700`}
           alt="Mocasines 3"
         />
         <div
@@ -118,6 +118,15 @@ let ArrayCategorias = (await fetchApirocket(myQuery)).data.Categories;
           <!-- <div class="md:hidden">
         <InicioCarruselResponsive />
       </div> -->
+
+
+
+      <!-- <img class="lozad" data-src="//ximg.es/100" />
+      <img class="lozad" data-src="//ximg.es/200" />
+      <img class="lozad" data-src="//ximg.es/300" />
+      <img class="lozad" data-src="//ximg.es/400" />
+      <img class="lozad" data-src="//ximg.es/500" />
+      <img class="lozad" data-src="//ximg.es/600" /> -->
 
 </Layout>
 
