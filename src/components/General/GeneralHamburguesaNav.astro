@@ -2,13 +2,45 @@
 
 ---
 
-<div
-  id="hamburguesaOculta"
-  class="fixed md:top-0 -bottom-20 md:bottom-0 md:-left-20 bg-black/70 backdrop-blur-sm z-50 overflow-hidden transition-all duration-300 w-full md:w-100 h-screen text-neutral-300"
->
 
-  <div
-    id="cerrar"
+<div 
+class="overflow-hidden"
+  x-data="{
+    expandedNav: false,
+    isMobile: false,
+    mostrarNuevo: true,
+    mostrarOtros: false,
+    mostrarMujer: false,
+    mostrarNovedades: false,
+    mostrarGeneral: true,
+    mostrarTendencias: false,
+    mostrarDestacados: false,
+    mostrarClassics: false,
+    mostrarActionSports: false,
+    mostrarZapatillas: false,
+    mostrarRopa: false,
+    mostrarAccesorios: false,
+    init() {
+      this.isMobile = window.innerWidth < 768;
+      window.addEventListener('resize', () => {
+        this.isMobile = window.innerWidth < 768;
+      });
+    }
+  }"
+  x-init="init()"
+  @toggle-nav1.window="expandedNav = !expandedNav"
+  @toggle-nav2.window="expandedNav = !expandedNav"
+>
+  <!-- Menu -->
+  <div x-cloak
+    class="fixed top-0 left-0 w-full md:w-100 h-screen bg-black/70 backdrop-blur-sm z-50 text-neutral-300 transform transition duration-300 ease-in-out overflow-hidden"
+    :class="{'translate-x-0 translate-y-0': expandedNav, '-translate-x-full': !expandedNav && !isMobile, 'translate-y-full': !expandedNav && isMobile}" > 
+
+
+<div
+    id="cerrar" 
+      @click="expandedNav = !expandedNav"
+
     class="absolute bottom-7 right-7 inline-flex items-center justify-center cursor-pointer w-12 h-12 bg-white z-50"
   >
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="close" class="w-8 h-8">
@@ -18,13 +50,16 @@
 
 
 
-  <div class="flex flex-col h-full" id="principal">
+  <div class="flex flex-col h-full" id="principal" x-show="mostrarGeneral">
     <div>
-      <ul class="p-6 space-y-4 flex" id="categorias">
+      <ul class="p-6 space-y-4 flex" id="categorias" >
         <li>
           <div
             class="p-1 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer"
             id="newLabel"
+  @click="mostrarNuevo = !mostrarNuevo, mostrarMujer = false"
+  :class="{'bg-white': mostrarNuevo, 'text-black': mostrarNuevo,}"
+            
           >
             Nuevo y destacado
           </div>
@@ -33,7 +68,8 @@
           <div
             class="p-1 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer"
             id="mujerLabel"
-          >
+  @click="mostrarMujer = !mostrarMujer, mostrarNuevo= false"
+  :class="{'bg-white': mostrarMujer, 'text-black': mostrarMujer, }" >
             Mujer
           </div>
         </li>
@@ -54,10 +90,18 @@
           </div>
         </li>
       </ul>
+        <div class="relative min-h-80 overflow-hidden">
 
       <!-- NUEVO Y DESTACADO -->
-      <div class="nuevo">
-        <ul
+<div x-show="mostrarNuevo" class="absolute top-0 left-0 w-full"
+     x-transition:enter="transition-transform duration-200"
+     x-transition:enter-start="translate-x-full opacity-0"
+     x-transition:enter-end="translate-x-0 opacity-100"
+     x-transition:leave="transition-transform duration-200"
+     x-transition:leave-start="translate-x-0 opacity-100"
+     x-transition:leave-end="translate-x-full opacity-0">
+
+        <ul 
           class="space-y-2 *:transition-all duration-150 ml-7 *:mb-4 *:mr-4"
           id="new"
         >
@@ -87,7 +131,8 @@
           
           <li class="flex mb-0 justify-between">
             <div class="relative inline-block group hover:-rotate-2">
-              <span class="relative cursor-pointer" id="novedades"
+              <span class="relative cursor-pointer" id="novedades"   @click="mostrarNovedades = !mostrarNovedades, mostrarGeneral=false"
+
                 >Novedades</span
               >
               <span
@@ -108,7 +153,7 @@
 
           <li class="flex mb-0 justify-between">
             <div class="relative inline-block group hover:-rotate-2">
-              <span class="relative cursor-pointer" id="tendencia"
+              <span class="relative cursor-pointer" id="tendencia" @click="mostrarTendencias = !mostrarTendencias, mostrarGeneral=false"
                 >Tendencia ahora</span
               >
               <span
@@ -129,7 +174,7 @@
 
           <li class="flex mb-0 justify-between">
             <div class="relative inline-block group hover:-rotate-2">
-              <span class="relative cursor-pointer" id="destacados"
+              <span class="relative cursor-pointer" id="destacados" @click="mostrarDestacados = !mostrarDestacados, mostrarGeneral=false"
                 >Destacados</span
               >
               <span
@@ -153,7 +198,7 @@
 
           <li class="flex mb-0 justify-between">
             <div class="relative inline-block group hover:-rotate-2">
-              <span class="relative cursor-pointer" id="classics"
+              <span class="relative cursor-pointer" id="classics" @click="mostrarClassics = !mostrarClassics, mostrarGeneral=false"
                 >Classics</span
               >
               <span
@@ -178,7 +223,7 @@
 
           <li class="flex mb-0 justify-between">
             <div class="relative inline-block group hover:-rotate-2">
-              <span class="relative cursor-pointer" id="actionSports"
+              <span class="relative cursor-pointer" id="actionSports" @click="mostrarActionSports = !mostrarActionSports, mostrarGeneral=false"
                 >Action Sports</span
               >
               <span
@@ -208,7 +253,14 @@
       </div>
 
       <!-- MUJER -->
-      <div class="otros">
+<div x-show="mostrarMujer"  class="absolute top-0 left-0 w-full"
+     x-transition:enter="transition-transform duration-200"
+     x-transition:enter-start="translate-x-full opacity-0"
+     x-transition:enter-end="translate-x-0 opacity-100"
+     x-transition:leave="transition-transform duration-200"
+     x-transition:leave-start="translate-x-0 opacity-100"
+     x-transition:leave-end="translate-x-full opacity-0">
+
         <ul
           class="space-y-2  *:transition-all duration-150 ml-7 *:mb-4 *:mr-4"
           id="woman"
@@ -260,7 +312,7 @@
 
           <li class="flex mb-0 justify-between">
             <div class="relative inline-block group hover:-rotate-2">
-              <span class="relative cursor-pointer" id="zapatillas"
+              <span class="relative cursor-pointer" id="zapatillas" @click="mostrarZapatillas = !mostrarZapatillas, mostrarGeneral=false"
                 >Zapatillas</span
               >
               <span
@@ -285,7 +337,7 @@
 
           <li class="flex mb-0 justify-between">
             <div class="relative inline-block group hover:-rotate-2">
-              <span class="relative cursor-pointer" id="ropa"
+              <span class="relative cursor-pointer" id="ropa" @click="mostrarRopa = !mostrarRopa, mostrarGeneral=false"
                 >Ropa</span
               >
               <span
@@ -306,7 +358,7 @@
 
            <li class="flex mb-0 justify-between">
             <div class="relative inline-block group hover:-rotate-2">
-              <span class="relative cursor-pointer" id="accesorios"
+              <span class="relative cursor-pointer" id="accesorios" @click="mostrarAccesorios = !mostrarAccesorios, mostrarGeneral=false"
                 >Accesorios</span
               >
               <span
@@ -335,9 +387,9 @@
         </ul>
       </div>
     </div>
-
+</div>
     <!-- LOGOS -->
-    <div class="flex grow items-center">
+    <div class="flex grow items-center" x-show="mostrarGeneral">
       <ul
         class="grow border-t-white border-b-white border-solid border py-6 *:ml-8 border-l-0 border-r-0"
       >
@@ -377,7 +429,7 @@
     </div>
 
     <!-- Texto de abajo -->
-    <div class="flex text-xs mt-auto justify-between mb-5 items-center">
+    <div class="flex text-xs mt-auto justify-between mb-5 items-center" x-show="mostrarGeneral">
       <ul class="ml-8 *:my-4">
         <li>Vans Family</li>
         <li>Rastrea o Deuvelve un Pedido</li>
@@ -407,8 +459,14 @@
 
   
   <!--Novedades -->
-
-  <div class="flex-col h-full hidden *:ml-7 mt-10" id="novedadesMenu">
+  <div class="flex-col h-full *:ml-7 mt-10" id="novedadesMenu"
+  x-show="mostrarNovedades" class="absolute top-0 left-0 w-full"
+     x-transition:enter="transition-transform duration-200"
+     x-transition:enter-start="translate-x-full opacity-0"
+     x-transition:enter-end="translate-x-0 opacity-100"
+     x-transition:leave="transition-transform duration-200"
+     x-transition:leave-start="translate-x-0 opacity-100"
+     x-transition:leave-end="translate-x-full opacity-0">
     <div class="relative flex items-center mb-5" id="novedadesVolver">
       <svg
         class="w-4 h-4 rotate-180"
@@ -422,11 +480,11 @@
       </svg>
 
       <div class="relative cursor-pointer group ml-3">
-        <span>
+        <span @click="mostrarNovedades=!mostrarNovedades, mostrarGeneral=true">
 
           Novedades
         </span>
-        <span
+        <span 
           class="absolute bottom-0 left-0 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-500"
         ></span>
       </div>
@@ -483,8 +541,15 @@
 
   <!--Tendencia ahora -->
 
-  <div class="flex-col h-full hidden *:ml-7 mt-10" id="tendenciaMenu">
-    <div class="relative flex items-center mb-5" id="tendenciaVolver">
+  <div class="flex-col h-full *:ml-7 mt-10" id="tendenciaMenu"
+  x-show="mostrarTendencias" class="absolute top-0 left-0 w-full"
+     x-transition:enter="transition-transform duration-200"
+     x-transition:enter-start="translate-x-full opacity-0"
+     x-transition:enter-end="translate-x-0 opacity-100"
+     x-transition:leave="transition-transform duration-200"
+     x-transition:leave-start="translate-x-0 opacity-100"
+     x-transition:leave-end="translate-x-full opacity-0">    
+     <div class="relative flex items-center mb-5" id="tendenciaVolver">
       <svg
         class="w-4 h-4 rotate-180"
         xmlns="http://www.w3.org/2000/svg"
@@ -497,7 +562,7 @@
       </svg>
 
       <div class="relative cursor-pointer group ml-3">
-        <span>
+        <span @click="mostrarTendencias=!mostrarTendencias, mostrarGeneral=true">
 
           Tendencia ahora
         </span>
@@ -654,8 +719,15 @@
 
 <!-- Classics -->
 
-  <div class="flex-col h-full hidden *:ml-7 mt-10" id="classicsMenu">
-    <div class="relative flex items-center mb-5" id="classicsVolver">
+  <div class="flex-col h-full *:ml-7 mt-10" id="classicsMenu"
+  x-show="mostrarClassics" class="absolute top-0 left-0 w-full"
+     x-transition:enter="transition-transform duration-200"
+     x-transition:enter-start="translate-x-full opacity-0"
+     x-transition:enter-end="translate-x-0 opacity-100"
+     x-transition:leave="transition-transform duration-200"
+     x-transition:leave-start="translate-x-0 opacity-100"
+     x-transition:leave-end="translate-x-full opacity-0">
+         <div class="relative flex items-center mb-5" id="classicsVolver">
       <svg
         class="w-4 h-4 rotate-180"
         xmlns="http://www.w3.org/2000/svg"
@@ -668,7 +740,7 @@
       </svg>
 
       <div class="relative cursor-pointer group ml-3">
-        <span>
+        <span @click="mostrarClassics=!mostrarClassics, mostrarGeneral=true">
 
           Classics
         </span>
@@ -739,8 +811,15 @@
 </div>
 <!-- Action Sports -->
 
-  <div class="flex-col h-full hidden *:ml-7 mt-10" id="actionMenu">
-    <div class="relative flex items-center mb-5" id="actionVolver">
+  <div class="flex-col h-full *:ml-7 mt-10" id="actionMenu"
+  x-show="mostrarActionSports" class="absolute top-0 left-0 w-full"
+     x-transition:enter="transition-transform duration-200"
+     x-transition:enter-start="translate-x-full opacity-0"
+     x-transition:enter-end="translate-x-0 opacity-100"
+     x-transition:leave="transition-transform duration-200"
+     x-transition:leave-start="translate-x-0 opacity-100"
+     x-transition:leave-end="translate-x-full opacity-0">
+     <div class="relative flex items-center mb-5" id="actionVolver">
       <svg
         class="w-4 h-4 rotate-180"
         xmlns="http://www.w3.org/2000/svg"
@@ -753,7 +832,7 @@
       </svg>
 
       <div class="relative cursor-pointer group ml-3">
-        <span>
+        <span @click="mostrarActionSports=!mostrarActionSports, mostrarGeneral=true">
 
           Action Sports
         </span>
@@ -834,8 +913,15 @@
 </div>
 <!-- Zapatillas -->
 
-  <div class="flex-col h-full hidden *:ml-7 mt-10" id="zapatillasMenu">
-    <div class="relative flex items-center mb-5" id="zapatillasVolver">
+  <div class="flex-col h-full *:ml-7 mt-10" id="zapatillasMenu"
+  x-show="mostrarZapatillas" class="absolute top-0 left-0 w-full"
+     x-transition:enter="transition-transform duration-200"
+     x-transition:enter-start="translate-x-full opacity-0"
+     x-transition:enter-end="translate-x-0 opacity-100"
+     x-transition:leave="transition-transform duration-200"
+     x-transition:leave-start="translate-x-0 opacity-100"
+     x-transition:leave-end="translate-x-full opacity-0">    
+     <div class="relative flex items-center mb-5" id="zapatillasVolver">
       <svg
         class="w-4 h-4 rotate-180"
         xmlns="http://www.w3.org/2000/svg"
@@ -848,7 +934,7 @@
       </svg>
 
       <div class="relative cursor-pointer group ml-3">
-        <span>
+        <span @click="mostrarZapatillas=!mostrarZapatillas, mostrarGeneral=true">
 
           Zapatillas
         </span>
@@ -955,8 +1041,15 @@
 
 <!-- Ropa -->
 
-  <div class="flex-col h-full hidden *:ml-7 mt-10" id="ropaMenu">
-    <div class="relative flex items-center mb-5" id="ropaVolver">
+  <div class="flex-col h-full *:ml-7 mt-10" id="ropaMenu"
+  x-show="mostrarRopa" class="absolute top-0 left-0 w-full"
+     x-transition:enter="transition-transform duration-200"
+     x-transition:enter-start="translate-x-full opacity-0"
+     x-transition:enter-end="translate-x-0 opacity-100"
+     x-transition:leave="transition-transform duration-200"
+     x-transition:leave-start="translate-x-0 opacity-100"
+     x-transition:leave-end="translate-x-full opacity-0">   
+      <div class="relative flex items-center mb-5" id="ropaVolver">
       <svg
         class="w-4 h-4 rotate-180"
         xmlns="http://www.w3.org/2000/svg"
@@ -969,7 +1062,7 @@
       </svg>
 
       <div class="relative cursor-pointer group ml-3">
-        <span>
+        <span @click="mostrarRopa=!mostrarRopa, mostrarGeneral=true">
 
           Zapatillas
         </span>
@@ -1053,8 +1146,15 @@
 
 <!-- Accesorios -->
 
-  <div class="flex-col h-full hidden *:ml-7 mt-10" id="accesoriosMenu">
-    <div class="relative flex items-center mb-5" id="accesoriosVolver">
+  <div class="flex-col h-full *:ml-7 mt-10" id="novedadesAccesorios"
+  x-show="mostrarAccesorios" class="absolute top-0 left-0 w-full"
+     x-transition:enter="transition-transform duration-200"
+     x-transition:enter-start="translate-x-full opacity-0"
+     x-transition:enter-end="translate-x-0 opacity-100"
+     x-transition:leave="transition-transform duration-200"
+     x-transition:leave-start="translate-x-0 opacity-100"
+     x-transition:leave-end="translate-x-full opacity-0">   
+      <div class="relative flex items-center mb-5" id="accesoriosVolver">
       <svg
         class="w-4 h-4 rotate-180"
         xmlns="http://www.w3.org/2000/svg"
@@ -1067,7 +1167,7 @@
       </svg>
 
       <div class="relative cursor-pointer group ml-3">
-        <span>
+        <span @click="mostrarAccesorios=!mostrarAccesorios, mostrarGeneral=true">
 
           Accesorios
         </span>
@@ -1147,208 +1247,10 @@
           </li>    
 
        </ul>
+</div>
+</div>
 
 
 
 
-<script>
-  let nuevo = document.querySelector<HTMLElement>(".nuevo");
-  let otros = document.querySelector<HTMLElement>(".otros");
-  let arrayContenido = [nuevo, otros];
-  // if(otros != null){
-  //   otros.style.display = "none";
-  // }
-  let newLabel = document.querySelector<HTMLElement>("#newLabel");
-  let mujerLabel = document.querySelector<HTMLElement>("#mujerLabel");
-  let hombreLabel = document.querySelector<HTMLElement>("#hombreLabel");
-  let kidsLabel = document.querySelector<HTMLElement>("#kidsLabel");
-
-  let novedadesLabel = document.querySelector<HTMLElement>("#novedades");
-  let tendenciaLabel = document.querySelector<HTMLElement>("#tendencia");
-  let destacadosLabel = document.querySelector<HTMLElement>("#destacados");
-  let classicsLabel = document.querySelector<HTMLElement>("#classics");
-  let actionSportLabel = document.querySelector<HTMLElement>("#actionSports");
-  let zapatillasLabel = document.querySelector<HTMLElement>("#zapatillas");
-  let ropaLabel = document.querySelector<HTMLElement>("#ropa");
-  let accesoriosLabel = document.querySelector<HTMLElement>("#accesorios");
-  
-
-  let novedadesVolver = document.querySelector<HTMLElement>("#novedadesVolver");
-  let tendenciaVolver = document.querySelector<HTMLElement>("#tendenciaVolver");
-  let destacadosVolver = document.querySelector<HTMLElement>("#destacadosVolver");
-  let classicsVolver = document.querySelector<HTMLElement>("#classicsVolver");
-  let actionVolver = document.querySelector<HTMLElement>("#actionVolver");
-  let zapatillasVolver = document.querySelector<HTMLElement>("#zapatillasVolver");
-  let ropaVolver = document.querySelector<HTMLElement>("#ropaVolver");
-  let accesoriosVolver = document.querySelector<HTMLElement>("#accesoriosVolver");
-
-  let selector: HTMLElement;
-
-  let novedades = document.querySelector<HTMLElement>("#novedades");
-  let principal = document.querySelector<HTMLElement>("#principal");
-  let novedadesMenu = document.querySelector<HTMLElement>("#novedadesMenu");
-  let tendenciaMenu = document.querySelector<HTMLElement>("#tendenciaMenu");
-  let destacadosMenu = document.querySelector<HTMLElement>("#destacadosMenu");
-  let classicsMenu = document.querySelector<HTMLElement>("#classicsMenu");
-  let actionMenu = document.querySelector<HTMLElement>("#actionMenu");
-  let zapatillasMenu = document.querySelector<HTMLElement>("#zapatillasMenu");
-  let ropaMenu = document.querySelector<HTMLElement>("#ropaMenu");
-  let accesoriosMenu = document.querySelector<HTMLElement>("#accesoriosMenu");
-
-
-  let menuActual: HTMLElement;
-
-  let arrayLabels = [newLabel, mujerLabel, hombreLabel, kidsLabel];
-  let arraySubcategoria = [novedadesLabel, tendenciaLabel, destacadosLabel, classicsLabel, actionSportLabel, zapatillasLabel, ropaLabel, accesoriosLabel];
-  let arrayVolver = [novedadesVolver, tendenciaVolver, destacadosVolver, classicsVolver, actionVolver, zapatillasVolver, ropaVolver, accesoriosVolver];
-
-  let categorias = document.querySelector("#categorias");
-
-  categorias?.addEventListener("click", cambiarTema);
-  if (otros != null) {
-    otros.style.display = "none";
-  }
-
-  if (newLabel != null) {
-    newLabel.style.backgroundColor = "white";
-    newLabel.style.color = "black";
-    selector = newLabel;
-  }
-
-  function cambiarTema(e: Event) {
-    if (e.target == null) {
-      return;
-    }
-    let label = (e.target as HTMLInputElement).closest("div");
-    if (arrayLabels.includes(label) == false || label == null) {
-      return;
-    }
-
-    if (selector != null) {
-      selector.style.backgroundColor = "transparent";
-      selector.style.color = "white";
-    }
-
-    label.style.backgroundColor = "white";
-    label.style.color = "black";
-    selector = label;
-    let contenido;
-
-    if (label == newLabel) {
-      contenido = nuevo;
-    } else {
-      contenido = otros;
-    }
-
-
-    for (let iterable of arrayContenido) {
-      if (iterable == null) {
-        return;
-      }
-      if (contenido != iterable) {
-        iterable.style.display = "none";
-      } else {
-        iterable.style.transform = "translatex(20rem)";
-        iterable.style.display = "block";
-        setTimeout(() => {
-          contenido.style.transition = "transform 0.3s ease-out";
-          contenido.style.transform = "translateX(0)";
-        }, 10);
-      }
-    }
-  }
-
-
-    // if (novedades != null) {
-  //   novedades.addEventListener("click", cambiarSubcategoria);
-  // }
-
-
-for (let iterable of arrayVolver){
-  if (iterable!=null){
-    iterable.addEventListener("click", volverSubcategoria);
-  }
-}
-
-
-  document.addEventListener("click", cambiarSubcategoria)
-
-  function cambiarSubcategoria(e: Event) {
-
-    if (e.target == null) {
-      return;
-    }
-    let label = (e.target as HTMLInputElement).closest("span");
-
-
-    if (arraySubcategoria.includes(label) == false || label == null) {
-      return;
-    }
-    
-    
-    if (principal == null || novedadesMenu == null || tendenciaMenu == null || destacadosMenu == null || classicsMenu == null || actionMenu == null || zapatillasMenu == null || ropaMenu == null || accesoriosMenu == null) {
-      return;
-    }
-
-
-    let menu: HTMLElement;
-    if (label==novedadesLabel){
-      menu=novedadesMenu;
-    }
-    else if (label==tendenciaLabel){
-      menu=tendenciaMenu;
-    }
-    else if (label==destacadosLabel){
-      menu=destacadosMenu;
-    }
-    else if (label==classicsLabel){
-      menu=classicsMenu;
-    }
-    else if (label==actionSportLabel){
-      menu=actionMenu;
-    }
-    else if (label==zapatillasLabel){
-      menu=zapatillasMenu;
-    }
-    else if (label==ropaLabel){
-      menu=ropaMenu;
-    }
-    else if (label==accesoriosLabel){
-      menu=accesoriosMenu;
-    }
-    else {
-      return
-    }
-
-    
-
-
-    menuActual = menu;
-
-    menu.style.transform = "translatex(20rem)";
-    principal.style.display = "none";
-    menu.style.display = "flex";
-    setTimeout(() => {
-      menu.style.transition = "transform 0.15s ease-out";
-      menu.style.transform = "translateX(0)";
-    }, 10);
-
-
-  }
-
-  function volverSubcategoria() {
-    if (principal == null || menuActual == null) {
-      return;
-    }
-    principal.style.transform = "translatex(20rem)";
-    menuActual.style.display = "none";
-    principal.style.display = "flex";
-    setTimeout(() => {
-      if (principal==null){
-        return
-      }
-      principal.style.transition = "transform 0.15s ease-out";
-      principal.style.transform = "translateX(0)";
-    }, 10);
-  }
-</script>
+</div>

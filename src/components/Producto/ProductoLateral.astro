@@ -44,12 +44,12 @@ interface interfazImagen{
 
   <div >
     <div
-      class="md:grid md:grid-cols-5 md:gap-1 p-1 md:max-w-7xl mx-auto *:hover:cursor-pointer flex overflow-y-scroll" id="image"
+      class="md:grid md:grid-cols-5 md:gap-1 p-1 md:max-w-7xl mx-auto *:hover:cursor-pointer flex overflow-x-auto w-full" id="image"
     >
 {
   ArrayColoresImagenesSegmento1.map((imagen: any) => (
     <img
-      class="w-1/7 md:w-auto md:h-auto border-transparent hover:border-solid border hover:border-black transition-all duration-150 rounded"
+      class="w-1/7 max-w-1/7 min-w-1/7 md:min-w-full md:max-w-full; md:w-auto md:h-auto border-transparent hover:border-solid border hover:border-black transition-all duration-150 rounded"
       src={imagen.imagen.url}
       alt="placeholder"
       id={imagen.id}
@@ -72,7 +72,7 @@ interface interfazImagen{
 {
   ArrayColoresImagenes.map((imagen: any) => (
     <img
-      class="w-1/7 md:w-auto md:h-auto md:hidden escondido border-transparent hover:border-solid border hover:border-black transition-all duration-150 rounded"
+      class="w-1/7 max-w-1/7 min-w-1/7 md:min-w-full md:w-auto md:h-auto md:hidden escondido border-transparent hover:border-solid border hover:border-black transition-all duration-150 rounded"
        src={`${imagen.imagen.url}?w=80&q=60&format=auto`}
       alt="placeholder"
       id={imagen.id}
