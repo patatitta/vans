@@ -16,14 +16,15 @@ const APIROCKET_ECOMMERCE_TOKEN = import.meta.env.APIROCKET_ECOMMERCE_TOKEN;
 
 
 let myQuery = `query MyQuery {
-  Categories {
+  CategoriasIndices {
+    name
     image {
+      alt
       url
     }
-    name
-    alt
   }
 }
+
 
 
 `
@@ -43,10 +44,10 @@ let myQuery = `query MyQuery {
   return data
 }
 
-let ArrayCategorias = (await fetchApirocket(myQuery)).data.Categories;
+let ArrayCategorias = (await fetchApirocket(myQuery)).data.CategoriasIndices;
 
 
-    
+console.log(ArrayCategorias)
 
 
 ---

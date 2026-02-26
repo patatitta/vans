@@ -1,7 +1,7 @@
 ---
 import CategoriasCard from "./CategoriasCard.astro";
 
-const {arrayCards, arrayPromocion} = Astro.props;
+const {arrayCards} = Astro.props;
 
 
 interface InterfazArrayCards {
@@ -24,9 +24,9 @@ interface InterfazArrayCards {
 
 {arrayCards.map((Valor: InterfazArrayCards) => (
 
-<CategoriasCard Nombre={Valor.name} Precio={Valor.price} Colores={Valor.variations.length} 
+<CategoriasCard Nombre={Valor.name} Precio={Valor.price} Colores="2" 
   id = {Valor.id}
-  arrayImagenes = {Valor.variations[Valor.variations.findIndex(iteracion => iteracion.id == Valor.defaultVariation[0].id)].arrayImages} />
+  arrayImagenes = {Valor.images} />
 
 )
 )}

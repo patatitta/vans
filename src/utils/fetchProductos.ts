@@ -5,27 +5,6 @@ const APIROCKET_ECOMMERCE_TOKEN = import.meta.env.APIROCKET_ECOMMERCE_TOKEN;
 
 
 let queryCards = `query MyQuery {
-  Products {
-    name
-    price
-    sizes {
-      size
-      availability
-    }
-    defaultVariation {
-      id
-    }
-
-    id
-    variations {
-      arrayImages {
-        url
-      }
-      color
-      id
-    }
-    description
-  }
   Reviews {
     score
     product {
@@ -36,9 +15,26 @@ let queryCards = `query MyQuery {
   TickerTexts {
     text
   }
+  Colors {
+    name
+    color {
+      hex
+    }
+  }
+  Products {
+    name
+    price
+    description
+    images {
+      alt
+      url
+      width
+      height
+    }
+    id
+    tag
+  }
 }
-
-
 
 
 

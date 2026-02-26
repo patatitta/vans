@@ -11,6 +11,7 @@
       "@producto/*": ["./src/components/Producto/*"],
       "@general/*": ["./src/components/General/*"],
       "@categorias/*": ["./src/components/Categorias/*"],
+      "@carrito/*": ["./src/components/Carrito/*"],
 
     }
   }

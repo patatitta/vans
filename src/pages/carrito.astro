@@ -1,0 +1,132 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CarritoProducto from "@carrito/CarritoProducto.astro";
+import CarritoLateral from "@carrito/CarritoLateral.astro";
+import CarritoSuperior from "@components/Carrito/CarritoSuperior.astro";
+
+
+
+let titulo = "Ropa y Calzado para hombre"
+let numeroProductos = 1000
+
+let ArrayTallas = [
+    {
+        Size: 35,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 36,
+        Precio: 95,
+        Disponibilidad: true
+    },
+    {
+        Size: 37,
+        Precio: 95,
+        Disponibilidad: true
+    }]
+
+
+
+
+
+const APIROCKET_ECOMMERCE_TOKEN = import.meta.env.APIROCKET_ECOMMERCE_TOKEN;
+
+
+let queryCards = `query MyQuery {
+  Products {
+    name
+    price
+    sizes {
+      size
+      availability
+    }
+    defaultVariation {
+      id
+    }
+    id
+    variations {
+      arrayImages {
+        url
+      }
+      color
+      id
+    }
+    description
+  }
+  Reviews {
+    score
+    product {
+      name
+    }
+  }
+  TickerTexts {
+    text
+  }
+}
+
+`
+
+ 
+async function fetchApirocket(query: String) {
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${APIROCKET_ECOMMERCE_TOKEN}`
+    },
+    body: JSON.stringify({query})
+  }
+
+  const data = await fetch('https://graphql.apirocket.io', options).then(response => response.json())
+  return data
+}
+
+let arrayCards = (await fetchApirocket(queryCards)).data.Products;
+let queryColors = `query MyQuery {
+  Colors {
+    name
+    color {
+      hex
+    }
+  }
+}
+
+`
+
+
+
+let arrayColores = (await fetchApirocket(queryColors)).data.Colors;
+
+let queryText = `query MyQuery {
+  TickerTexts {
+    text
+  }
+}
+`
+
+let arrayTexto = (await fetchApirocket(queryText)).data.TickerTexts
+
+---
+
+<Layout arrayTexto={arrayTexto} mostrarTicker={true}>
+  <div class="flex flex-col items-center px-60">
+<div class="w-full">
+  <CarritoSuperior cantidad="5"></CarritoSuperior>
+</div>
+    <div class="flex min-w-full grow">
+  <!-- Left side: product list container -->
+  <div class="flex flex-col w-1/2 px-5">
+    <CarritoProducto cantidadMaxima="Quedan 5" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" />
+    <CarritoProducto cantidadMaxima="Quedan 5" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" />
+  </div>
+
+  <!-- Right side: lateral cart container -->
+  <div class="w-1/2 px-5">
+    <CarritoLateral numeroProducto="4" precio="20" />
+  </div>
+</div>
+  </div>
+  </Layout>
+  

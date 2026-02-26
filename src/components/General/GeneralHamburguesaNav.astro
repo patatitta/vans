@@ -20,6 +20,8 @@ class="overflow-hidden"
     mostrarZapatillas: false,
     mostrarRopa: false,
     mostrarAccesorios: false,
+    mostrarHombre: false,
+    mostrarKids: false,
     init() {
       this.isMobile = window.innerWidth < 768;
       window.addEventListener('resize', () => {
@@ -57,7 +59,7 @@ class="overflow-hidden"
           <div
             class="p-1 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer"
             id="newLabel"
-  @click="mostrarNuevo = !mostrarNuevo, mostrarMujer = false"
+  @click="mostrarNuevo = true, mostrarMujer = false, mostrarHombre=false, mostrarKids=false;"
   :class="{'bg-white': mostrarNuevo, 'text-black': mostrarNuevo,}"
             
           >
@@ -68,7 +70,7 @@ class="overflow-hidden"
           <div
             class="p-1 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer"
             id="mujerLabel"
-  @click="mostrarMujer = !mostrarMujer, mostrarNuevo= false"
+  @click="mostrarMujer = !mostrarMujer, mostrarNuevo= false, mostrarHombre = false, mostrarKids=false"
   :class="{'bg-white': mostrarMujer, 'text-black': mostrarMujer, }" >
             Mujer
           </div>
@@ -77,6 +79,8 @@ class="overflow-hidden"
           <div
             class="p-1 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer"
             id="hombreLabel"
+              @click="mostrarHombre = true, mostrarNuevo= false, mostrarMujer = false, mostrarKids=false;"
+  :class="{'bg-white': mostrarHombre, 'text-black': mostrarHombre, }" 
           >
             Hombres
           </div>
@@ -85,6 +89,9 @@ class="overflow-hidden"
           <div
             class="p-1 border-2 border-transparent hover:border-white transition-all duration-200 ease-in-out cursor-pointer"
             id="kidsLabel"
+              @click="mostrarKids = true, mostrarNuevo= false, mostrarMujer = false, mostrarHombre = false;"
+          :class="{'bg-white': mostrarKids, 'text-black': mostrarKids, }" 
+
           >
             Niños
           </div>
@@ -253,7 +260,7 @@ class="overflow-hidden"
       </div>
 
       <!-- MUJER -->
-<div x-show="mostrarMujer"  class="absolute top-0 left-0 w-full"
+<div x-show="mostrarMujer || mostrarHombre || mostrarKids"  class="absolute top-0 left-0 w-full"
      x-transition:enter="transition-transform duration-200"
      x-transition:enter-start="translate-x-full opacity-0"
      x-transition:enter-end="translate-x-0 opacity-100"
@@ -460,7 +467,7 @@ class="overflow-hidden"
   
   <!--Novedades -->
   <div class="flex-col h-full *:ml-7 mt-10" id="novedadesMenu"
-  x-show="mostrarNovedades" class="absolute top-0 left-0 w-full"
+  x-show="mostrarDestacados" class="absolute top-0 left-0 w-full"
      x-transition:enter="transition-transform duration-200"
      x-transition:enter-start="translate-x-full opacity-0"
      x-transition:enter-end="translate-x-0 opacity-100"

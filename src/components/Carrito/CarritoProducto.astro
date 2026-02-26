@@ -1,0 +1,27 @@
+---
+import GeneralCarrusel from "@general/GeneralCarrusel.astro";
+
+const { Nombre, Colores, cantidadMaxima, Precio, arrayImagenes, id, imagen, talla } =
+  Astro.props;
+
+---
+
+<div class="flex flex-col border-b border-[rgb(225,225,225)]">
+  <div class="text-[rgb(127,89,59)] text-xs">{cantidadMaxima}</div>
+  <div class="flex justify-between">
+    <div>{Nombre}</div>
+    <div>{Precio}€</div>
+  </div>
+  <div class="flex">
+    <img
+      class=" object-contain p-0 shrink-0 m-4"
+      src={`${imagen}?w=300&format=auto`}
+      alt=""
+      loading="lazy"
+    />
+    <div class="text-[rgb(82,82,82)]">
+      <div>{Colores}</div>
+      <div>{talla}</div>
+    </div>
+  </div>
+</div>

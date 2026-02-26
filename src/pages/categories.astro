@@ -8,6 +8,7 @@ import CategoriasContenedorCard from "@components/Categorias/CategoriasContenedo
 import categoriaVideo from "@assets/CategoriaVideo.webm";
 
 
+import {fetchProductos} from "../utils/fetchProductos.ts";
 
 let titulo = "Ropa y Calzado para hombre"
 let numeroProductos = 1000
@@ -31,93 +32,26 @@ let ArrayTallas = [
 
 
 
-
-
-const APIROCKET_ECOMMERCE_TOKEN = import.meta.env.APIROCKET_ECOMMERCE_TOKEN;
-
-
-let queryCards = `query MyQuery {
-  Products {
-    name
-    price
-    sizes {
-      size
-      availability
-    }
-    defaultVariation {
-      id
-    }
-    id
-    variations {
-      arrayImages {
-        url
-      }
-      color
-      id
-    }
-    description
-  }
-  Reviews {
-    score
-    product {
-      name
-    }
-  }
-  TickerTexts {
-    text
-  }
-}
-
-`
-
- 
-async function fetchApirocket(query: String) {
-
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${APIROCKET_ECOMMERCE_TOKEN}`
-    },
-    body: JSON.stringify({query})
-  }
-
-  const data = await fetch('https://graphql.apirocket.io', options).then(response => response.json())
-  return data
-}
-
-let arrayCards = (await fetchApirocket(queryCards)).data.Products;
-let queryColors = `query MyQuery {
-  Colors {
-    name
-    color {
-      hex
-    }
-  }
-}
-
-`
+let respuesta = await fetchProductos();
+console.log(respuesta)
+let arrayProductos: any[] = respuesta.data.Products;
 
 
 
-let arrayColores = (await fetchApirocket(queryColors)).data.Colors;
+let arrayTexto = respuesta.data.TickerTexts
 
-let queryText = `query MyQuery {
-  TickerTexts {
-    text
-  }
-}
-`
 
-let arrayTexto = (await fetchApirocket(queryText)).data.TickerTexts
+
+
+
 
 ---
 
 <Layout arrayTexto={arrayTexto} mostrarTicker={true}>
   <CategoriasMenuSticky titulo={titulo}, numeroProductos={numeroProductos} />
   <div class="flex">
-    <CategoriasFiltros ArrayTallas={ArrayTallas} arrayColores={arrayColores}/>
-    <CategoriasContenedorCard arrayCards={arrayCards}>
+    <CategoriasFiltros ArrayTallas={ArrayTallas} arrayColores={respuesta.data.Colors}/>
+    <CategoriasContenedorCard arrayCards={arrayProductos}>
   <video autoplay muted loop class="row-start-1 row-end-1 col-start-2 col-end-2 md:col-start-3 md:col-end-3">
               <source src={categoriaVideo} type="video/webm" />
 
@@ -125,5 +59,5 @@ let arrayTexto = (await fetchApirocket(queryText)).data.TickerTexts
 
     </CategoriasContenedorCard>
   </div>
-  <CategoriasFinal numeroProductos={numeroProductos} numeroCards={arrayCards.length} />
+  <CategoriasFinal numeroProductos={numeroProductos} numeroCards={arrayProductos.length} />
 </Layout>

@@ -17,13 +17,13 @@ import { array } from "astro:schema";
 
 
 interface interfazIteracion{
-    id: string[]
+    id: string[],
+    tag: string;
 }
 
 let respuesta = await fetchProductos()
 let arrayProductos: interfazIteracion[] = respuesta.data.Products;
 
-let find = arrayProductos.findIndex(iteracion => iteracion.id == id)
 
 
 
@@ -52,8 +52,17 @@ let listaProductos: any = []
 
 
 
+let tag = arrayProductos.tag; 
+let arrayVariaciones = [];
 
 
+arrayProductos.map((producto: any) => {
+if(producto.tag==tag){
+    arrayVariaciones.push(producto);
+}
+})
+
+console.log(arrayVariaciones)
 
 ---
 
@@ -70,11 +79,11 @@ let listaProductos: any = []
     </div> -->
 
     <div class="up md:flex md:items-start">
-    <ProductoImagenes ArrayProductoImagenes={arrayProductos[find]}></ProductoImagenes>
+    <ProductoImagenes ArrayProductoImagenes={arrayProductos}></ProductoImagenes>
     
     
-    <ProductoLateral ArrayProductos={arrayProductos[find]}/>
-    <ProductoTallas arrayProductos={arrayProductos[find]}>
+    <ProductoLateral ArrayProductos={arrayProductos}/>
+    <!-- <ProductoTallas arrayProductos={arrayProductos[find]}> -->
 </div>
 
 <div class="mt-8">

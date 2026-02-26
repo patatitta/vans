@@ -1,11 +1,13 @@
 ---
-import impermeables from "../assets/impermeables/Sk8Hi-Waterproof-Insulated-Shoes.avif";
 import GeneralCarrusel from "@general/GeneralCarrusel.astro";
 
 
 const {Nombre, Colores, Precio, arrayImagenes, id } = Astro.props;
 
-let URL = encodeURI(`${Nombre}-${id}`)
+let URL = encodeURI(`${Nombre}-${id}`);
+
+//console.log(arrayImagenes);
+
 ---
 
 <a href={URL} class="card flex flex-col">
