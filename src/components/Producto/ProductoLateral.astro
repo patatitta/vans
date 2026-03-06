@@ -26,7 +26,7 @@ const { ArrayProductos, id } =
 let ArrayColoresImagenesSegmento1 = ArrayColoresImagenes.splice(0, 9);
 import paypal from "@assets/paypal.svg"
 import GeneralBotonPago from "@components/General/GeneralBotonPago.astro";
-
+import GeneralBotonApple from "@components/General/GeneralBotonApple.astro";
 
 interface interfazImagen{
   url: string;
@@ -109,6 +109,7 @@ interface interfazImagen{
     <div class="Size">
       <p class="mt-2">Talla</p>
 <div
+x-data="{}"
   class="mt-2 px-6 py-4 border border-solid verTallas space-y-4 w-full hover:cursor-pointer flex justify-between items-center text-[rgb(82,82,82)]"
   @click="$dispatch('open-tallas-menu')"
 >
@@ -131,6 +132,7 @@ interface interfazImagen{
     </div>
     <div class="Sell">
      <GeneralBotonPago texto="Añade a la cesta"></GeneralBotonPago>
+      <GeneralBotonApple></GeneralBotonApple>
 
       <div class="mt-5 payPalText text-xs ">
         Compra ahora y paga después con <img class="h-4 w-auto inline" src={paypal.src}> 
@@ -207,7 +209,6 @@ if (ocultar!=null){
 
 
 let selectorImagen = document.querySelector('#image')
-let actual = 
 selectorImagen?.addEventListener("click", cambiarImagen)
 
 function cambiarImagen(e: Event){

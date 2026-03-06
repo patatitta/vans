@@ -1,7 +1,10 @@
 ---
 import Accordion from "./GeneralAccordion.astro";
-const { flag, lang } = Astro.props;
+const { flag, lang, mostrar } = Astro.props;
 ---
+
+{ mostrar==true &&
+
 
 <footer class="*:bg-neutral-900 text-white bg-neutral-900">
   <div class="accordions md:max-w-120">
@@ -95,3 +98,5 @@ const { flag, lang } = Astro.props;
   </div>
 
 </footer>
+
+}

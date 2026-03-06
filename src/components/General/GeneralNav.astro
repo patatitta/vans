@@ -1,7 +1,9 @@
 ---
 import HamburguesaNav from "@general/GeneralHamburguesaNav.astro";
 import {fetchProductos} from "@utils/fetchProductos.ts";
+const {botonIA, mostrar} = Astro.props;
 
+console.log(botonIA)
 
 let respuesta = await fetchProductos();
 //console.log(respuesta)
@@ -27,6 +29,9 @@ arrayCategorias.forEach(item => {
 
 
 ---
+
+{ mostrar==true && 
+
 
 <HamburguesaNav categorias={categoriasAnidadas}/>
 
@@ -85,23 +90,25 @@ arrayCategorias.forEach(item => {
     ></path>
   </svg>
 
+  {botonIA==true &&
   <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    class="w-10 hidden md:block h-10 hover:bg-gray-500 transition-all duration-150 p-1 hover:cursor-pointer"
-    fill="none"
-    id="ai"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  class="w-10 hidden md:block h-10 hover:bg-gray-500 transition-all duration-150 p-1 hover:cursor-pointer"
+  fill="none"
+  id="ai"
   >
     <path
       d="M13.313 11.687c.948.947 2.15 1.593 3.768 2.181-1.617.588-2.82 1.234-3.768 2.181-.947.948-1.593 2.15-2.181 3.768-.588-1.617-1.234-2.82-2.181-3.768-.948-.947-2.15-1.593-3.768-2.181 1.617-.588 2.82-1.234 3.768-2.181.947-.948 1.593-2.15 2.181-3.768.588 1.617 1.234 2.82 2.181 3.768Z"
       stroke="currentColor"
       stroke-width="1.25"
-    />
+      />
     <path
       d="M17.434 10.027c-.257-.607-.553-1.097-.958-1.502-.405-.405-.895-.702-1.502-.958.606-.257 1.096-.554 1.5-.959.406-.405.703-.894.96-1.502.256.607.553 1.097.958 1.502.405.405.895.702 1.502.958-.607.257-1.097.554-1.502.958-.405.405-.701.895-.958 1.503Z"
       stroke="currentColor"
-    />
+      />
   </svg>
+    }
 
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -233,3 +240,4 @@ arrayCategorias.forEach(item => {
     
   });
 </script>
+}

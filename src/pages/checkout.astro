@@ -16,21 +16,69 @@ let arrayProductos: any[] = respuesta.data.Products;
 
 ---
 
-<Layout arrayTexto={arrayTexto} mostrarTicker={true}>
-  <div class="flex flex-col items-center px-60">
+<Layout arrayTexto={arrayTexto} title="Checkout" lang="es" mostrar={false}>
+<div class="fixed top-15 md:hidden w-full z-50">
+  <div
+    class="accordionCarrito bg-[rgb(38,36,36)] text-white  mb-5 max-h-[66vh] flex flex-col"
+    x-data="{ expanded: false }"
+  >
+    <div
+      @click="expanded = ! expanded"
+      class="Open hover:cursor-pointer productBuy ms-6 px-3 py-2 flex justify-between shrink-0"
+    >
+      Carrito
+      <svg
+        class="w-6 h-6 transition-all duration-150"
+        :class="{ '-rotate-90': expanded, 'rotate-90': !expanded }"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+      >
+        <path
+          fill="currentColor"
+          d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+        ></path>
+      </svg>
+    </div>
+
+    <div
+      x-show="expanded"
+      x-collapse
+      class="mt-4 p-4 space-y-5 overflow-y-auto flex-1 min-h-0 bg-white"
+    >
+      <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />
+      <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />  
+      <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />
+      <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />  
+      <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />
+      <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />  
+      <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />
+      <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />  
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="flex flex-col items-center md:px-60">
 <div class="w-full">
 </div>
-    <div class="flex min-w-full grow">
-  <!-- Left side: product list container -->
-  <div class="flex flex-col w-1/2 px-5">
+    <div class="md:flex min-w-full grow">
+
+
+
+      <div class="flex flex-col md:w-1/2 px-5">
     <CheckoutLateral></CheckoutLateral>
   </div>
 
-  <!-- Right side: lateral cart container -->
-  <div class="w-1/2 px-5">
-<CarritoProducto cantidadMaxima="Quedan 5" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" />
-    <CarritoProducto cantidadMaxima="Quedan 5" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" />  
-    <CarritoLateral></CarritoLateral></div>
+  <div class="md:w-1/2 md:px-5">
+<div class="hidden md:block">
+
+
+
+      <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />
+      <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />  
+</div>
+    <CarritoLateral ></CarritoLateral></div>
 </div>
   </div>
   </Layout>

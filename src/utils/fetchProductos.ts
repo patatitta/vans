@@ -40,6 +40,7 @@ let queryCards = `query MyQuery {
       name
     }
     tag
+    id
   }
   Categories {
     order
@@ -49,7 +50,6 @@ let queryCards = `query MyQuery {
     categoryName
   }
 }
-
 
 
 `

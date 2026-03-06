@@ -3,34 +3,27 @@ import GeneralHeader from "../components/General/GeneralHeader.astro";
 import Nav from "@general/GeneralNav.astro";
 import Footer from "@general/GeneralFooter.astro";
 import GeneralTicker from "@components/General/GeneralTicker.astro";
+import GeneralCarritoLateral from "@components/General/GeneralCarritoLateral.astro";
 
-const {title, lang, flag, arrayTexto, mostrarTicker = false} = Astro.props
-
+const {title, lang, flag, arrayTexto, mostrarTicker = false, botonIA = true, mostrar=true} = Astro.props
 
 ---
 
-<GeneralHeader title={title} lang={lang}/>
-{mostrarTicker &&<GeneralTicker arrayTexto={arrayTexto}/>}
+<GeneralHeader title={title} lang={lang} />
+{mostrarTicker &&<GeneralTicker arrayTexto={arrayTexto} />}
 
 
   <body class="bg-white">
-    <Nav/>
+    <Nav botonIA={botonIA} mostrar={mostrar}/>
     <main>
     <slot>
 
     </slot>
 
+    <GeneralCarritoLateral></GeneralCarritoLateral>
 
-        <div
-            x-data="{abrirMenu: false}"
-            @abrir.window="abrirMenu = true"
-            class="fixed inset-0 bg-black/60 hidden z-60"
-            :class="{'hidden': !abrirMenu}"
-        >
-            <p>pepe</p>
-        </div>
   </main>
-    <Footer flag={flag}/>
+    <Footer flag={flag}, mostrar={mostrar}/>
 
     <script>
       import lozad from 'lozad'

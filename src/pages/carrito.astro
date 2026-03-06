@@ -4,6 +4,8 @@ import CarritoProducto from "@carrito/CarritoProducto.astro";
 import CarritoLateral from "@carrito/CarritoLateral.astro";
 import CarritoSuperior from "@components/Carrito/CarritoSuperior.astro";
 import {fetchProductos} from "@utils/fetchProductos.ts";
+import GeneralBotonPago from "@components/General/GeneralBotonPago.astro";
+import GeneralBotonApple from "@components/General/GeneralBotonApple.astro";
 
 
 
@@ -15,23 +17,29 @@ let arrayProductos: any[] = respuesta.data.Products;
 
 ---
 
-<Layout arrayTexto={arrayTexto} mostrarTicker={true}>
-  <div class="flex flex-col items-center px-60">
+<Layout arrayTexto={arrayTexto} mostrarTicker={true} botonIA={false}>
+    <div class="md:hidden fixed z-50 w-full bg-white bottom-0 p-4 py-2">
+      <GeneralBotonApple></GeneralBotonApple>
+    <GeneralBotonPago texto="Confirmar pedido"></GeneralBotonPago>
+  </div>
+
+  <div class="md:flex md:flex-col items-center md:px-60">
 <div class="w-full">
   <CarritoSuperior cantidad="5"></CarritoSuperior>
 </div>
-    <div class="flex min-w-full grow">
-  <!-- Left side: product list container -->
-  <div class="flex flex-col w-1/2 px-5">
+    <div class="md:flex w-full grow">
+      <!--izquierda-->
+
+      <div class="flex flex-col md:w-1/2 px-5">
     <CarritoProducto cantidadMaxima="5" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" />
     <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" />
   </div>
-
-  <!-- Right side: lateral cart container -->
-  <div class="w-1/2 px-5">
+  <!-- derecha -->
+  <div class="md:w-1/2 px-5 mb-2">
     <CarritoLateral numeroProducto="4" precio="20" />
   </div>
 </div>
   </div>
+
   </Layout>
   

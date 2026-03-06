@@ -1,37 +1,51 @@
 ---
 import GeneralCarrusel from "@general/GeneralCarrusel.astro";
 
-const { Nombre, Colores, cantidadMaxima, Precio, arrayImagenes, id, imagen, talla } =
+const { Nombre, Colores, cantidadMaxima, Precio, arrayImagenes, id, imagen, talla, pagina='carrito'} =
   Astro.props;
 
 console.log((cantidadMaxima))
 
 ---
 
-<div class="flex flex-col border-b border-[rgb(225,225,225)]" x-data=`{cantidad: 1, precio: ${Precio}, cantidadMaxima: ${cantidadMaxima},}`>
-  <div class="text-[rgb(127,89,59)] text-xs" x-show="cantidadMaxima <= 5" x-text="'quedan'+cantidadMaxima"></div>
+<div class="p-5 flex flex-col border-b border-[rgb(225,225,225)]" x-data=`{cantidad: 1, precio: ${Precio}, cantidadMaxima: ${cantidadMaxima},}`>
+  <div class="text-[rgb(127,89,59)] text-xs" x-show="cantidadMaxima <= 5" x-text="'Quedan '+cantidadMaxima"></div>
   <div class="flex justify-between">
     <div>{Nombre}</div>
     <div class="precioValor" x-text="cantidad*precio+'€'"></div>
   </div>
   <div class="flex">
     <img
-      class=" object-contain p-0 shrink-0 m-4"
-      src={`${imagen}?w=150&format=auto`}
+      class=" object-contain p-0 shrink-0"
+      src={`${imagen}?w=125&format=auto`}
       alt=""
       loading="lazy"
     />
-    <div class="text-[rgb(82,82,82)]">
+    <div class="text-[rgb(82,82,82)] ml-2">
       <div>{Colores}</div>
       <div>{talla}</div>
     </div>
   </div>
-  <div class="flex justify-between" >
-    <div class=" *:border *:px-4 flex *:w-20">
-      <button @click="if(cantidad>0) cantidad--">-</button>
-      <input type="number" :value="cantidad"/>
-      <button @click="if (cantidad<cantidadMaxima) cantidad++">+</button>
+  <div class="flex justify-between ml-2 mt-2" >
+    {pagina=='carrito' &&
+    <div class="*:border flex *:w-8 *:aspect-square *:border-[rgb(154,154,154)]">
+  <button @click="if(cantidad>1) cantidad--" class="text-center">
+    <span x-show="cantidad != 1">-</span>
+    <span x-show="cantidad == 1" x-cloak class=" justify-center flex">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="trash" class="w-4 h-4 fill-current">
+        <path fill-rule="evenodd" d="M13.83 6.68a1 1 0 0 1 .94-.68h2.46a1 1 0 0 1 .94.68L18.61 8H13.4l.44-1.32ZM11.98 10a.9.9 0 0 0 .04 0h7.96a.9.9 0 0 0 .04 0h2.9l-1.34 15.5H10.9L9.12 10h2.86Zm-.7-2 .65-1.95A3 3 0 0 1 14.77 4h2.46a3 3 0 0 1 2.84 2.05L20.72 8h4.78a1 1 0 1 1 0 2h-.58l-1.35 15.67a2 2 0 0 1-1.99 1.83H10.9a2 2 0 0 1-1.98-1.77L7.1 10h-.6a1 1 0 0 1 0-2h4.78ZM14 15a1 1 0 0 1 1 1v6.5a1 1 0 1 1-2 0V16a1 1 0 0 1 1-1Zm5 1a1 1 0 1 0-2 0v6.5a1 1 0 1 0 2 0V16Z" clip-rule="evenodd"/>
+      </svg>
+    </span>
+  </button>
+  <div x-text="cantidad" class="flex justify-center items-center"/>
+      <button @click="if (cantidad<cantidadMaxima) cantidad++" 
+      class="text-center"
+      :class="cantidad==cantidadMaxima ? 'bg-[rgb(238,238,238)]' : ''"
+      >+</button>
     </div>
-    <div class="underline text-xs">Guardar para despues</div>
+  }
+  {pagina=='carrito' &&
+  <div class="underline text-xs">Guardar para despues</div>
+}
   </div>
   </div>

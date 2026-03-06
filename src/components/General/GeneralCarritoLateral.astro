@@ -10,12 +10,13 @@ interface InterfazTallas {
   id: string
 }
 
+import CarritoProducto from "@carrito/CarritoProducto.astro";
 
 
 ---
 
 <div x-data="{expandido: false}"
-  @open-tallas-menu.window="expandido = !expandido"
+  @open-carrito-menu.window="expandido = !expandido"
   class="oscuro fixed bg-black top-0 right-0 w-full h-full  z-40 transition-all duration-150"
   :class="expandido ? 'opacity-15 pointer-events-auto' : 'opacity-0 pointer-events-none'"
      @click="if(expandido) $dispatch('open-tallas-menu')">
@@ -24,43 +25,26 @@ interface InterfazTallas {
 
 <!-- Menu de tallas -->
 <div x-data="{expandido: false, tallaActual: ''}"
-  @open-tallas-menu.window="expandido = !expandido"
+  @open-carrito-menu.window="expandido = !expandido"
   class="tallas fixed flex flex-col bg-white *:text-black md:left-auto -bottom-full w-full h-3/4 md:h-full backdrop-blur-sm z-50 md:w-96 transition-all duration-300 ease-out overflow-y-scroll"
   :class="expandido ? 'md:top-0 md:right-0 translate-x-0 opacity-100 bottom-0 right-auto pointer-events-auto' : 'md:top-0 md:right-0 md:translate-x-full opacity-0 pointer-events-none'"
 >
   <div class="title text-xl  py-4 px-4 border-b border-gray-200">
-    Elige una talla
+    Añadiendo a la cesta
   </div>
 
   <div class="overflow-y-scroll h-full" id="menuTallas">
-    {
-      arrayProductos.attributes.map((Talla: InterfazTallas) => (
-        //Talla.availability === true ? (
-          <button
-  @click={`tallaActual = '${Talla.name}'`}
-  type="button"
-  class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full  transition-colors cursor-pointer"
-  :class={`tallaActual == '${Talla.name}' ? 'bg-black text-white' : 'bg-white text-black'`}
->
-  <div class="talla font-medium">{Talla.name}</div>
-  <div class="precio">{price}€</div>
-</button>)
-        //) : (
-          // <button
-          //   type="button"
-          //   class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full bg-gray-50"
-          // >
-          //   <div class="talla font-medium text-gray-500">{Talla.size}</div>
-          //   <div class="precio text-gray-500 text-sm">Agotado</div>
-          // </button>
-        //)
-      )
-    }
+    <CarritoProducto cantidadMaxima="5" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" />
+    <CarritoProducto cantidadMaxima="5" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" />
+    <CarritoProducto cantidadMaxima="5" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" />
+    <CarritoProducto cantidadMaxima="5" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" />
+    <CarritoProducto cantidadMaxima="5" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" />
+
   </div>
 <div class="flex grow border-b border-gray-200 cursor-pointer">
     <button class="flex grow">
       <div class="talla font-medium text-white bg-[rgb(38,36,36)] grow text-center p-3 m-6 cursor-pointer hover:bg-black transition-all duration-150">
-        Añade a la cesta
+        Ve a la cesta
       </div>
     </button>
   </div>

@@ -41,22 +41,25 @@ import klarna from "@assets/klarna.svg";
 
     <div class="flex w-full grow">
       <button
-        class="border border-[#e5e7eb] w-1/2 p-5 space-y-1"
+        class="border border-[#e5e7eb] w-1/2 p-2 md:p-5 space-y-1"
         :class="categoria == 'recogida' ? 'border-black border-b-4 bg-[rgb(248,248,248)]' : ''"
         @click="categoria = 'recogida'"
       >
-        <div class="flex items-center gap-2">
-          Punto de recogida <svg
-            class="w-4 h-4"
+        <div class="md:flex text-center md:items-center gap-2">
+          Punto de recogida 
+          <div class="flex justify-center">
+
+            <svg
+            class="w-4 h-4 text-center"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             id="collection-point"
             ><path
-              fill="#000"
-              fill-rule="evenodd"
-              d="M15.136 4.693a2.995 2.995 0 0 1 3.822-.009c.532.44.887 1.05 1.002 1.72a2.82 2.82 0 0 1-.374 1.945l-2.281 3.722a.247.247 0 0 1-.418.003l-2.342-3.682a2.822 2.822 0 0 1-.405-1.956 2.862 2.862 0 0 1 .996-1.743Zm1.956 6.793 2.075-3.38v-.001c.299-.49.41-1.068.312-1.63a2.387 2.387 0 0 0-.845-1.438 2.497 2.497 0 0 0-1.599-.56 2.495 2.495 0 0 0-1.59.585 2.384 2.384 0 0 0-.821 1.45c-.088.564.032 1.14.339 1.625l2.129 3.35Z"
-              clip-rule="evenodd"></path><path
+            fill="#000"
+            fill-rule="evenodd"
+            d="M15.136 4.693a2.995 2.995 0 0 1 3.822-.009c.532.44.887 1.05 1.002 1.72a2.82 2.82 0 0 1-.374 1.945l-2.281 3.722a.247.247 0 0 1-.418.003l-2.342-3.682a2.822 2.822 0 0 1-.405-1.956 2.862 2.862 0 0 1 .996-1.743Zm1.956 6.793 2.075-3.38v-.001c.299-.49.41-1.068.312-1.63a2.387 2.387 0 0 0-.845-1.438 2.497 2.497 0 0 0-1.599-.56 2.495 2.495 0 0 0-1.59.585 2.384 2.384 0 0 0-.821 1.45c-.088.564.032 1.14.339 1.625l2.129 3.35Z"
+            clip-rule="evenodd"></path><path
               fill="#000"
               fill-rule="evenodd"
               d="M16.126 6.02a1.31 1.31 0 1 1 1.853 1.853 1.31 1.31 0 0 1-1.853-1.852Zm.306 1.548a.877.877 0 1 0 1.236-1.243.877.877 0 0 0-1.236 1.243Z"
@@ -66,8 +69,11 @@ import klarna from "@assets/klarna.svg";
               d="M12.982 7.79H5a1 1 0 0 0-1 1v10.789h16V9.895"></path><path
               stroke="#000"
               d="M9.053 19.158v-5.053h5.894v5.053m-2.868-5.053v5.053"
-            ></path></svg
-          >
+              ></path></svg
+              >
+            </div>
+              
+
         </div>
         <div class="flex text-xs gap-2">
           <svg
@@ -94,11 +100,11 @@ import klarna from "@assets/klarna.svg";
               d="M17 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg
           >
         </div>
-        <div class="flex justify-between text-xs">
+        <div class="hidden md:flex justify-between text-xs">
           <div>Entrega a una Vans Store</div>
           <div>Gratuito</div>
         </div>
-        <div class="flex justify-between text-xs">
+        <div class="hidden md:flex justify-between text-xs">
           <div>Entrega en un punto de recogida</div>
           <div>Gratuito</div>
         </div>
@@ -110,24 +116,28 @@ import klarna from "@assets/klarna.svg";
         :class="categoria == 'domicilio' ? 'border-black border-b-4 bg-[rgb(248,248,248)]' : ''"
         @click="categoria = 'domicilio'"
       >
-        <div class="flex gap-2 items-center">
-          Entrega a domicilio <svg
-            class="w-4 h-4"
+        <div class="md:flex gap-2 items-center">
+          Entrega a domicilio 
+          <div class="flex justify-center">
+
+            <svg
+            class="w-4 h-4 text-center"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 32 32"
             id="shipping"
             ><path
-              fill-rule="evenodd"
-              d="M19 11H5v12h14V11ZM5 9a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h16V11a2 2 0 0 0-2-2H5Z"
-              clip-rule="evenodd"></path><path
-              d="M11 24.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm15 0a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
+            fill-rule="evenodd"
+            d="M19 11H5v12h14V11ZM5 9a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h16V11a2 2 0 0 0-2-2H5Z"
+            clip-rule="evenodd"></path><path
+            d="M11 24.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm15 0a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
             ></path><path
-              fill-rule="evenodd"
-              d="M19 15c0-1.1.9-2 2-2h2.71a2 2 0 0 1 1.48.65l4.29 4.72a2 2 0 0 1 .52 1.35V23a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2v-8Zm4.71 0H21v8h7v-3.28L23.71 15Z"
-              clip-rule="evenodd"></path></svg
-          >
+            fill-rule="evenodd"
+            d="M19 15c0-1.1.9-2 2-2h2.71a2 2 0 0 1 1.48.65l4.29 4.72a2 2 0 0 1 .52 1.35V23a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2v-8Zm4.71 0H21v8h7v-3.28L23.71 15Z"
+            clip-rule="evenodd"></path></svg
+            >
+          </div>
         </div>
-        <div class="flex justify-between text-xs">
+        <div class="hidden md:flex justify-between text-xs">
           <div>Standard Entrega</div>
           <div>Gratuito</div>
         </div>
@@ -171,7 +181,7 @@ import klarna from "@assets/klarna.svg";
       <div class="text-xl space-y-2 *:gap-2 mb-10">
         <div class="text-xs">* Campos obligatorios</div>
 
-        <div class="flex">
+        <div class="md:flex">
           <input
             type="text"
             placeholder="Nombre *"
@@ -193,7 +203,7 @@ import klarna from "@assets/klarna.svg";
           placeholder="Dirección"
           class="w-full p-2 border border-[rgb(154,154,154)]"
         />
-        <div class="flex">
+        <div class="md:flex">
           <input
             type="text"
             placeholder="Ciudad *"
@@ -296,12 +306,12 @@ import klarna from "@assets/klarna.svg";
 
   <div class="space-y-3">
     <div
-      class="w-full p-4 border border-[#e5e7eb] flex"
+      class="w-full border border-[#e5e7eb] flex"
     :class="tarjeta == 'tarjeta' ? 'border-black bg-[rgb(248,248,248)]' : ''"
         @click="tarjeta = 'tarjeta'"
     >
-      <input type="radio" name="formaDePago" id="tarjeta" class="flex" />
-      <label for="tarjeta" class="flex grow justify-between"
+      <input type="radio" name="formaDePago" id="tarjeta" class="flex ml-4" />
+      <label for="tarjeta" class="flex grow justify-between w-full p-4"
         ><div>Tarjeta de credito</div>
         <div>
           <img class="h-4 w-auto inline" src={visa.src} />
@@ -313,11 +323,11 @@ import klarna from "@assets/klarna.svg";
     <!--Selector applePay -->
 
     <div
-      class="w-full p-4 border border-[#e5e7eb] flex"
+      class="w-full border border-[#e5e7eb] flex"
     :class="tarjeta == 'applePay' ? 'border-black bg-[rgb(248,248,248)]' : ''"
         @click="tarjeta = 'applePay'"    >
-      <input type="radio" name="formaDePago" id="applePay" />
-      <label for="applePay" class="flex"
+      <input type="radio" name="formaDePago" id="applePay" class="ml-4"/>
+      <label for="applePay" class="flex w-full p-4"
         ><svg
           class="w-20 h-5"
           xmlns="http://www.w3.org/2000/svg"
@@ -351,12 +361,12 @@ import klarna from "@assets/klarna.svg";
     <!--Selector Klarna -->
     <div x-show="categoria=='domicilio'">
       <div
-      class="w-full p-4 border border-[#e5e7eb] flex"
+      class="w-full border border-[#e5e7eb] flex"
     :class="tarjeta == 'klarna' ? 'border-black bg-[rgb(248,248,248)]' : ''"
         @click="tarjeta = 'klarna'"      >
-        <input type="radio" name="formaDePago" id="klarna" /><label
-          for="payPal"
-          class="flex"
+        <input type="radio" name="formaDePago" id="klarna" class="ml-4" /><label
+          for="klarna"
+          class="flex w-full p-4"
           ><img class="h-4 w-auto inline" src={klarna.src} />
         </label>
       </div>
@@ -365,12 +375,12 @@ import klarna from "@assets/klarna.svg";
     <!--Selector payPal -->
 
     <div
-      class="w-full p-4 border border-[#e5e7eb] flex"
+      class="w-full border border-[#e5e7eb] flex"
     :class="tarjeta == 'paypal' ? 'border-black bg-[rgb(248,248,248)]' : ''"
         @click="tarjeta = 'paypal'"    >
-      <input type="radio" name="formaDePago" id="payPal" /><label
+      <input type="radio" name="formaDePago" id="payPal" class="ml-4" /><label
         for="payPal"
-        class="flex"
+        class="flex w-full y-full p-4"
         ><img class="h-4 w-auto inline" src={paypalColor.src} />
 
         <svg
@@ -433,7 +443,7 @@ import klarna from "@assets/klarna.svg";
         placeholder="País *"
         class="w-full p-2 border border-[rgb(154,154,154)]"
       />
-      <div class="flex">
+      <div class="md:flex">
         <input
           type="text"
           placeholder="Nombre *"
@@ -455,7 +465,7 @@ import klarna from "@assets/klarna.svg";
         placeholder="Dirección"
         class="w-full p-2 border border-[rgb(154,154,154)]"
       />
-      <div class="flex">
+      <div class="md:flex">
         <input
           type="text"
           placeholder="Ciudad *"
@@ -494,10 +504,23 @@ import klarna from "@assets/klarna.svg";
 
   
 
+  <!-- Factura -->
     <div class="mb-5">
-      <input type="checkbox" name="factura" id="factura" />
-      <label for="factura" class="text-xl">¿Necesitas factura?</label>
+      <input type="checkbox" name="factura" id="factura" x-model="factura"/>
+      <label for="factura" class="text-xl" @click="factura= !factura">¿Necesitas factura?</label>
     </div>
+
+  <div x-show="factura==true" class="space-y-2 mb-5">
+    <div>
+      <input type="radio" name="tipoFactura" id="privado"> <label for="privado">Privado</label>
+      <input type="radio" name="tipoFactura" id="empresas"> <label for="empresas">Empresas</label>
+    </div>
+    <input
+      type="text"
+      placeholder="NIF *"
+      class="w-full p-2 border border-[rgb(154,154,154)]"
+    /></div>
+
     <div class="text-xs">
       <input type="checkbox" name="ToS" id="ToS" />
       <label for="ToS"
@@ -519,23 +542,23 @@ import klarna from "@assets/klarna.svg";
     >Pagar Ahora</button
   >
 </div>
+
   <div x-show="tarjeta=='paypal'" class="mb-10 mt-2 flex w-full">
 
-    <div class="flex gap-1">
+    <div class="flex gap-1 grow">
   <button
     type="button"
-    class="mt-2 px-6 py-3 transition-all border duration-150 space-y-4 min-w-full hover:cursor-pointer"
-    ><img class="h-4 w-1/2 inline" src={paypalColorSimple.src} /></button
+    class="py-2 transition-all border duration-150 space-y-4 flex-1 hover:cursor-pointer"
+    ><img class="h-4 inline" src={paypalColorSimple.src} /></button
   >
 
     <button
     type="button"
-    class="mt-2 px-6 py-3 transition-all border duration-150 space-y-4 min-w-full hover:cursor-pointer"
-    ><img class="h-4 w-1/2 inline mr-2" src={paypalP.src} />Paga a plazos</button
+    class="py-2 transition-all border duration-150 space-y-4 flex-1 hover:cursor-pointer"
+    ><img class="h-4 inline" src={paypalP.src} />Paga a plazos</button
   >
     </div>
 
 </div>
 </div>
 
-<!--Necesitas factura tiene contenido!!!!! hazlo!!! -->
