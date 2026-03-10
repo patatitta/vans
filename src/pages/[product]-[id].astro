@@ -43,9 +43,12 @@ let arrayVariaciones: any = [];
 
 arrayProductos.map((producto: any) => {
   if (producto.tag == tag) {
-    arrayVariaciones.push(producto);
+    arrayVariaciones.push(producto); 
   }
 });
+
+
+
 //console.log(respuesta.data.Sizes)
 
 let find = respuesta.data.Sizes.findIndex((e: interfazTalla) => {
@@ -89,6 +92,7 @@ let find = respuesta.data.Sizes.findIndex((e: interfazTalla) => {
       title="title"
       content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta saepe nemo, fuga impedit cumque quaerat porro accusamus consectetur dolorum, tenetur ratione voluptates blanditiis non voluptas dolor iure! Quas, similique"
     />
+
     <ProductoCarrusel ArrayRecomendaciones={arrayProductos} />
     <ProductoReview reviews={respuesta.data.Reviews} tag={product} />
     <!-- La puntuacion que hay que mandar es SOBRE 100 -->
