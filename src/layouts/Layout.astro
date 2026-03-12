@@ -9,10 +9,7 @@ const {title, lang, flag, arrayTexto, mostrarTicker = false, botonIA = true, mos
 
 ---
 
-<script>
-    const stored = localStorage.getItem('carrito');
 
-</script>
 
 <GeneralHeader title={title} lang={lang} />
 {mostrarTicker &&<GeneralTicker arrayTexto={arrayTexto} />}
@@ -25,7 +22,7 @@ const {title, lang, flag, arrayTexto, mostrarTicker = false, botonIA = true, mos
 
     </slot>
 
-    <GeneralCarritoLateral arrayProductos={stored}></GeneralCarritoLateral>
+    <GeneralCarritoLateral></GeneralCarritoLateral>
 
   </main>
     <Footer flag={flag}, mostrar={mostrar}/>

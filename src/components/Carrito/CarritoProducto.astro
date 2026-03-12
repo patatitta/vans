@@ -8,23 +8,23 @@ const { Nombre, Colores, cantidadMaxima, Precio, arrayImagenes, id, imagen, tall
 //console.log(pagina)
 ---
 
-<div class="p-5 flex flex-col border-b border-[rgb(225,225,225)]" x-data=`{cantidad: 1, precio: ${Precio}, cantidadMaxima: ${cantidadMaxima}, pagina: '${pagina}'}`>
+<div class="carritoProducto p-5 flex flex-col border-b border-[rgb(225,225,225)]" x-data=`{cantidad: 1, precio: ${Precio}, cantidadMaxima: ${cantidadMaxima}, pagina: '${pagina}'}`>
   <div class="text-[rgb(127,89,59)] text-xs" x-show="cantidadMaxima <= 5" x-text="'Quedan '+cantidadMaxima"></div>
   <div class="flex justify-between">
-    <div>{Nombre}</div>
+    <div class="nombre">{Nombre}</div>
     <div class="precioValor" x-text="cantidad*precio+'€'"></div>
   </div>
   <div class="flex">
     <img
-      class=" object-contain p-0 shrink-0 lozad"
+      class="imagen object-contain p-0 shrink-0 lozad"
       src={`${imagen}?w=125&format=auto`}
       alt=""
       loading="lazy"
       
     />
     <div class="text-[rgb(82,82,82)] ml-2">
-      <div class="text-sm">Color: {Colores}</div>
-      <div class="text-sm">Talla: {talla}</div>
+      <div class="text-sm color">Color: {Colores}</div>
+      <div class="text-sm talla">Talla: {talla}</div>
       <div class="text-sm" x-show="pagina=='checkout'">Cantidad: 2</div>
     </div>
   </div>
