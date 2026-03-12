@@ -1,6 +1,6 @@
 ---
 
-const {category, id } = Astro.params;
+const {category, id } = Astro.props;
 
 import CategoriasMenuSticky from "@components/Categorias/CategoriasMenuSticky.astro";
 import Layout from "@layouts/Layout.astro";
@@ -112,7 +112,15 @@ let arrayCategorias: interfazCategoria[] = respuesta.data.Categories;
 let rutas: object[] = [];
 
 arrayCategorias.map((e: interfazCategoria)=>{
-  rutas.push({ params: { category: e.name, id: e.id } })
+  let slug = e.name+"-"+e.id;
+  rutas.push({ 
+    params: { 
+      slug
+    },
+    props: {
+      category: e.name, 
+      id: e.id } 
+  })
 })
 
 return rutas;

@@ -7,7 +7,7 @@ const {Nombre, Colores, Precio, arrayImagenes, id, tag } = Astro.props;
 let URL = encodeURI(`${tag}-${id}`);
 
 //console.log(arrayImagenes);
-
+URL = "/p/"+URL
 ---
 
 <a href={URL} class="card flex flex-col">

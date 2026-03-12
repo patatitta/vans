@@ -1,78 +1,125 @@
 ---
-const {arrayProductos, price} = Astro.props;
-import {guardar} from "@utils/localStorage.ts";
-
+const { tallas, price, producto } = Astro.props;
 
 interface InterfazTallas {
   price: number;
   availability: boolean;
   size: string;
-  name: string
-  id: string
+  name: string;
+  id: string;
 }
+
+//console.log(producto);
+
+
+
+let objetoServer = {
+  cantidadMaxima: 5,
+  Nombre: producto.name,
+  Precio: price,
+  imagen: producto.images[0].url,
+  Colores: producto.color,
+  talla: 20};
+
+
+
+
+
 
 
 
 ---
 
-<div x-data="{expandido: false}"
-x-cloak
+<div
+  x-data="{expandido: false}"
+  x-cloak
   @open-tallas-menu.window="expandido = !expandido"
-    @open-carrito-menu.window="expandido = false"
-  class="oscuro fixed bg-black top-0 right-0 w-full h-full  z-40 transition-all duration-150"
+  @open-carrito-menu.window="expandido = false"
+  class="oscuro fixed bg-black top-0 right-0 w-full h-full z-40 transition-all duration-150"
   :class="expandido ? 'opacity-15 pointer-events-auto' : 'opacity-0 pointer-events-none'"
-     @click="if(expandido) $dispatch('open-tallas-menu')">
-
+  @click="if(expandido) $dispatch('open-tallas-menu')"
+>
 </div>
 
 <!-- Menu de tallas -->
-<div x-data="{expandido: false, tallaActual: ''}"
-x-cloak
+<div
+  x-data="{
+    expandido: false,
+    tallaActual: '',
+    guardarTalla() { localStorage.setItem('talla', this.tallaActual); }
+
+  }"
+  x-cloak
   @open-tallas-menu.window="expandido = !expandido"
   class="tallas fixed flex flex-col bg-white *:text-black md:left-auto -bottom-full w-full h-3/4 md:h-full backdrop-blur-sm z-50 md:w-96 transition-all duration-300 ease-out overflow-y-scroll"
   :class="expandido ? 'md:top-0 md:right-0 translate-x-0 opacity-100 bottom-0 right-auto pointer-events-auto' : 'md:top-0 md:right-0 md:translate-x-full opacity-0 pointer-events-none'"
 >
-  <div class="title text-xl  py-4 px-4 border-b border-gray-200">
+  <div class="title text-xl py-4 px-4 border-b border-gray-200">
     Elige una talla
   </div>
 
   <div class="overflow-y-scroll h-full" id="menuTallas">
     {
-      arrayProductos.attributes.map((Talla: InterfazTallas) => (
-        //Talla.availability === true ? (
+      tallas.attributes.map(
+        (Talla: InterfazTallas) => (
+          //Talla.availability === true ? (
           <button
-  x-on:click={`tallaActual = '${Talla.name}'`}
-  type="button"
-  class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full  transition-colors cursor-pointer"
-  x-bind:class={`tallaActual == '${Talla.name}' ? 'bg-black text-white' : 'bg-white text-black'`}
->
-  <div class="talla font-medium">{Talla.name}</div>
-  <div class="precio">{price}€</div>
-</button>)
+            x-on:click={`tallaActual = '${Talla.name}'`}
+            type="button"
+            class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full  transition-colors cursor-pointer"
+            x-bind:class={`tallaActual == '${Talla.name}' ? 'bg-black text-white' : 'bg-white text-black'`}
+          >
+            <div class="talla font-medium">{Talla.name}</div>
+            <div class="precio">{price}€</div>
+          </button>
+        ),
         //) : (
-          // <button
-          //   type="button"
-          //   class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full bg-gray-50"
-          // >
-          //   <div class="talla font-medium text-gray-500">{Talla.size}</div>
-          //   <div class="precio text-gray-500 text-sm">Agotado</div>
-          // </button>
+        // <button
+        //   type="button"
+        //   class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full bg-gray-50"
+        // >
+        //   <div class="talla font-medium text-gray-500">{Talla.size}</div>
+        //   <div class="precio text-gray-500 text-sm">Agotado</div>
+        // </button>
         //)
       )
     }
   </div>
-<div class="flex grow border-b border-gray-200 cursor-pointer">
-    <button class="flex grow">
-      <div class=`talla font-medium text-white bg-[rgb(38,36,36)] grow text-center p-3 m-6 cursor-pointer hover:bg-black transition-all duration-150" x-data="{}" @click.prevent="$dispatch('open-carrito-menu'), expandido=false, ${guardar(2, 2)}`>
+  <div class="flex grow border-b border-gray-200 cursor-pointer">
+    <button class="flex grow" id="botonCarrito">
+      <div
+        class="talla font-medium text-white bg-[rgb(38,36,36)] grow text-center p-3 m-6 cursor-pointer hover:bg-black transition-all duration-150" @click.prevent="$dispatch('open-carrito-menu'); expandido = false; guardarTalla()"
+      >
         Añade a la cesta
       </div>
     </button>
   </div>
-
 </div>
 
-<script>
+<script define:vars={{objetoServer}}>
+
   
+  function guardarLocal() {
+  let talla = localStorage.getItem('talla');
+  let carrito = [];
+  const stored = localStorage.getItem('carrito');
+  if (stored) {
+    try {
+      carrito = JSON.parse(stored);
+    } catch (e) {
+      console.error('Error ', e);
+    }
+  }
+
+  objetoServer.talla=talla;
+  
+  carrito.push(objetoServer);
+  
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+  
+}
+
+document.querySelector('#botonCarrito').addEventListener("click", guardarLocal)
+
 
 </script>
-

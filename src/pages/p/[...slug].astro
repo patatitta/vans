@@ -1,5 +1,5 @@
 ---
-const { product, id } = Astro.params;
+const { product, id } = Astro.props;
 
 import Layout from "@layouts/Layout.astro";
 import ProductoImagenes from "@producto/ProductoImagenes.astro";
@@ -31,12 +31,15 @@ export async function getStaticPaths() {
   let arrayProductos = respuesta.data.Products;
 
 
-
-
+  
   let listaProductos: object[] = [];
-
+  
   arrayProductos.map((producto: interfazIteracion) => {
-    listaProductos.push({ params: { product: producto.tag, id: producto.id } });
+    let slug = producto.tag+'-'+producto.id
+    listaProductos.push({ 
+      params: {slug},
+      props: { product: producto.tag, id: producto.id }
+    });
   });
   return listaProductos;
 }
@@ -51,6 +54,9 @@ arrayProductos.map((producto: interfazIteracion) => {
 });
 
 
+let producto = respuesta.data.Products.find((e: any) => {
+  return e.id == id;
+})
 
 //console.log(respuesta.data.Sizes)
 
@@ -81,7 +87,8 @@ let find = respuesta.data.Sizes.findIndex((e: interfazTalla) => {
 
     <ProductoLateral ArrayProductos={arrayVariaciones} , id={id} />
     <ProductoTallas
-      arrayProductos={respuesta.data.Sizes[find]}
+      tallas={respuesta.data.Sizes[find]}
+      producto={producto}
       price={arrayProductos[0].price}
     />
   </div>

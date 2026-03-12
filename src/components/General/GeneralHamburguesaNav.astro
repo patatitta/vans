@@ -76,11 +76,11 @@ const alpineObject = `{
                     <li
                     class="flex mb-0 justify-between"
                   >
-                  <a :href="category.category.name+'-'+category.category.id">
+                  <a :href="'/c/'+category.category.name+'-'+category.category.id">
                     <div class="relative inline-block group hover:-rotate-2">
                       <span
                         class="relative cursor-pointer"
-                        :id="category.category.name + subcategory.category.name">
+                        :id="category.category.name">
                         Ver todo
                       </span>
                       <span
@@ -94,7 +94,7 @@ const alpineObject = `{
   <li class="flex mb-0 justify-between">
     <!-- Link -->
     <a
-      :href="subcategory.category.name + '-' + subcategory.category.id"
+      :href="'/c/'+subcategory.category.name + '-' + subcategory.category.id"
       class="relative inline-block group hover:-rotate-2"
       @click="if (subcategory.subcategories && subcategory.subcategories.length > 0) { $event.preventDefault(); activeSubcategory = category.category.name + '|' + subcategory.category.name; mostrarGeneral = false; }"
     >

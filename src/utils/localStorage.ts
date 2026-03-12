@@ -4,10 +4,11 @@
     Alpine.start()
 
 function guardar(talla: any, producto: any){
-Alpine.store('carrito', {
+    let objeto = JSON.stringify({
     talla: talla,
     producto: producto
 })
+localStorage.setItem('carrito', objeto)
 }
 
 export{guardar};
