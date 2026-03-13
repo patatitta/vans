@@ -22,7 +22,7 @@ const {title, lang, flag, arrayTexto, mostrarTicker = false, botonIA = true, mos
 
     </slot>
 
-    <GeneralCarritoLateral></GeneralCarritoLateral>
+    <!-- <GeneralCarritoLateral></GeneralCarritoLateral> -->
 
   </main>
     <Footer flag={flag}, mostrar={mostrar}/>
@@ -30,11 +30,12 @@ const {title, lang, flag, arrayTexto, mostrarTicker = false, botonIA = true, mos
     <script>
       import lozad from 'lozad'
       import Alpine from 'alpinejs'
+      import collapse from '@alpinejs/collapse'
+
+
       const observer = lozad(); // lazy loads elements with default selector as '.lozad'
       observer.observe();
-      import collapse from '@alpinejs/collapse'
-Alpine.plugin(collapse)
-        Alpine.start()
+      Alpine.plugin(collapse)
 
 
 import Swiper from 'swiper';

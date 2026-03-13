@@ -9,14 +9,18 @@ interface InterfazTallas {
   id: string;
 }
 
+
+let manzana = "rica";
+
 import CarritoProducto from "@carrito/CarritoProducto.astro";
 ---
 
 <script>
   import Alpine from "alpinejs";
   const stored = localStorage.getItem("carrito");
-
-  Alpine.store("carrito", stored);
+  let parseado = JSON.parse(stored);
+  console.log(parseado)
+  Alpine.store("carrito", parseado);
 </script>
 
 <div
@@ -31,7 +35,7 @@ import CarritoProducto from "@carrito/CarritoProducto.astro";
 
 <!-- Menu de tallas -->
 <div
-  x-data="{expandido: false, tallaActual: ''}"
+  x-data="objetoAlpine"
   x-cloak
   @open-carrito-menu.window="expandido = !expandido"
   class="tallas fixed flex flex-col bg-white *:text-black md:left-auto -bottom-full w-full h-3/4 md:h-full backdrop-blur-sm z-50 md:w-96 transition-all duration-300 ease-out overflow-y-scroll"
@@ -41,15 +45,20 @@ import CarritoProducto from "@carrito/CarritoProducto.astro";
     Añadiendo a la cesta
   </div>
 
-  <div class="overflow-y-scroll h-full" id="menuTallas">
-    <CarritoProducto
-      cantidadMaxima="5"
+  <div class="overflow-y-scroll h-full" id="menuProductos">
+
+    <template x-for="producto in carrito" >
+      <CarritoProducto></CarritoProducto>
+    </template>
+
+    <!-- <CarritoProducto
+      cantidadMaxima="preci"
       Nombre="Test"
       Precio="20"
       imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png"
       Colores="rojo"
       talla="20"
-    />
+    /> -->
   </div>
   <div class="flex grow border-b border-gray-200 cursor-pointer">
     <button class="flex grow">
@@ -64,55 +73,23 @@ import CarritoProducto from "@carrito/CarritoProducto.astro";
 </div>
 
 <script>
-  function clonar() {
-    const menuTallas = document.querySelector("#menuTallas");
-    const stored = localStorage.getItem("carrito");
-
-
-    console.log(stored)
-    console.log(menuTallas)
-
-    let carritoProducto = document.querySelector(".carritoProducto");
-    if (stored == null || carritoProducto == null) {
-      return;
-    }
-
-    let arrayCarrito = JSON.parse(stored);
-    for (let iterable of arrayCarrito) {
-      let clon = carritoProducto.cloneNode(true) as Element;
-      if (clon == null || clon.querySelector(".nombre") == null) {
-        return;
-      }
-      const nombreElem = clon.querySelector(".nombre");
-      if (nombreElem == null) {
-        return;
-      }
-      nombreElem.textContent = iterable.Nombre;
-      
-      const colorElem = clon.querySelector(".color");
-      if (colorElem == null) {
-        return;
-      }
-      colorElem.textContent = "Color: "+iterable.Colores;
-      
-      const tallaElem = clon.querySelector(".talla");
-      if (tallaElem == null) {
-        return;
-      }
-      tallaElem.textContent = "Talla: "+iterable.talla;
-      
-      const imagenElem = clon.querySelector(".imagen");
-      if (imagenElem == null) {
-        return;
-      }
-      imagenElem.src=iterable.imagen+"?w=125&format=auto";
-      
+import Alpine from "alpinejs";
 
 
 
-      menuTallas?.append(clon);
-    }
-  }
+const stored = localStorage.getItem("carrito");
+let carrito
+if (stored!=null){
+  carrito = JSON.parse(stored)
+}
 
-  clonar()
+
+let objetoAlpine = {
+  expandido: false,
+  tallaActual: '',
+  carrito: carrito,
+  pagina: 'carrito',
+}
+Alpine.data('objetoAlpine', () => objetoAlpine)
+//  clonar()
 </script>

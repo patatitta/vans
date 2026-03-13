@@ -22,7 +22,7 @@ let arrayProductos: any[] = respuesta.data.Products;
 
 <Layout arrayTexto={arrayTexto} mostrarTicker={true} botonIA={false}>
 
-
+<div x-data="objetoAlpine">
   
   <div class="md:hidden fixed z-50 w-full bg-white bottom-0 p-4 py-2">
     <GeneralBotonApple></GeneralBotonApple>
@@ -43,8 +43,15 @@ let arrayProductos: any[] = respuesta.data.Products;
       <!--izquierda-->
 
 <div class="flex flex-col md:w-3/5 ml-0 sm:ml-6 md:ml-10 lg:ml-15">
-    <CarritoProducto cantidadMaxima="5" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" />
-    <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" />
+
+
+
+  
+    <template x-for="producto in carrito" >
+      <CarritoProducto></CarritoProducto>
+    </template>
+
+   
     <div class="hidden md:block">
       <ProductoCarrusel ArrayRecomendaciones={arrayRecomendaciones} />
     </div>
@@ -66,5 +73,30 @@ let arrayProductos: any[] = respuesta.data.Products;
 
   </div>
 
+</div>
+  
   </Layout>
   
+
+<script>
+
+  import clonar from "@utils/localStorage"
+import Alpine from "alpinejs";
+  
+
+const stored = localStorage.getItem("carrito");
+let carrito
+if (stored!=null){
+  carrito = JSON.parse(stored)
+}
+
+
+let objetoAlpine = {
+
+  carrito: carrito,
+  pagina: 'carrito',
+}
+Alpine.data('objetoAlpine', () => objetoAlpine)
+
+//  clonar()
+</script>

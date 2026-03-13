@@ -15,11 +15,14 @@ interface InterfazTallas {
 
 let objetoServer = {
   cantidadMaxima: 5,
-  Nombre: producto.name,
-  Precio: price,
+  nombre: producto.name,
+  precio: price,
   imagen: producto.images[0].url,
-  Colores: producto.color,
-  talla: 20};
+  color: producto.color,
+  talla: 20,
+  cantidad: 1,
+  id: producto.id
+};
 
 
 
@@ -113,7 +116,16 @@ let objetoServer = {
 
   objetoServer.talla=talla;
   
+let encontrado= carrito.find((e) =>{
+    return (e.id==objetoServer.id && e.talla==objetoServer.talla && e.color == objetoServer.color)
+  })
+
+  if(encontrado!=null){
+    encontrado.cantidad+=1;    
+  }
+else{ 
   carrito.push(objetoServer);
+}
   
   localStorage.setItem('carrito', JSON.stringify(carrito));
   

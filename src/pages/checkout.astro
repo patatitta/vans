@@ -5,7 +5,7 @@ import CarritoLateral from "@carrito/CarritoLateral.astro";
 import CheckoutFooter from "@carrito/CheckoutFooter.astro";
 import CheckoutNav from "@carrito/CheckoutNav.astro";
 import CheckoutLateral from "@components/Carrito/CheckoutLateral.astro";
-import {fetchProductos} from "@utils/fetchProductos.ts";
+import { fetchProductos } from "@utils/fetchProductos.ts";
 import GeneralAccordion from "@components/General/GeneralAccordion.astro";
 
 let respuesta = await fetchProductos();
@@ -15,73 +15,61 @@ let arrayProductos: any[] = respuesta.data.Products;
 ---
 
 <Layout arrayTexto={arrayTexto} title="Checkout" lang="es" mostrar={false}>
-  
-  <div class="sticky top-0 z-50">
-    <CheckoutNav />
-  </div>
+  <div class="sticky top-0 z-50" <CheckoutNav></div>
+</Layout>
 
-  <div class="sticky top-15 md:hidden w-full z-50">
-    <div
-      class="accordionCarrito bg-[rgb(38,36,36)] text-white max-h-[66vh] mb-5 flex flex-col"
-      x-data="{ expanded: false }"
+<div class="sticky top-15 md:hidden w-full z-50">
+  <div
+    class="accordionCarrito bg-[rgb(38,36,36)] text-white max-h-[66vh] mb-5 flex flex-col"
+    x-data="objetoAlpineCheckout"
+  >
     >
-      <div
-        @click="expanded = ! expanded"
-        class="Open hover:cursor-pointer productBuy ms-6 px-3 py-2 flex justify-between shrink-0"
+    <div
+      @click="expanded = ! expanded"
+      class="Open hover:cursor-pointer productBuy ms-6 px-3 py-2 flex justify-between shrink-0"
+    >
+      Carrito
+      <svg
+        class="w-6 h-6 transition-all duration-150"
+        :class="{ '-rotate-90': expanded, 'rotate-90': !expanded }"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
       >
-        Carrito
-        <svg
-          class="w-6 h-6 transition-all duration-150"
-          :class="{ '-rotate-90': expanded, 'rotate-90': !expanded }"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 32 32"
-        >
-          <path
-            fill="currentColor"
-            d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
-          ></path>
-        </svg>
-      </div>
+        <path
+          fill="currentColor"
+          d="M9.91 24.96 19.37 16 9.9 7.04l1.5-1.58L22.54 16 11.41 26.54l-1.5-1.58Z"
+        ></path>
+      </svg>
+    </div>
 
-      <div
-        x-show="expanded"
-        x-collapse
-        class="mt-4 p-4 space-y-5 overflow-y-auto flex-1 min-h-0 bg-white"
-      >
-        <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />
-        <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />  
-        <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />
-        <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />  
-        <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />
-        <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />  
-        <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />
-        <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />  
-      </div>
+    <div
+      x-show="expanded"
+      x-collapse
+      class="mt-4 p-4 space-y-5 overflow-y-auto flex-1 min-h-0 bg-white"
+    >
+      <template x-for="producto in carrito">
+        <CarritoProducto />
+      </template>
     </div>
   </div>
+</div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="md:flex md:flex-row md:gap-8">
-      
-      <div class="md:w-3/5">
-        <CheckoutLateral />
-      </div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="md:flex md:flex-row md:gap-8">
+    <div class="md:w-3/5">
+      <CheckoutLateral />
+    </div>
 
-      <div class="md:w-2/5">
-        <div class="flex flex-col sticky top-20">
-          <div class="hidden md:block">
-            <GeneralAccordion title="RESUMEN DE PEDIDO" expandedDefault="true">
-              <div class="max-h-screen overflow-y-scroll">
-                <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />
-                <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />  
-                <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />  
-                <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />  
-                <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />  
-                <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />  
-                <CarritoProducto cantidadMaxima="10" Nombre="Test" Precio="20" imagen="https://images.apirocket.io/images/0i8m8q5n/Variations/Jag6Tbn21k/Knu-Skool-Shoes-VANS-Black-ALT1.png" Colores="rojo" talla="20" pagina="checkout" />  
-              </div>
-            </GeneralAccordion>
-          </div>
+    <div class="md:w-2/5">
+      <div class="flex flex-col sticky top-20">
+        <div class="hidden md:block">
+          <GeneralAccordion title="RESUMEN DE PEDIDO" expandedDefault="true">
+            <div class="max-h-screen overflow-y-scroll">
+              <!-- <template x-for="producto in carrito"> FALLA PORQUE ESTA DENTRO DE UN TEMPLATE QUE SI TIENE X-DATA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! !!!!!!!!!!!!!!!!!!1!!!!!!!!!!!!!!!!!!!
+                <CarritoProducto />
+              </template> -->
+            </div>
+          </GeneralAccordion>
           <CarritoLateral />
         </div>
       </div>
@@ -89,4 +77,29 @@ let arrayProductos: any[] = respuesta.data.Products;
   </div>
 
   <CheckoutFooter />
-</Layout>
+</div>
+
+<script>
+  import clonar from "@utils/localStorage";
+  import Alpine from "alpinejs";
+
+  const stored = localStorage.getItem("carrito");
+  let carrito;
+  if (stored != null) {
+    carrito = JSON.parse(stored);
+  }
+
+Alpine.store('carritoCheckout', carrito)
+
+  let objetoAlpineCheckout = {
+    expanded: false,
+    carrito: carrito,
+    pagina: "checkout",
+  };
+
+  console.log(objetoAlpineCheckout);
+
+  Alpine.data("objetoAlpineCheckout", () => objetoAlpineCheckout);
+
+  //  clonar()
+</script>
