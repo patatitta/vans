@@ -18,7 +18,11 @@ import CarritoProducto from "@carrito/CarritoProducto.astro";
 <script>
   import Alpine from "alpinejs";
   const stored = localStorage.getItem("carrito");
-  let parseado = JSON.parse(stored);
+  let parseado = 'placeholder'
+  if(stored!=null){
+
+    let parseado = JSON.parse(stored);
+  }
   console.log(parseado)
   Alpine.store("carrito", parseado);
 </script>
@@ -37,13 +41,11 @@ import CarritoProducto from "@carrito/CarritoProducto.astro";
 <div
   x-data="objetoAlpine"
   x-cloak
-  @open-carrito-menu.window="expandido = !expandido"
+  @open-carrito-menu.window="expandido = !expandido, refrescarObjeto()"
   class="tallas fixed flex flex-col bg-white *:text-black md:left-auto -bottom-full w-full h-3/4 md:h-full backdrop-blur-sm z-50 md:w-96 transition-all duration-300 ease-out overflow-y-scroll"
   :class="expandido ? 'md:top-0 md:right-0 translate-x-0 opacity-100 bottom-0 right-auto pointer-events-auto' : 'md:top-0 md:right-0 md:translate-x-full opacity-0 pointer-events-none'"
 >
-  <div class="title text-xl py-4 px-4 border-b border-gray-200">
-    Añadiendo a la cesta
-  </div>
+  <div class="title text-xl py-4 px-4 border-b border-gray-200" x-text="'Añadiendo a la cesta'">  </div>
 
   <div class="overflow-y-scroll h-full" id="menuProductos">
 
@@ -63,7 +65,7 @@ import CarritoProducto from "@carrito/CarritoProducto.astro";
   <div class="flex grow border-b border-gray-200 cursor-pointer">
     <button class="flex grow">
       <a
-        href="carrito"
+        href="/carrito"
         class="talla font-medium text-white bg-[rgb(38,36,36)] grow text-center p-3 m-6 cursor-pointer hover:bg-black transition-all duration-150"
       >
         Ve a la cesta
@@ -72,16 +74,20 @@ import CarritoProducto from "@carrito/CarritoProducto.astro";
   </div>
 </div>
 
+
+
 <script>
 import Alpine from "alpinejs";
 
-
+function cargarData(){
 
 const stored = localStorage.getItem("carrito");
-let carrito
+let carrito;
+
 if (stored!=null){
   carrito = JSON.parse(stored)
 }
+
 
 
 let objetoAlpine = {
@@ -89,7 +95,38 @@ let objetoAlpine = {
   tallaActual: '',
   carrito: carrito,
   pagina: 'carrito',
+
+  
+
+
+  refrescarObjeto(){
+    
+    const stored = localStorage.getItem("carrito");
+    console.log(stored);
+let carrito;
+
+if (stored!=null){
+  carrito = JSON.parse(stored)
+}
+
+this.carrito = carrito;
+console.log(this.carrito)
+    
+  },
+
+
+removeFromCarrito(producto: any) {
+    this.carrito = this.carrito.filter((item: any) => 
+      !(item.id === producto.id && item.talla === producto.talla && item.color === producto.color)
+    );
+    localStorage.setItem('carrito', JSON.stringify(this.carrito));
+  }
+
 }
 Alpine.data('objetoAlpine', () => objetoAlpine)
+
+}
+
+cargarData()
 //  clonar()
 </script>

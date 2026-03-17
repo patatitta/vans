@@ -95,6 +95,12 @@ let objetoAlpine = {
 
   carrito: carrito,
   pagina: 'carrito',
+   removeFromCarrito(producto: any) {
+    this.carrito = this.carrito.filter((item: any) => 
+      !(item.id === producto.id && item.talla === producto.talla && item.color === producto.color)
+    );
+    localStorage.setItem('carrito', JSON.stringify(this.carrito));
+  }
 }
 Alpine.data('objetoAlpine', () => objetoAlpine)
 

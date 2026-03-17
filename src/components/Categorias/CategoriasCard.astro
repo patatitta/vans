@@ -2,9 +2,31 @@
 import GeneralCarrusel from "@general/GeneralCarrusel.astro";
 
 
-const {Nombre, Colores, Precio, arrayImagenes, id, tag } = Astro.props;
+const {producto, tallas, Colores } = Astro.props;
+
+console.log(Colores)
+
+let Nombre = producto.name;
+let Precio = producto.price;
+let arrayImagenes = producto.images;
+let id = producto.id;
+let tag = producto.tag;
+
+interface interfazTalla {
+  tag: string;
+}
+
 
 let URL = encodeURI(`${tag}-${id}`);
+
+
+let find = tallas.findIndex((e: interfazTalla) => {
+  //console.log(e)
+  return e.tag == tag;
+});
+
+//console.log(tallas[find])
+
 
 //console.log(arrayImagenes);
 URL = "/p/"+URL
@@ -12,7 +34,7 @@ URL = "/p/"+URL
 
 <a href={URL} class="card flex flex-col">
   <div class="">
-    <GeneralCarrusel arrayImagenes ={arrayImagenes}/>
+    <GeneralCarrusel Nombre = {Nombre}, Precio = {Precio}, id={id},  arrayImagenes ={arrayImagenes} tallas={tallas[find]} producto = {producto}/>
   </div>
   <div class=" flex flex-col">
     <div class="text-gray-800 text-xl">{Nombre}</div>

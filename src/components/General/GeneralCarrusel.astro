@@ -1,14 +1,56 @@
 ---
-const { arrayImagenes } = Astro.props;
+import ProductoTallas from "@components/Producto/ProductoTallas.astro";
+
+const { arrayImagenes, nombre, precio, id, tallas, producto } = Astro.props;
 interface interfazArrayImagenes {
   url: string;
 }
 
 //console.log(arrayImagenes)
 
+console.log("----------")
+console.log(producto)
+console.log("----------")
+
 ---
 
-<section class="carrusel-container relative w-full h-full overflow-hidden group">
+
+<div class="hidden">
+    <ProductoTallas
+      tallas={tallas}
+      producto={producto}
+      price={precio}
+    /></div>
+
+
+<section
+  class="carrusel-container relative w-full h-full overflow-hidden group"
+  x-data={`{
+    nombre: ${JSON.stringify(nombre)},
+    precio: ${JSON.stringify(precio)},
+    id: ${JSON.stringify(id)},
+    arrayImagenes: ${JSON.stringify(arrayImagenes)},
+    guardarSeleccion(){
+
+    let seleccionado = {
+    color: 'blanco',
+    nombre: this.nombre,
+    id: this.id,
+    precio: this.precio,
+    imagen: this.arrayImagenes[0].src,
+    talla: 20,
+    cantidad: 1,
+    cantidadMaxima: 5,
+
+  }
+
+
+
+    localStorage.setItem('seleccionado', JSON.stringify(seleccionado));
+
+    }
+  }`}
+>
   <div class="swiper carrusel w-full h-full">
     <div class="swiper-wrapper">
       {arrayImagenes.map((imagen: interfazArrayImagenes) => (
@@ -62,8 +104,7 @@ interface interfazArrayImagenes {
   <button
     class="absolute right-4 top-9 -translate-y-1/2 z-20 cursor-pointer p-2 hover:bg-white hidden md:block"
     aria-label="Abrir"
-    x-data="{}"
-      @click.prevent="$dispatch('open-carrito-menu')"
+      @click.prevent="guardarSeleccion(), $dispatch('open-carrito-menu')"
 
   >
     <svg
@@ -106,4 +147,8 @@ import { Navigation } from 'swiper/modules';
       }
     });
   });
+
+
+
+
 </script>

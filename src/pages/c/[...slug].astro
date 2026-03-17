@@ -92,7 +92,7 @@ let numeroProductos = arrayProductosCategoria.length
 
 
 
-console.log(arrayProductos[0].images)
+//console.log(arrayProductos[0].images)
 
 
 
@@ -131,6 +131,8 @@ return rutas;
 
 
 
+
+
 //console.log(arrayProductos)
 
 
@@ -143,7 +145,7 @@ return rutas;
   <CategoriasMenuSticky titulo={titulo}, numeroProductos={numeroProductos} id={id} arrayCategorias={arrayCategorias}/>
   <div class="flex">
     <CategoriasFiltros ArrayTallas={ArrayTallas} arrayColores={respuesta.data.Colors}/>
-    <CategoriasContenedorCard arrayCards={arrayProductosCategoria}>
+    <CategoriasContenedorCard arrayCards={arrayProductosCategoria}, tallas = {respuesta.data.Sizes}>
   <video autoplay muted loop class="row-start-1 row-end-1 col-start-2 col-end-2 md:col-start-3 md:col-end-3">
               <source src={categoriaVideo} type="video/webm" />
 

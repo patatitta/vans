@@ -9,7 +9,7 @@ interface InterfazTallas {
   id: string;
 }
 
-//console.log(producto);
+console.log(producto);
 
 
 
@@ -46,12 +46,10 @@ let objetoServer = {
 
 <!-- Menu de tallas -->
 <div
-  x-data="{
-    expandido: false,
-    tallaActual: '',
-    guardarTalla() { localStorage.setItem('talla', this.tallaActual); }
+  x-data="objetoTallas"
 
-  }"
+
+
   x-cloak
   @open-tallas-menu.window="expandido = !expandido"
   class="tallas fixed flex flex-col bg-white *:text-black md:left-auto -bottom-full w-full h-3/4 md:h-full backdrop-blur-sm z-50 md:w-96 transition-all duration-300 ease-out overflow-y-scroll"
@@ -67,10 +65,11 @@ let objetoServer = {
         (Talla: InterfazTallas) => (
           //Talla.availability === true ? (
           <button
-            x-on:click={`tallaActual = '${Talla.name}'`}
+            x-on:click={`tallaActual = '${Talla.name}', localStorage.setItem('talla', ${Talla.name});`}
             type="button"
             class="py-4 px-4 border-b border-gray-200 border-solid flex justify-between w-full  transition-colors cursor-pointer"
             x-bind:class={`tallaActual == '${Talla.name}' ? 'bg-black text-white' : 'bg-white text-black'`}
+
           >
             <div class="talla font-medium">{Talla.name}</div>
             <div class="precio">{price}€</div>
@@ -90,8 +89,8 @@ let objetoServer = {
   </div>
   <div class="flex grow border-b border-gray-200 cursor-pointer">
     <button class="flex grow" id="botonCarrito">
-      <div
-        class="talla font-medium text-white bg-[rgb(38,36,36)] grow text-center p-3 m-6 cursor-pointer hover:bg-black transition-all duration-150" @click.prevent="$dispatch('open-carrito-menu'); expandido = false; guardarTalla()"
+      <div @click="guardarLocal"
+        class="talla font-medium text-white bg-[rgb(38,36,36)] grow text-center p-3 m-6 cursor-pointer hover:bg-black transition-all duration-150"
       >
         Añade a la cesta
       </div>
@@ -99,11 +98,15 @@ let objetoServer = {
   </div>
 </div>
 
-<script define:vars={{objetoServer}}>
+<script>
+import Alpine from "alpinejs";
 
-  
-  function guardarLocal() {
-  let talla = localStorage.getItem('talla');
+
+let objetoTallas = {
+  expandido: false,
+      tallaActual: '',
+guardarLocal() {
+  let talla = this.tallaActual;
   let carrito = [];
   const stored = localStorage.getItem('carrito');
   if (stored) {
@@ -114,9 +117,13 @@ let objetoServer = {
     }
   }
 
+
+
+  let objetoServer = JSON.parse(localStorage.getItem('seleccionado')!)
+
   objetoServer.talla=talla;
   
-let encontrado= carrito.find((e) =>{
+let encontrado= carrito.find((e: any) =>{
     return (e.id==objetoServer.id && e.talla==objetoServer.talla && e.color == objetoServer.color)
   })
 
@@ -129,9 +136,14 @@ else{
   
   localStorage.setItem('carrito', JSON.stringify(carrito));
   
+
+      this.$dispatch('open-carrito-menu');
+      this.expandido = false;
 }
 
-document.querySelector('#botonCarrito').addEventListener("click", guardarLocal)
+}
 
+
+Alpine.data('objetoTallas', () => objetoTallas)
 
 </script>
