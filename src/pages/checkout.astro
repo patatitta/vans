@@ -7,6 +7,7 @@ import CheckoutNav from "@carrito/CheckoutNav.astro";
 import CheckoutLateral from "@components/Carrito/CheckoutLateral.astro";
 import { fetchProductos } from "@utils/fetchProductos.ts";
 import GeneralAccordion from "@components/General/GeneralAccordion.astro";
+import CarritoProductoContenedor from "@components/Carrito/CarritoProductoContenedor.astro";
 
 let respuesta = await fetchProductos();
 let arrayCategorias: any[] = respuesta.data.Categories;
@@ -45,9 +46,8 @@ let arrayProductos: any[] = respuesta.data.Products;
         x-collapse
         class="mt-4 p-4 space-y-5 overflow-y-auto flex-1 min-h-0 bg-white"
       >
-        <template x-for="producto in carrito">
-          <CarritoProducto />
-        </template>
+      
+        <!-- COMPONENT HERE -->
       </div>
     </div>
   </div>
@@ -86,9 +86,9 @@ let arrayProductos: any[] = respuesta.data.Products;
                 class="Hidden *:ms-4 mt-4 ml-4"
               >
                 <div class="max-h-screen overflow-y-scroll">
-                  <template x-for="producto in carrito">
-                    <CarritoProducto />
-                  </template>
+        <CarritoProductoContenedor>
+          
+        </CarritoProductoContenedor>
                 </div>
                 <slot />
               </div>
@@ -108,17 +108,9 @@ let arrayProductos: any[] = respuesta.data.Products;
   import clonar from "@utils/localStorage";
   import Alpine from "alpinejs";
 
-  const stored = localStorage.getItem("carrito");
-  let carrito;
-  if (stored != null) {
-    carrito = JSON.parse(stored);
-  }
-
-  Alpine.store("carritoCheckout", carrito);
 
   let objetoAlpineCheckout = {
     expanded: false,
-    carrito: carrito,
     pagina: "checkout",
     expandedCarrito: true,
   };
@@ -130,19 +122,5 @@ let arrayProductos: any[] = respuesta.data.Products;
   //  clonar()
 
 
-
-let cantidad = 0;
-let precio = 0;
-    if(!Alpine.store('precioCantidad')){
-
-      carrito.map((e: any) => {
-        cantidad+=1;
-        precio += e.cantidad*e.precio;
-
-      })
-
-      Alpine.store('precioCantidad', { cantidad: cantidad, precio: precio});
-    }
-  ;
 
 </script>

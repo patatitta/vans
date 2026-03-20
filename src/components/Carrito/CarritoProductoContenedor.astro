@@ -1,0 +1,76 @@
+---
+import CarritoProducto from "./CarritoProducto.astro";
+
+
+---
+
+<div x-data="carritoProductoAlpine" @open-carrito-menu.window="refreshCarrito"
+
+x-init="$watch('carrito', (valor, valorAntiguo) => { subirCarrito(); })
+
+
+
+"
+>
+      
+    <template x-for="producto in carrito"  >
+      <CarritoProducto></CarritoProducto>
+    </template>
+</div>
+
+
+<script>
+
+  import clonar from "@utils/localStorage"
+import Alpine from "alpinejs";
+  
+
+const stored = localStorage.getItem("carrito");
+let carrito
+if (stored!=null){
+  carrito = JSON.parse(stored)
+}
+
+  Alpine.store("carritoCheckout", carrito);
+
+
+
+let carritoProductoAlpine = {
+
+  carrito: carrito,
+  pagina: 'carrito',
+    refreshCarrito() {
+    const stored = localStorage.getItem('carrito');
+    this.carrito = stored ? JSON.parse(stored) : [];
+  },
+   removeFromCarrito(producto: any) {
+    this.carrito = this.carrito.filter((item: any) => 
+      !(item.id === producto.id && item.talla === producto.talla && item.color === producto.color)
+    );
+    localStorage.setItem('carrito', JSON.stringify(this.carrito));
+  },
+    subirCarrito(){
+  localStorage.setItem('carrito', JSON.stringify(this.carrito));
+
+    }
+
+}
+Alpine.data('carritoProductoAlpine', () => carritoProductoAlpine)
+
+   
+
+let cantidad = 0;
+let precio = 0;
+    if(!Alpine.store('precioCantidad')){
+
+      carrito.map((e: any) => {
+        cantidad+=1;
+        precio += e.cantidad*e.precio;
+
+      })
+
+      Alpine.store('precioCantidad', { cantidad: cantidad, precio: precio});
+    }
+  ;
+
+</script>

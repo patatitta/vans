@@ -8,6 +8,7 @@ import GeneralBotonPago from "@components/General/GeneralBotonPago.astro";
 import GeneralBotonApple from "@components/General/GeneralBotonApple.astro";
 import ProductoCarrusel from "@components/Producto/ProductoCarrusel.astro";
 import ProductoTallas from "@components/Producto/ProductoTallas.astro";
+import CarritoProductoContenedor from "@components/Carrito/CarritoProductoContenedor.astro";
 
 
 
@@ -31,7 +32,7 @@ let arrayProductos: any[] = respuesta.data.Products;
 
 <Layout arrayTexto={arrayTexto} mostrarTicker={true} botonIA={false} mostrarCarrito={false}>
 
-<div x-data="objetoAlpineCarrito",   @open-carrito-menu.window="refreshCarrito">
+<div>
   
   <div class="md:hidden fixed z-50 w-full bg-white bottom-0 p-4 py-2">
     <GeneralBotonApple></GeneralBotonApple>
@@ -56,9 +57,8 @@ let arrayProductos: any[] = respuesta.data.Products;
 
 
   
-    <template x-for="producto in carrito"  >
-      <CarritoProducto></CarritoProducto>
-    </template>
+    <CarritoProductoContenedor>
+</CarritoProductoContenedor>
 
    
     <div class="hidden md:block">
@@ -98,53 +98,3 @@ let arrayProductos: any[] = respuesta.data.Products;
   
   </Layout>
   
-
-<script>
-
-  import clonar from "@utils/localStorage"
-import Alpine from "alpinejs";
-  
-
-const stored = localStorage.getItem("carrito");
-let carrito
-if (stored!=null){
-  carrito = JSON.parse(stored)
-}
-
-
-let objetoAlpineCarrito = {
-
-  carrito: carrito,
-  pagina: 'carrito',
-    refreshCarrito() {
-    const stored = localStorage.getItem('carrito');
-    this.carrito = stored ? JSON.parse(stored) : [];
-  },
-   removeFromCarrito(producto: any) {
-    this.carrito = this.carrito.filter((item: any) => 
-      !(item.id === producto.id && item.talla === producto.talla && item.color === producto.color)
-    );
-    localStorage.setItem('carrito', JSON.stringify(this.carrito));
-  }
-}
-Alpine.data('objetoAlpineCarrito', () => objetoAlpineCarrito)
-
-//  clonar()
-
-
-
-let cantidad = 0;
-let precio = 0;
-    if(!Alpine.store('precioCantidad')){
-
-      carrito.map((e: any) => {
-        cantidad+=1;
-        precio += e.cantidad*e.precio;
-
-      })
-
-      Alpine.store('precioCantidad', { cantidad: cantidad, precio: precio});
-    }
-  ;
-
-</script>

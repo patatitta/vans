@@ -13,6 +13,7 @@ interface InterfazTallas {
 let manzana = "rica";
 
 import CarritoProducto from "@carrito/CarritoProducto.astro";
+import CarritoProductoContenedor from "@components/Carrito/CarritoProductoContenedor.astro";
 ---
 
 <script>
@@ -49,9 +50,10 @@ import CarritoProducto from "@carrito/CarritoProducto.astro";
 
   <div class="overflow-y-scroll h-full" id="menuProductos">
 
-    <template x-for="producto in carrito" >
-      <CarritoProducto></CarritoProducto>
-    </template>
+
+    <CarritoProductoContenedor>
+      
+    </CarritoProductoContenedor>
 
     <!-- <CarritoProducto
       cantidadMaxima="preci"
@@ -79,54 +81,16 @@ import CarritoProducto from "@carrito/CarritoProducto.astro";
 <script>
 import Alpine from "alpinejs";
 
-function cargarData(){
-
-const stored = localStorage.getItem("carrito");
-let carrito;
-
-if (stored!=null){
-  carrito = JSON.parse(stored)
-}
-
-
-
 let objetoAlpine = {
   expandido: false,
   tallaActual: '',
-  carrito: carrito,
   pagina: 'carrito',
 
-  
 
-
-  refrescarObjeto(){
-    
-    const stored = localStorage.getItem("carrito");
-    console.log(stored);
-let carrito;
-
-if (stored!=null){
-  carrito = JSON.parse(stored)
-}
-
-this.carrito = carrito;
-console.log(this.carrito)
-    
-  },
-
-
-removeFromCarrito(producto: any) {
-    this.carrito = this.carrito.filter((item: any) => 
-      !(item.id === producto.id && item.talla === producto.talla && item.color === producto.color)
-    );
-    localStorage.setItem('carrito', JSON.stringify(this.carrito));
-  }
 
 }
 Alpine.data('objetoAlpine', () => objetoAlpine)
 
-}
 
-cargarData()
 //  clonar()
 </script>

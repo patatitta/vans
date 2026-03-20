@@ -3,28 +3,7 @@
 
 
 <div class="carritoProducto p-5 flex flex-col border-b border-[rgb(225,225,225)] objetoProducto"
-x-init="$watch('producto.cantidad', (valor, valorAntiguo) => { 
-  const stored = localStorage.getItem('carrito');
-  const carrito = JSON.parse(stored)
-let encontrado= carrito.find((e) =>{
-    return (e.id==producto.id && e.talla==producto.talla && e.color == producto.color)
-  })
 
-  if(encontrado!=null){
-
-    encontrado.cantidad=producto.cantidad;    
-  }
-  
-
-
-  localStorage.setItem('carrito', JSON.stringify(carrito));
-  
-
-
-});
-
-
-"
 
 >
 <!-- 

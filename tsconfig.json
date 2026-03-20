@@ -13,6 +13,7 @@
       "@categorias/*": ["./src/components/Categorias/*"],
       "@carrito/*": ["./src/components/Carrito/*"],
       "@utils/*": ["./src/utils/*"],
+      "@api/*": ["./src/pages/api*"],
 
     }
   }
